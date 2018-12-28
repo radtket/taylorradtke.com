@@ -1,8 +1,14 @@
+const config = require("./config/website");
+
+const pathPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix;
+
 module.exports = {
+	pathPrefix: config.pathPrefix,
 	siteMetadata: {
-		title: `Gatsby Default Starter`,
-		description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-		author: `@gatsbyjs`
+		title: config.siteTitle,
+		description: config.siteDescription,
+		author: config.userTwitter,
+		siteUrl: config.siteUrl + pathPrefix
 	},
 	plugins: [
 		`gatsby-plugin-react-helmet`,
@@ -26,13 +32,25 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: `gatsby-starter-default`,
-				short_name: `starter`,
-				start_url: `/`,
-				background_color: `#663399`,
-				theme_color: `#663399`,
+				name: config.siteTitle,
+				short_name: config.siteTitleAlt,
+				description: config.siteDescription,
+				start_url: config.pathPrefix,
+				background_color: config.backgroundColor,
+				theme_color: config.themeColor,
 				display: `minimal-ui`,
-				icon: `src/images/gatsby-icon.png`
+				icons: [
+					{
+						src: "static/favicons/android-chrome-192x192.png",
+						sizes: "192x192",
+						type: "image/png"
+					},
+					{
+						src: "static/favicons/android-chrome-512x512.png",
+						sizes: "512x512",
+						type: "image/png"
+					}
+				]
 			}
 		},
 		"gatsby-plugin-emotion",
