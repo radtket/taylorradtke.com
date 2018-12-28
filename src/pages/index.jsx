@@ -1,17 +1,46 @@
 import React from "react";
-import { Link } from "gatsby";
+import Helmet from "react-helmet";
+import { graphql } from "gatsby";
 
 import Layout from "../components/layout";
-import SEO from "../components/seo";
+import SEO from "../components/SEO";
+import config from "../../config/website";
 
-const IndexPage = () => (
-	<Layout>
-		<SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-		<h1>Hi people</h1>
-		<p>Welcome to your new Gatsby site.</p>
-		<p>Now go build something great.</p>
-		<Link to="/page-2/">Go to page 2</Link>
-	</Layout>
-);
+export const query = graphql`
+	query IndexQuery {
+		allJavascriptFrontmatter(
+			filter: { frontmatter: { isWork: { eq: true } } }
+			sort: { fields: [frontmatter___date], order: DESC }
+		) {
+			edges {
+				node {
+					frontmatter {
+						cover {
+							childImageSharp {
+								fluid(maxWidth: 1100, quality: 100) {
+									...GatsbyImageSharpFluid_withWebp
+								}
+							}
+						}
+						devOnly
+						path
+					}
+				}
+			}
+		}
+	}
+`;
+
+const IndexPage = ({ data }) => {
+	const { allJavascriptFrontmatter } = data;
+	const { edges: articles } = allJavascriptFrontmatter;
+	return (
+		<Layout>
+			<Helmet title={config.siteTitle} />
+			<SEO postEdges={articles} />
+			<h1>Hi people</h1>
+		</Layout>
+	);
+};
 
 export default IndexPage;
