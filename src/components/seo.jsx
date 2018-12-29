@@ -13,7 +13,7 @@ const SEO = ({ postNode, postPath, postSEO, pageSEO }) => {
 
 	if (postSEO || pageSEO) {
 		const postMeta = postNode;
-		title = `${siteTitle} | ${postMeta.subtitle}`;
+		title = `${siteTitle} | ${postMeta.clientName}`;
 		description = postMeta.excerpt ? postMeta.excerpt : postNode.title;
 		if (postMeta.cover) {
 			image = postMeta.cover.childImageSharp.fluid.src;
@@ -79,7 +79,7 @@ const SEO = ({ postNode, postPath, postSEO, pageSEO }) => {
 			},
 			datePublished: postNode.date,
 			alternateName: "",
-			headline: postNode.subtitle,
+			headline: postNode.clientName,
 			image: {
 				"@type": "ImageObject",
 				url: image
@@ -106,31 +106,31 @@ const SEO = ({ postNode, postPath, postSEO, pageSEO }) => {
 		});
 	}
 	return (
-		<Helmet>
-			{/* General tags */}
-			<meta name="description" content={description} />
-			<meta name="image" content={image} />
-			<link rel="canonical" href={postSEO ? postURL : siteUrl} />
+  <Helmet>
+    {/* General tags */}
+    <meta name="description" content={description} />
+    <meta name="image" content={image} />
+    <link rel="canonical" href={postSEO ? postURL : siteUrl} />
 
-			{/* Schema.org tags */}
-			<script type="application/ld+json">
-				{JSON.stringify(schemaOrgJSONLD)}
-			</script>
+    {/* Schema.org tags */}
+    <script type="application/ld+json">
+      {JSON.stringify(schemaOrgJSONLD)}
+    </script>
 
-			{/* OpenGraph tags */}
-			<meta property="og:url" content={postSEO ? postURL : siteUrl} />
-			{postSEO ? <meta property="og:type" content="article" /> : null}
-			<meta property="og:title" content={title} />
-			<meta property="og:description" content={description} />
-			<meta property="og:image" content={image} />
+    {/* OpenGraph tags */}
+    <meta property="og:url" content={postSEO ? postURL : siteUrl} />
+    {postSEO ? <meta property="og:type" content="article" /> : null}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
 
-			{/* Twitter Card tags */}
-			<meta name="twitter:card" content="summary_large_image" />
-			<meta name="twitter:creator" content={userTwitter || ""} />
-			<meta name="twitter:title" content={title} />
-			<meta name="twitter:description" content={description} />
-			<meta name="twitter:image" content={image} />
-		</Helmet>
+    {/* Twitter Card tags */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content={userTwitter || ""} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+  </Helmet>
 	);
 };
 

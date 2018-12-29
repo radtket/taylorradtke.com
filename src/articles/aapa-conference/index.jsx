@@ -1,7 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
+import Article from "../../components/Article";
 
 export const frontmatter = {
+	clientName: "AAPA",
 	cover: "./aapa-conference_cover.jpg",
 	date: "2017-11-28",
 	devOnly: false,
@@ -16,9 +18,9 @@ export const frontmatter = {
 };
 
 export default props => (
-	<section>
-		<h1>{frontmatter.title}</h1>
-	</section>
+  <Article {...props}>
+    <h1>{frontmatter.title}</h1>
+  </Article>
 );
 
 export const query = graphql`

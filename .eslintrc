@@ -19,7 +19,7 @@
 			"classes": true
 		}
 	},
-	"extends": ["airbnb", "prettier", "prettier/react"],
+	"extends": ["airbnb", "prettier"],
 	"plugins": ["react", "prettier"],
 	"rules": {}
 }

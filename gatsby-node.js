@@ -70,6 +70,7 @@ exports.createPages = ({ graphql, actions }) => {
 												}
 											}
 										}
+										clientName
 										date
 										excerpt
 										id

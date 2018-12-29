@@ -2,7 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 import SEO from "../components/SEO";
 import config from "../../config/website";
 
@@ -35,11 +35,11 @@ const IndexPage = ({ data }) => {
 	const { allJavascriptFrontmatter } = data;
 	const { edges: articles } = allJavascriptFrontmatter;
 	return (
-		<Layout>
-			<Helmet title={config.siteTitle} />
-			<SEO postEdges={articles} />
-			<h1>Hi people</h1>
-		</Layout>
+  <Layout>
+    <Helmet title={config.siteTitle} />
+    <SEO postEdges={articles} />
+    <h1>Hi people</h1>
+  </Layout>
 	);
 };
 

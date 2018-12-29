@@ -5,8 +5,9 @@
 	"version": "0.1.0",
 	"author": "Taylor Radtke",
 	"dependencies": {
-		"@emotion/core": "^10.0.5",
-		"@emotion/styled": "^10.0.5",
+		"@emotion/core": "latest",
+		"@emotion/styled": "latest",
+		"emotion-theming": "latest",
 		"gatsby": "^2.0.76",
 		"gatsby-image": "^2.0.20",
 		"gatsby-plugin-emotion": "^4.0.1",
