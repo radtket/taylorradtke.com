@@ -1,4 +1,7 @@
 module.exports = {
+	fonts: {
+		oswald: "Oswald, sans-serif"
+	},
 	colors: {
 		white: {
 			base: "#fff",
