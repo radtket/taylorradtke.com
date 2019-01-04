@@ -7,7 +7,7 @@ import Footer from "./Footer";
 
 // Styles
 import theme from "../../config/theme";
-import "../styles/global.css";
+import "../styles/global.scss";
 
 const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>

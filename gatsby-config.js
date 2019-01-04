@@ -11,6 +11,13 @@ module.exports = {
 		siteUrl: config.siteUrl + pathPrefix
 	},
 	plugins: [
+		`gatsby-plugin-sass`,
+		{
+			resolve: `gatsby-plugin-google-fonts`,
+			options: {
+				fonts: [`open sans:300,400,600,700`, `oswald:400`]
+			}
+		},
 		`gatsby-plugin-react-helmet`,
 		{
 			resolve: `gatsby-source-filesystem`,
