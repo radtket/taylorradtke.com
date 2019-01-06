@@ -11,6 +11,7 @@ import "../styles/global.scss";
 import HomeHero from "../components/HomeHero";
 import PageSection from "../components/PageSection/PageSection";
 import Skills from "../components/Skills";
+import Experience from "../components/Experience";
 
 export const query = graphql`
   query IndexQuery {
@@ -69,6 +70,11 @@ const IndexPage = ({ data }) => {
         sectionNumber="1"
         sectionName="Skills"
         sectionContent={<Skills />}
+      />
+      <PageSection
+        sectionNumber="2"
+        sectionName="Experience"
+        sectionContent={<Experience />}
       />
     </Layout>
   );
