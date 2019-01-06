@@ -12,6 +12,7 @@ import HomeHero from "../components/HomeHero";
 import PageSection from "../components/PageSection/PageSection";
 import Skills from "../components/Skills";
 import Experience from "../components/Experience";
+import Contact from "../components/Contact";
 
 export const query = graphql`
   query IndexQuery {
@@ -75,6 +76,11 @@ const IndexPage = ({ data }) => {
         sectionNumber="2"
         sectionName="Experience"
         sectionContent={<Experience />}
+      />
+      <PageSection
+        sectionNumber="6"
+        sectionName="Contact"
+        sectionContent={<Contact />}
       />
     </Layout>
   );
