@@ -8,11 +8,15 @@ import config from "../../config/website";
 import Navbar from "../components/Navbar/Navbar";
 
 import "../styles/global.scss";
+import "../../node_modules/slick-carousel/slick/slick.scss";
+import "../../node_modules/slick-carousel/slick/slick-theme.scss";
+// import "../styles/slick-theme.scss";
 import HomeHero from "../components/HomeHero";
 import PageSection from "../components/PageSection/PageSection";
 import Skills from "../components/Skills";
 import Experience from "../components/Experience";
 import Contact from "../components/Contact";
+import Testimonials from "../components/Testimonials";
 
 export const query = graphql`
   query IndexQuery {
@@ -76,6 +80,11 @@ const IndexPage = ({ data }) => {
         sectionNumber="2"
         sectionName="Experience"
         sectionContent={<Experience />}
+      />
+      <PageSection
+        sectionNumber="5"
+        sectionName="Testimonials"
+        sectionContent={<Testimonials />}
       />
       <PageSection
         sectionNumber="6"
