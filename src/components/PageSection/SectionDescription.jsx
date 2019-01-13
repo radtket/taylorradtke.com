@@ -3,21 +3,21 @@ import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 import { media } from "../../../config/Breakpoints";
 
-const SectionDescription = ({ secName, secNumber }) => (
+const SectionDescription = ({ sectionName, sectionNumber }) => (
   <Description>
-    <SectionName>{secName}</SectionName>
-    <SectionNumber>{`0${secNumber}`}</SectionNumber>
+    <SectionName>{sectionName}</SectionName>
+    <SectionNumber>{`0${sectionNumber}`}</SectionNumber>
   </Description>
 );
 
 SectionDescription.propTypes = {
-  secName: PropTypes.string,
-  secNumber: PropTypes.number
+  sectionName: PropTypes.string,
+  sectionNumber: PropTypes.string
 };
 
 SectionDescription.defaultProps = {
-  secName: "",
-  secNumber: 0
+  sectionName: "",
+  sectionNumber: ""
 };
 
 export default SectionDescription;

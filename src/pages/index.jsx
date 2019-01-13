@@ -9,14 +9,14 @@ import Navbar from "../components/Navbar/Navbar";
 
 import "../styles/global.scss";
 import "../../node_modules/slick-carousel/slick/slick.scss";
-import "../../node_modules/slick-carousel/slick/slick-theme.scss";
-// import "../styles/slick-theme.scss";
 import HomeHero from "../components/HomeHero";
 import PageSection from "../components/PageSection/PageSection";
 import Skills from "../components/Skills";
 import Experience from "../components/Experience";
 import Contact from "../components/Contact";
 import Testimonials from "../components/Testimonials";
+import Clients from "../components/Clients";
+import Posts from "../components/Posts";
 
 export const query = graphql`
   query IndexQuery {
@@ -32,11 +32,19 @@ export const query = graphql`
       edges {
         node {
           frontmatter {
-            path
+            clientName
             devOnly
+            path
             cover {
               childImageSharp {
                 fluid(maxWidth: 1100, quality: 100) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+            thumbnail {
+              childImageSharp {
+                fluid(maxWidth: 720, quality: 100) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }
@@ -80,6 +88,16 @@ const IndexPage = ({ data }) => {
         sectionNumber="2"
         sectionName="Experience"
         sectionContent={<Experience />}
+      />
+      <PageSection
+        sectionNumber="3"
+        sectionName="Works"
+        sectionContent={<Posts posts={articles} />}
+      />
+      <PageSection
+        sectionNumber="4"
+        sectionName="Clients"
+        sectionContent={<Clients />}
       />
       <PageSection
         sectionNumber="5"

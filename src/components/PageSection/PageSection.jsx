@@ -8,7 +8,10 @@ import { Container, Section } from "../../styles/SharedStyles";
 const PageSection = ({ sectionName, sectionNumber, sectionContent }) => (
   <Section id={sectionName.toLowerCase()}>
     <Container>
-      <SectionDescription secName={sectionName} secNumber={sectionNumber} />
+      <SectionDescription
+        sectionName={sectionName}
+        sectionNumber={sectionNumber}
+      />
       <SectionContent>{sectionContent}</SectionContent>
     </Container>
   </Section>
@@ -16,12 +19,12 @@ const PageSection = ({ sectionName, sectionNumber, sectionContent }) => (
 
 PageSection.propTypes = {
   sectionName: PropTypes.string,
-  sectionNumber: PropTypes.number
+  sectionNumber: PropTypes.string
 };
 
 PageSection.defaultProps = {
   sectionName: "",
-  sectionNumber: 0
+  sectionNumber: ""
 };
 
 export default PageSection;

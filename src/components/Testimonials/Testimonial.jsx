@@ -2,9 +2,9 @@ import React from "react";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 
-const SingleTestimonial = ({ avitar, name, company, testimonial }) => (
+const Testimonial = ({ avitar, name, company, testimonial }) => (
   <blockquote style={{ maxWidth: 700, margin: "auto" }}>
-    <figure style={{ textAlign: "center" }} className="testimonial__avatar">
+    <figure style={{ textAlign: "center" }}>
       <Avitar src={avitar} alt={`${name} of ${company}`} />
     </figure>
     <Quote>{`" ${testimonial} "`}</Quote>
@@ -12,16 +12,16 @@ const SingleTestimonial = ({ avitar, name, company, testimonial }) => (
   </blockquote>
 );
 
-export default SingleTestimonial;
+export default Testimonial;
 
-SingleTestimonial.propTypes = {
+Testimonial.propTypes = {
   avitar: PropTypes.string,
   name: PropTypes.string.isRequired,
   company: PropTypes.string,
   testimonial: PropTypes.string.isRequired
 };
 
-SingleTestimonial.defaultProps = {
+Testimonial.defaultProps = {
   avitar: "",
   company: ""
 };
