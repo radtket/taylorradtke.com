@@ -1,14 +1,17 @@
 import React from "react";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
+import moment from "moment";
 import { media, mediaMax } from "../../config/Breakpoints";
+import { userGithub } from "../../config/website";
 
 import video from "../assets/videos/bg__project.mp4";
 import videoWebm from "../assets/videos/bg__project.webm";
 import videoPoster from "../assets/videos/bg__project.jpg";
 import { Container } from "../styles/SharedStyles";
+import xIcon from "../../static/icons/icon-x.svg";
 
-const ProjectHero = ({ title, date, role, desc, siteUrl }) => (
+const ProjectHero = ({ date, desc, githubRepoName, projectName, role }) => (
   <SectionProjectHero className="project-hero">
     <ProjectHeroVideo autoPlay loop muted poster={videoPoster}>
       <source src={video} type="video/webm" />
@@ -18,8 +21,8 @@ const ProjectHero = ({ title, date, role, desc, siteUrl }) => (
       <ProjectHeroTable>
         <ProjectHeroTableCell>
           <ProjectHeroTitle>
-            {title}
-            <span>{date}</span>
+            {projectName}
+            <span>{moment(`${date}`).format("MMMM YYYY")}</span>
           </ProjectHeroTitle>
           <ProjectHeroWrap>
             <hr />
@@ -27,9 +30,26 @@ const ProjectHero = ({ title, date, role, desc, siteUrl }) => (
               <ProjectHeroBodyDesc>{desc}</ProjectHeroBodyDesc>
               <ProjectHeroBodyRole>Role</ProjectHeroBodyRole>
               <ProjectHeroBodyRoleDesc>{role}</ProjectHeroBodyRoleDesc>
-              <ProjectHeroCTA href={siteUrl}>
-                Go check the website
-              </ProjectHeroCTA>
+
+              <ProjectHeroButton
+                href={`//${userGithub}.github.io/${githubRepoName}`}
+                className="btn detail-btn"
+                title={`View Site ${projectName}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>View Site</span>
+              </ProjectHeroButton>
+
+              <ProjectHeroButton
+                href={`//github.com/${userGithub}/${githubRepoName}`}
+                className="btn detail-btn"
+                title={`View Repo ${projectName}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>View Repo</span>
+              </ProjectHeroButton>
             </ProjectHeroBody>
           </ProjectHeroWrap>
         </ProjectHeroTableCell>
@@ -39,11 +59,11 @@ const ProjectHero = ({ title, date, role, desc, siteUrl }) => (
 );
 
 ProjectHero.propTypes = {
-  title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  role: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,
-  siteUrl: PropTypes.string.isRequired
+  githubRepoName: PropTypes.string.isRequired,
+  projectName: PropTypes.string.isRequired,
+  role: PropTypes.string.isRequired
 };
 
 export default ProjectHero;
@@ -183,16 +203,82 @@ const ProjectHeroBodyRoleDesc = styled.h3`
   text-transform: none;
 `;
 
-const ProjectHeroCTA = styled.a`
-  color: #fff;
-  font-style: italic;
-  letter-spacing: 0.05rem;
-`;
-
 const ProjectHeroVideo = styled.video`
   overflow: hidden;
   position: absolute;
   height: 100%;
   width: 100%;
   object-fit: cover;
+`;
+
+const ProjectHeroButton = styled.a`
+  appearance: none;
+  background: #050505;
+  border-radius: 3px;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 700;
+  height: 48px;
+  letter-spacing: 1;
+  line-height: 50px;
+  margin-bottom: 0.75rem;
+  margin-top: 1px;
+  overflow: hidden;
+  padding-left: 11px;
+  padding-right: 10px;
+  padding: 0.75rem 1.5rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.52s ease 0s;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 160px;
+
+  &:first-of-type {
+    margin-right: 0.75rem;
+  }
+
+  &::after {
+    background: url(${xIcon}) center center no-repeat;
+    content: "";
+    height: 100%;
+    line-height: 58px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(-100%, 0);
+    transition: all 0.52s ease 0s;
+    width: 100%;
+  }
+
+  &:hover {
+    background: #050505;
+    color: #fff;
+
+    &::after {
+      transform: translate(0, 0);
+      transition: all 0.52s ease 0s;
+    }
+
+    span {
+      transform: translate(100%, 0);
+      transition: all 0.52s ease 0s;
+    }
+  }
+
+  span {
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: translate(0, 0);
+    transition: all 0.52s ease 0s;
+    width: 100%;
+  }
 `;

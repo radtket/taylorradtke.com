@@ -11,7 +11,7 @@ const Experience = () => (
       companyUrl="https://www.cisco.com/"
       position="Engineer"
       location="Herndon, VA"
-      desc=""
+      desc="Created a completely dynamic Wordpress Theme used by hundreds of different partners that brands all pages and components with their personal branding (Typography, brand colors, logo, etc)"
     />
     <Job
       start="Oct 2016"

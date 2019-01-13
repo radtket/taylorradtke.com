@@ -9,35 +9,35 @@ import NavItem from "./NavItem";
 import Hamburger from "./Hamburger";
 
 const NavbarWrap = styled.header`
-	background-color: rgba(255, 255, 255, 0.97);
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-	left: 0;
-	position: fixed;
-	top: 0;
-	width: 100%;
-	z-index: 99;
+  background-color: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
 `;
 
 const NavbarLogo = styled(Link)`
-	float: left;
-	height: 55px;
-	line-height: 55px;
-	text-align: center;
-	width: 55px;
+  float: left;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+  width: 55px;
 
-	svg {
-		display: block;
-		fill: #333;
-		height: 100%;
-		margin: auto;
-		max-width: 65%;
-	}
+  svg {
+    display: block;
+    fill: #333;
+    height: 100%;
+    margin: auto;
+    max-width: 65%;
+  }
 `;
 
 const SiteNav = styled.nav`
-	float: right;
+  float: right;
 
-	${mediaMax.tablet`
+  ${mediaMax.tablet`
     background: rgba(16, 16, 16, 0.97);
     display: none;
     left: 0;
@@ -50,71 +50,71 @@ const SiteNav = styled.nav`
 			display: block;
 		`}
 
-	${media.tablet`
+  ${media.tablet`
 		float: right;
 	`}
 
 	> ul {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-	}
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
 `;
 
 class Navbar extends React.Component {
-	constructor(props, context) {
-		super(props, context);
+  constructor(props, context) {
+    super(props, context);
 
-		this.state = {
-			visible: false
-		};
+    this.state = {
+      visible: false
+    };
 
-		this.handleMouseDown = this.handleMouseDown.bind(this);
-		this.toggleMenu = this.toggleMenu.bind(this);
-	}
+    this.handleMouseDown = this.handleMouseDown.bind(this);
+    this.toggleMenu = this.toggleMenu.bind(this);
+  }
 
-	handleMouseDown(e) {
-		this.toggleMenu();
-		e.stopPropagation();
-	}
+  handleMouseDown(e) {
+    this.toggleMenu();
+    e.stopPropagation();
+  }
 
-	toggleMenu() {
-		const { visible } = this.state;
-		this.setState({
-			visible: !visible
-		});
-	}
+  toggleMenu() {
+    const { visible } = this.state;
+    this.setState({
+      visible: !visible
+    });
+  }
 
-	render() {
-		const { visible } = this.state;
-		let visibility = "menu-closed";
+  render() {
+    const { visible } = this.state;
+    let visibility = "menu-closed";
 
-		if (visible) {
-			visibility = "menu-open";
-		}
-		return (
-  <NavbarWrap className={visibility}>
-    <ContainerFull className="container__full">
-      <NavbarLogo to="/">
-        <BrandingLogo />
-      </NavbarLogo>
+    if (visible) {
+      visibility = "menu-open";
+    }
+    return (
+      <NavbarWrap className={visibility}>
+        <ContainerFull className="container__full">
+          <NavbarLogo to="/">
+            <BrandingLogo />
+          </NavbarLogo>
 
-      <Hamburger handleMouseDown={this.handleMouseDown} />
+          <Hamburger handleMouseDown={this.handleMouseDown} />
 
-      <SiteNav>
-        <ul>
-          <NavItem text="About" to="#about" />
-          <NavItem text="Skills" to="#skills" />
-          <NavItem text="experience" to="#experience" />
-          <NavItem text="works" to="#works" />
-          <NavItem text="Contact" to="#contact" />
-          <NavItem text="Download CV" to="#downloadcv" />
-        </ul>
-      </SiteNav>
-    </ContainerFull>
-  </NavbarWrap>
-		);
-	}
+          <SiteNav>
+            <ul>
+              <NavItem text="About" to="about" />
+              <NavItem text="Skills" to="skills" />
+              <NavItem text="experience" to="experience" />
+              <NavItem text="works" to="works" />
+              <NavItem text="Contact" to="contact" />
+              <NavItem text="Download CV" to="downloadcv" />
+            </ul>
+          </SiteNav>
+        </ContainerFull>
+      </NavbarWrap>
+    );
+  }
 }
 
 export default Navbar;

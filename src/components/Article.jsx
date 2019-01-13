@@ -6,11 +6,11 @@ import ProjectNav from "./ProjectNav";
 
 const Article = ({ children, pageContext }) => {
   const {
-    clientName,
-    companyUrl,
     date,
     excerpt,
-    projectRole
+    githubRepoName,
+    projectRole,
+    title
   } = pageContext.frontmatter;
   return (
     <Layout>
@@ -21,10 +21,9 @@ const Article = ({ children, pageContext }) => {
       <ProjectHero
         date={date}
         desc={excerpt}
-        name={clientName}
+        githubRepoName={githubRepoName}
+        projectName={title}
         role={projectRole}
-        siteUrl={companyUrl}
-        title={clientName}
       />
       {children}
     </Layout>

@@ -20,6 +20,7 @@ module.exports = {
   email: "taylorradtke@gmail.com",
   phone: "18049297374",
 
+  userGithub: "radtket",
   userTwitter: "@taylor_radtke", // Twitter Username
   ogSiteName: "", // Facebook Site Name
   ogLanguage: "en_US", // Facebook Language

@@ -75,6 +75,7 @@ exports.createPages = ({ graphql, actions }) => {
                     date
                     excerpt
                     id
+                    githubRepoName
                     path
                     projectBrandColors
                     projectRole
