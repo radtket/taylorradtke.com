@@ -53,7 +53,6 @@ const ProjectHero = ({
 
               <ProjectHeroButton
                 href={`//${userGithub}.github.io/${githubRepoName}`}
-                className="btn detail-btn"
                 title={`View Site ${projectName}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -63,7 +62,6 @@ const ProjectHero = ({
 
               <ProjectHeroButton
                 href={`//github.com/${userGithub}/${githubRepoName}`}
-                className="btn detail-btn"
                 title={`View Repo ${projectName}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -152,13 +150,13 @@ const ProjectHeroTitle = styled.h1`
 	`};
 
   span {
+    color: #999;
     font-family: Oswald, sans-serif;
     font-size: 2rem;
     letter-spacing: 0.3rem;
     margin-bottom: 1.2rem;
-    text-transform: uppercase;
-    color: #999;
     padding-left: 0.6rem;
+    text-transform: uppercase;
   }
 `;
 

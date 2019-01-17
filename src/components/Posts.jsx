@@ -50,7 +50,7 @@ Posts.propTypes = {
     PropTypes.shape({
       node: PropTypes.shape({
         frontmatter: PropTypes.shape({
-          clientName: PropTypes.string,
+          projectName: PropTypes.string,
           devOnly: PropTypes.bool,
           path: PropTypes.string
         })

@@ -144,13 +144,13 @@ const Project = styled(Link)`
 `;
 
 const Post = ({ post }) => {
-  const { clientName, cover, devOnly, path, thumbnail } = post.node.frontmatter;
+  const { projectName, devOnly, path, thumbnail } = post.node.frontmatter;
   const { fluid } = thumbnail.childImageSharp;
   return (
     <Project to={path} className="works--item" key={path}>
       {thumbnail && <Img fluid={fluid} />}
       <ProjectText>
-        <ProjectName>{clientName}</ProjectName>
+        <ProjectName>{projectName}</ProjectName>
         <ProjectType>Website</ProjectType>
         <ZoomIcon />
       </ProjectText>
@@ -166,7 +166,7 @@ Post.propTypes = {
     node: PropTypes.shape({
       fileAbsolutePath: PropTypes.string,
       frontmatter: PropTypes.shape({
-        clientName: PropTypes.string,
+        projectName: PropTypes.string,
         cover: PropTypes.object,
         devOnly: PropTypes.bool,
         path: PropTypes.string,
