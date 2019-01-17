@@ -11,7 +11,14 @@ import videoPoster from "../assets/videos/bg__project.jpg";
 import { Container } from "../styles/SharedStyles";
 import xIcon from "../../static/icons/icon-x.svg";
 
-const ProjectHero = ({ date, desc, githubRepoName, projectName, role }) => (
+const ProjectHero = ({
+  date,
+  desc,
+  githubRepoName,
+  projectName,
+  projectRole,
+  projectStack
+}) => (
   <SectionProjectHero className="project-hero">
     <ProjectHeroVideo autoPlay loop muted poster={videoPoster}>
       <source src={video} type="video/webm" />
@@ -22,14 +29,27 @@ const ProjectHero = ({ date, desc, githubRepoName, projectName, role }) => (
         <ProjectHeroTableCell>
           <ProjectHeroTitle>
             {projectName}
-            <span>{moment(`${date}`).format("MMMM YYYY")}</span>
+            <span>{moment(new Date(`${date}`)).format("MMMM YYYY")}</span>
           </ProjectHeroTitle>
           <ProjectHeroWrap>
             <hr />
             <ProjectHeroBody>
               <ProjectHeroBodyDesc>{desc}</ProjectHeroBodyDesc>
-              <ProjectHeroBodyRole>Role</ProjectHeroBodyRole>
-              <ProjectHeroBodyRoleDesc>{role}</ProjectHeroBodyRoleDesc>
+
+              <ProjectHeroBodyMeta>
+                <ProjectHeroBodyMetaItem>
+                  <ProjectHeroBodyRole>Role</ProjectHeroBodyRole>
+                  <ProjectHeroBodyRoleDesc>
+                    {projectRole}
+                  </ProjectHeroBodyRoleDesc>
+                </ProjectHeroBodyMetaItem>
+                <ProjectHeroBodyMetaItem>
+                  <ProjectHeroBodyRole>Stack</ProjectHeroBodyRole>
+                  <ProjectHeroBodyRoleDesc>
+                    {projectStack}
+                  </ProjectHeroBodyRoleDesc>
+                </ProjectHeroBodyMetaItem>
+              </ProjectHeroBodyMeta>
 
               <ProjectHeroButton
                 href={`//${userGithub}.github.io/${githubRepoName}`}
@@ -63,7 +83,8 @@ ProjectHero.propTypes = {
   desc: PropTypes.string.isRequired,
   githubRepoName: PropTypes.string.isRequired,
   projectName: PropTypes.string.isRequired,
-  role: PropTypes.string.isRequired
+  projectStack: PropTypes.string.isRequired,
+  projectRole: PropTypes.string.isRequired
 };
 
 export default ProjectHero;
@@ -201,6 +222,24 @@ const ProjectHeroBodyRoleDesc = styled.h3`
   line-height: 1.2;
   margin-bottom: 1.2rem;
   text-transform: none;
+`;
+
+const ProjectHeroBodyMeta = styled.ul`
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+`;
+
+const ProjectHeroBodyMetaItem = styled.li`
+  float: left;
+  margin-left: 2.4rem;
+  width: calc(50% - 3.6rem);
+
+  &:first-child {
+    margin-left: 0;
+  }
 `;
 
 const ProjectHeroVideo = styled.video`

@@ -2,7 +2,7 @@ import React from "react";
 import { css } from "@emotion/core";
 import styled from "@emotion/styled";
 import { media } from "../../../config/Breakpoints";
-// import SendAirplaneIcon from "../../assets/images/icons/icon__mail--send.svg";
+import SendAirplaneIcon from "../../../static/icons/icon__mail--send.svg";
 
 const ContactForm = () => (
   <ContactFormWrap
@@ -86,7 +86,7 @@ const SubmitButton = styled.button`
   white-space: nowrap;
 
   &::before {
-    /* background-image: url(${SendAirplaneIcon}); */
+    background-image: url(${SendAirplaneIcon});
     background-position: 50% !important;
     background-repeat: no-repeat !important;
     background-size: contain !important;

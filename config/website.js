@@ -2,7 +2,7 @@ module.exports = {
   pathPrefix: "/", // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "/portfolio"
   author: "Taylor Radtke",
   siteTitle: "Taylor Radtke | A Creative Mind", // Navigation and Site Title
-  siteTitleAlt: this.author, // Alternative Site title for SEO
+  siteTitleAlt: "Taylor Radtke", // Alternative Site title for SEO
   siteUrl: "https://taylorradtke.com", // Domain of your site. No trailing slash!
   siteLanguage: "en", // Language Tag on <html> element
   siteLogo: "static/branding/logo__primary.png", // Used for SEO and manifest
@@ -28,14 +28,13 @@ module.exports = {
   // Manifest and Progress color
   themeColor: "#c0a062",
   backgroundColor: "#fff",
-  socialMedia: [
-    {
-      name: "Facebook",
-      url: "https://www.facebook.com/taylorradtk3"
-    },
-    {
-      name: "Instagram",
-      url: "https://www.instagram.com/taylor.radtke"
-    }
-  ]
+
+  // Social Media
+  accounts: {
+    twitter: "https://twitter.com/taylor_radtke",
+    instagram: "https://instagram.com/taylor.radtke",
+    linkedin: "https://linkedin.com/in/radtket/",
+    codepen: "https://codepen.io/radtket/",
+    github: "https://github.com/radtket"
+  }
 };

@@ -74,13 +74,13 @@ exports.createPages = ({ graphql, actions }) => {
                     companyUrl
                     date
                     excerpt
-                    id
                     githubRepoName
+                    id
                     path
                     projectBrandColors
+                    projectName
                     projectRole
                     projectStack
-                    title
                     thumbnail {
                       childImageSharp {
                         fluid(maxWidth: 720, quality: 90) {
