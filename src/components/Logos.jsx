@@ -424,7 +424,7 @@ export const RandS = () => (
   </svg>
 );
 
-// Connecting Riffa
+// Riffa
 export const Riffa = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 557.5 148.9">
     <g fill="#010101">
@@ -434,7 +434,7 @@ export const Riffa = () => (
   </svg>
 );
 
-// Connecting Total Wine & More
+// Total Wine & More
 export const TotalWine = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170.2 37.8">
     <path

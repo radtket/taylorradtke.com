@@ -32,16 +32,10 @@ export const query = graphql`
       edges {
         node {
           frontmatter {
+            clientName
             devOnly
             path
             projectName
-            cover {
-              childImageSharp {
-                fluid(maxWidth: 1100, quality: 100) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-            }
             thumbnail {
               childImageSharp {
                 fluid(maxWidth: 720, quality: 100) {

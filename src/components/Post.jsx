@@ -167,7 +167,6 @@ Post.propTypes = {
       fileAbsolutePath: PropTypes.string,
       frontmatter: PropTypes.shape({
         projectName: PropTypes.string,
-        cover: PropTypes.object,
         devOnly: PropTypes.bool,
         path: PropTypes.string,
         thumbnail: PropTypes.object

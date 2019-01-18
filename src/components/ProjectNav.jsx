@@ -55,7 +55,7 @@ const ProjectNav = ({ prev, next }) => (
       <Link to={prev.node.frontmatter.path}>
         <PaginationPrev />
         <span style={{ marginLeft: "1rem" }}>
-          {prev.node.frontmatter.clientName}
+          {prev.node.frontmatter.projectName}
         </span>
       </Link>
     )}
@@ -68,7 +68,7 @@ const ProjectNav = ({ prev, next }) => (
     {next && (
       <Link to={next.node.frontmatter.path} style={{ textAlign: "right" }}>
         <span style={{ marginRight: "1rem" }}>
-          {next.node.frontmatter.clientName}
+          {next.node.frontmatter.projectName}
         </span>
         <PaginationNext />
       </Link>

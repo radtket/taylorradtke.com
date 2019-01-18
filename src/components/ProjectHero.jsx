@@ -235,7 +235,7 @@ const ProjectHeroBodyMetaItem = styled.li`
   margin-left: 2.4rem;
   width: calc(50% - 3.6rem);
 
-  &:first-child {
+  &:first-of-type {
     margin-left: 0;
   }
 `;

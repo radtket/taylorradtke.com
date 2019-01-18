@@ -1,11 +1,17 @@
-// Inspired by https://github.com/Vagr9K/gatsby-advanced-starter
-
 import React from "react";
 import Helmet from "react-helmet";
 import config from "../../config/website";
 
 const SEO = ({ postNode, postPath, postSEO, pageSEO }) => {
-  const { siteTitle, siteUrl, siteDescription, userTwitter, author } = config;
+  const {
+    backgroundColor,
+    siteTitle,
+    siteTitleAlt,
+    siteUrl,
+    siteDescription,
+    userTwitter,
+    author
+  } = config;
   let title;
   let description;
   let image;
@@ -15,14 +21,14 @@ const SEO = ({ postNode, postPath, postSEO, pageSEO }) => {
     const postMeta = postNode;
     title = `${siteTitle} | ${postMeta.clientName}`;
     description = postMeta.excerpt ? postMeta.excerpt : postNode.title;
-    if (postMeta.cover) {
-      image = postMeta.cover.childImageSharp.fluid.src;
+    if (postMeta.thumbnail) {
+      image = postMeta.thumbnail.childImageSharp.fluid.src;
     }
     postURL = siteUrl + postPath;
   } else {
     title = siteTitle;
     description = siteDescription;
-    image = "/covers/hero-bw.jpg";
+    image = "/branding/logo__primary.png";
   }
   image = siteUrl + image;
 
@@ -32,7 +38,7 @@ const SEO = ({ postNode, postPath, postSEO, pageSEO }) => {
       "@type": "WebSite",
       url: siteUrl,
       name: title,
-      alternateName: ""
+      alternateName: siteTitleAlt
     }
   ];
   if (postSEO) {
@@ -107,6 +113,24 @@ const SEO = ({ postNode, postPath, postSEO, pageSEO }) => {
   }
   return (
     <Helmet>
+      {/* Favicons */}
+      <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/favicons/favicon-32x32.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/favicons/favicon-16x16.png"
+      />
+      <link rel="shortcut icon" href="favicon.ico" />
+      <meta name="msapplication-TileColor" content={backgroundColor} />
+      <meta name="msapplication-config" content="browserconfig.xml" />
+
       {/* General tags */}
       <meta name="description" content={description} />
       <meta name="image" content={image} />

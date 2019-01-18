@@ -63,13 +63,6 @@ exports.createPages = ({ graphql, actions }) => {
                 node {
                   fileAbsolutePath
                   frontmatter {
-                    cover {
-                      childImageSharp {
-                        fluid(maxWidth: 1100, quality: 90) {
-                          ...GatsbyImageSharpFluid_withWebp
-                        }
-                      }
-                    }
                     clientName
                     companyUrl
                     date
