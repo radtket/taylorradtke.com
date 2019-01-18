@@ -8,6 +8,7 @@ import Testimonial from "./Testimonial";
 import avitarJon from "../../assets/images/testimonials/testimonial__jon.jpg";
 import avitarJimmy from "../../assets/images/testimonials/testimonial__jimmy.jpg";
 import avitarHenri from "../../assets/images/testimonials/testimonial__henri.jpg";
+import avitarMary from "../../assets/images/testimonials/testimonial__mary.jpeg";
 
 class Testimonials extends Component {
   render() {
@@ -26,6 +27,16 @@ class Testimonials extends Component {
     return (
       <Container>
         <Slider {...settings}>
+          <Testimonial
+            avitar={avitarMary}
+            name="Mary K. Kabza"
+            company="Web Strategy Director at AAPA"
+            testimonial={`I only had the pleasure of working with Taylor Radtke for four months during his tenure with AAPA as Full Stack Web Developer, Web Designer. I started in March 2018 and Taylor left in July 2018. Despite the short amount of time we worked together, I got to know Taylor, his work ethic, and skills. Along with his exceptionally sharp sense of humor, what impressed me most about Taylor is his dedication to a quality work product regardless of challenges, impediments or limitations.
+            Taylor was with AAPA for almost two years, acting as the sole in-house resource for website development. Working with internal clients and departments throughout the organization, Taylor was the primary graphic designer and developer for AAPA.org, CHLM.org, pa-foundation.org, aapa.org/conference and yourPAcan.org. With close to 100 staff/contractors within the organization, Taylor and the Senior Digital Product manager collaborated closely to design, develop, deploy and maintain AAPA's websites serving over 50,000 members.
+            Taylor's passion for his work product is only exceeded by his desire to learn and deliver more. Taylor was a strong creative force for the Web Team and AAPA — designing and delivering beyond what was expected. Taylor has a gift of connecting a user-centric approach to innovative design and thoughtful backend development — rarely do you find that perfect designer/developer blend — yet alone, in someone who can talk sports and geek speak fluently.
+            As his former supervisor, I would wholeheartedly sing Taylor's praises any day. And I would only be so lucky to have the opportunity to work with him again. If you have any questions about Taylor's skill set, personality, and/or any of the above, do not hesitate to reach out to me. It has been my utmost pleasure working with Taylor and getting to know him. I am confident Taylor will continue to do great things wherever he goes. Thank you for this opportunity to share a few things with you about Taylor. `}
+          />
+
           <Testimonial
             avitar={avitarJon}
             name="Jon Winslow"

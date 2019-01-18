@@ -13,7 +13,7 @@ import xIcon from "../../static/icons/icon-x.svg";
 
 const ProjectHero = ({
   date,
-  desc,
+  excerpt,
   githubRepoName,
   projectName,
   projectRole,
@@ -34,7 +34,7 @@ const ProjectHero = ({
           <ProjectHeroWrap>
             <hr />
             <ProjectHeroBody>
-              <ProjectHeroBodyDesc>{desc}</ProjectHeroBodyDesc>
+              <ProjectHeroBodyDesc>{excerpt}</ProjectHeroBodyDesc>
 
               <ProjectHeroBodyMeta>
                 <ProjectHeroBodyMetaItem>
@@ -78,7 +78,7 @@ const ProjectHero = ({
 
 ProjectHero.propTypes = {
   date: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired,
+  excerpt: PropTypes.string.isRequired,
   githubRepoName: PropTypes.string.isRequired,
   projectName: PropTypes.string.isRequired,
   projectStack: PropTypes.string.isRequired,

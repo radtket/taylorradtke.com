@@ -3,6 +3,7 @@ import Img from "gatsby-image";
 import styled from "@emotion/styled";
 import { Container } from "../styles/SharedStyles";
 import { BrandingSignature } from "./Logos";
+import { siteDescription, siteTitleAlt, siteTitle } from "../../config/website";
 
 const HeroWrap = styled.section`
   background-attachment: fixed;
@@ -138,25 +139,12 @@ const HomeHero = ({ heroImage, avitar }) => (
   >
     <Container>
       <HeroProfile>
-        <h1>Taylor Radtke</h1>
+        <h1>{siteTitleAlt}</h1>
         <h3>Web Developer x Designer</h3>
-        <p>
-          Taylor Radtke is a creative mind who specializes in minimal design
-          that displays a bold message. After three plus years of marketing in
-          the service industry, Taylor takes his social skills mastered from
-          constructing cocktails through college to creating a finished project
-          that his client truly loves. A mastermind at social media marketing,
-          with a concentration on an age demographic of 18-35. Taylor has a
-          great latitude of culture due to his upbringing in Southern California
-          then transitioning to the mid-Atlantic region to further his career
-          and education. Recently Taylor has devoted his time to mastering the
-          world of front-end web development and design. His passion for web
-          design comes from viewing it as a functional piece of art, and
-          striving to let his mind continue to share the beauty of digital
-        </p>
+        <p>{siteDescription}</p>
         <Signature>
           <BrandingSignature />
-          <figcaption>Taylor Radtke - A Beautiful Mind</figcaption>
+          <figcaption>{siteTitle}</figcaption>
         </Signature>
       </HeroProfile>
 

@@ -1,31 +1,4 @@
-import React from "react";
 import styled from "@emotion/styled";
-import Img from "gatsby-image";
-
-export const ProjectImg = styled(Img)`
-  margin-bottom: 40px;
-
-  @media only screen and (min-width: 600px) {
-    margin-bottom: 80px;
-  }
-`;
-
-export const preparePosts = (availibleImages, sectionName) => {
-  const nodes = [];
-
-  availibleImages.forEach(post => {
-    if (post.node.relativePath.includes(`images/${sectionName}`)) {
-      nodes.push(
-        <ProjectImg
-          fluid={post.node.childImageSharp.fluid}
-          key={post.node.id}
-        />
-      );
-    }
-  });
-
-  return nodes;
-};
 
 export const ScreenReaderText = styled.span`
   border: 0;

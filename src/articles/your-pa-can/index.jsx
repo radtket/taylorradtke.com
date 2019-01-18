@@ -1,10 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Article from "../../components/Article";
+import { Article, preparePosts } from "../../components/Article";
 import PageSection from "../../components/PageSection/PageSection";
 import BrandColors from "../../components/BrandColors";
 import { Aapa } from "../../components/Logos";
-import { preparePosts } from "../../styles/SharedStyles";
 
 export const frontmatter = {
   clientName: "AAPA",
