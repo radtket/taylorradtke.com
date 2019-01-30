@@ -9,7 +9,7 @@ import video from "../assets/videos/bg__project.mp4";
 import videoWebm from "../assets/videos/bg__project.webm";
 import videoPoster from "../assets/videos/bg__project.jpg";
 import { Container } from "../styles/SharedStyles";
-import xIcon from "../../static/icons/icon-x.svg";
+import { AllSeeingEye } from "./Icons";
 
 const ProjectHero = ({
   date,
@@ -57,6 +57,7 @@ const ProjectHero = ({
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                <AllSeeingEye />
                 <span>View Site</span>
               </ProjectHeroButton>
 
@@ -66,6 +67,7 @@ const ProjectHero = ({
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                <AllSeeingEye />
                 <span>View Repo</span>
               </ProjectHeroButton>
             </ProjectHeroBody>
@@ -137,7 +139,7 @@ const ProjectHeroTitle = styled.h1`
   color: #fff;
   font-size: 6rem;
   line-height: 1;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.6rem;
   text-transform: uppercase;
 
   ${media.phoneLg`
@@ -154,9 +156,16 @@ const ProjectHeroTitle = styled.h1`
     font-family: Oswald, sans-serif;
     font-size: 2rem;
     letter-spacing: 0.3rem;
-    margin-bottom: 1.2rem;
-    padding-left: 0.6rem;
+    margin-top: 0.6rem;
     text-transform: uppercase;
+    display: block;
+
+    ${media.phoneLg`
+      display: inline;
+      margin-bottom: 1.2rem;
+      padding-left: 0.6rem;
+      margin-top: 0;
+    `};
   }
 `;
 
@@ -231,13 +240,18 @@ const ProjectHeroBodyMeta = styled.ul`
 `;
 
 const ProjectHeroBodyMetaItem = styled.li`
-  float: left;
-  margin-left: 2.4rem;
-  width: calc(50% - 3.6rem);
+  margin-bottom: 2.4rem;
 
-  &:first-of-type {
-    margin-left: 0;
-  }
+  ${media.phoneLg`
+    float: left;
+    margin-bottom: 1.2rem;
+    margin-left: 2.4rem;
+    width: calc(50% - 3.6rem);
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+	`};
 `;
 
 const ProjectHeroVideo = styled.video`
@@ -250,23 +264,20 @@ const ProjectHeroVideo = styled.video`
 
 const ProjectHeroButton = styled.a`
   appearance: none;
-  background: #050505;
+  background: #c0a062;
   border-radius: 3px;
   border: 0;
-  color: #fff;
+  color: #050505;
   cursor: pointer;
-  display: inline-block;
+  display: block;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   font-weight: 700;
   height: 48px;
   letter-spacing: 1;
   line-height: 50px;
-  margin-bottom: 0.75rem;
-  margin-top: 1px;
+  margin: 0 auto 1.2rem;
   overflow: hidden;
-  padding-left: 11px;
-  padding-right: 10px;
   padding: 0.75rem 1.5rem;
   position: relative;
   text-align: center;
@@ -274,17 +285,21 @@ const ProjectHeroButton = styled.a`
   text-transform: uppercase;
   transition: all 0.52s ease 0s;
   user-select: none;
-  vertical-align: middle;
   white-space: nowrap;
-  width: 160px;
+  max-width: 240px;
 
-  &:first-of-type {
-    margin-right: 0.75rem;
-  }
+  ${media.phone`
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 0.75rem;
+    width: 160px;
 
-  &::after {
-    background: url(${xIcon}) center center no-repeat;
-    content: "";
+    &:first-of-type {
+      margin-right: 1.2rem;
+    }
+	`};
+
+  svg {
     height: 100%;
     line-height: 58px;
     position: absolute;
@@ -295,11 +310,12 @@ const ProjectHeroButton = styled.a`
     width: 100%;
   }
 
-  &:hover {
-    background: #050505;
-    color: #fff;
+  &:hover,
+  &:focus {
+    background: #a07f40;
+    color: #050505;
 
-    &::after {
+    svg {
       transform: translate(0, 0);
       transition: all 0.52s ease 0s;
     }

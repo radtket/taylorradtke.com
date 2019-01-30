@@ -11,7 +11,7 @@ export const frontmatter = {
   date: "11-28-2017",
   devOnly: false,
   excerpt: `The American Academy of Physician Assistants (AAPA) national conference in New Orleans, Louisiana will provide opportunities to explore the profession's limitless future with five days of certification courses, educational sessions, and discussions surrounding groundbreaking medical innovations.`,
-  githubRepoName: `AAPA-Conference-2018`,
+  githubRepoName: `aapa-conference-2018`,
   id: "aapaconference",
   isWork: true,
   logo: <AapaConference />,
@@ -52,12 +52,22 @@ export default props => {
       <PageSection
         sectionNumber="2"
         sectionName="Home"
-        sectionContent={preparePosts(edges, "home")}
+        sectionContent={preparePosts(edges, "aapa-conference/images/home")}
       />
       <PageSection
         sectionNumber="3"
         sectionName="Events"
-        sectionContent={preparePosts(edges, "events")}
+        sectionContent={preparePosts(edges, "aapa-conference/images/events")}
+      />
+      <PageSection
+        sectionNumber="4"
+        sectionName="Tabs"
+        sectionContent={preparePosts(edges, "aapa-conference/images/tabs")}
+      />
+      <PageSection
+        sectionNumber="5"
+        sectionName="Contact"
+        sectionContent={preparePosts(edges, "aapa-conference/images/contact")}
       />
     </Article>
   );

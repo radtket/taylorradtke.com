@@ -11,7 +11,7 @@ export const frontmatter = {
   date: "02-05-2018",
   devOnly: false,
   excerpt: `A Campaign by AAPA showing the "Your PA Can Handle It" With thousands of hours of medical training and a versatile skill set, PAs are expanding access to team-based care. When it comes to quality healthcare, your PA can handle it.`,
-  githubRepoName: `YourPACan`,
+  githubRepoName: `your-pa-can`,
   id: "yourpacan",
   isWork: true,
   logo: <Aapa />,
@@ -43,7 +43,7 @@ export default props => {
       <PageSection
         sectionNumber="2"
         sectionName="Landing"
-        sectionContent={preparePosts(edges, "landing")}
+        sectionContent={preparePosts(edges, "your-pa-can/images/landing")}
       />
     </Article>
   );

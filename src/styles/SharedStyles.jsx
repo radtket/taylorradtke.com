@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-export const ScreenReaderText = styled.span`
+export const ScreenReaderTextCSS = `
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;
@@ -9,6 +9,10 @@ export const ScreenReaderText = styled.span`
   padding: 0;
   position: absolute;
   width: 1px;
+`;
+
+export const ScreenReaderText = styled.span`
+  ${ScreenReaderTextCSS}
 `;
 
 export const Section = styled.section`

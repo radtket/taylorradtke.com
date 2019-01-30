@@ -3,6 +3,8 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import { PaginationPrev, PaginationNext, PaginationHome } from "./Icons";
+import { mediaMax } from "../../config/Breakpoints";
+import { ScreenReaderTextCSS } from "../styles/SharedStyles";
 
 const Wrapper = styled.nav`
   width: 100%;
@@ -40,6 +42,10 @@ const Wrapper = styled.nav`
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
+
+      ${mediaMax.phoneLg`
+        ${ScreenReaderTextCSS}
+      `};
     }
     svg {
       display: inline-block;

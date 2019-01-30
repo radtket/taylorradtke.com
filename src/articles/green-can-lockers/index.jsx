@@ -43,7 +43,7 @@ export default props => {
       <PageSection
         sectionNumber="2"
         sectionName="Landing"
-        sectionContent={preparePosts(edges, "landing")}
+        sectionContent={preparePosts(edges, "green-can-lockers/images/landing")}
       />
     </Article>
   );

@@ -4,6 +4,7 @@ import { Article, preparePosts } from "../../components/Article";
 import PageSection from "../../components/PageSection/PageSection";
 import BrandColors from "../../components/BrandColors";
 import { RandS } from "../../components/Logos";
+import Lightbox from "../../components/Lightbox";
 
 export const frontmatter = {
   clientName: "R&S Supply",
@@ -36,6 +37,7 @@ export default props => {
   const { data } = props;
   const { edges } = data.allFile;
   const { projectBrandColors, clientName, logo } = frontmatter;
+  console.log(edges);
   return (
     <Article {...props}>
       <PageSection
@@ -52,7 +54,12 @@ export default props => {
       <PageSection
         sectionNumber="2"
         sectionName="Landing"
-        sectionContent={preparePosts(edges, "landing")}
+        sectionContent={preparePosts(edges, "rands-supply/images/landing")}
+      />
+      <PageSection
+        sectionNumber="3"
+        sectionName="Locations"
+        sectionContent={preparePosts(edges, "rands-supply/images/locations")}
       />
     </Article>
   );

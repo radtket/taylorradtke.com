@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { media } from "../../../config/Breakpoints";
 import SectionDescription from "./SectionDescription";
 import { Container, Section } from "../../styles/SharedStyles";
+import { BrowserMockup } from "../Article";
 
 const PageSection = ({ sectionName, sectionNumber, sectionContent }) => (
   <Section id={sectionName.toLowerCase()}>
@@ -37,5 +38,11 @@ const SectionContent = styled.article`
 
   ${media.desktop`
 		width: calc(75% - 4.2rem);
-	`};
+  `};
+
+  ${BrowserMockup} {
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
 `;
