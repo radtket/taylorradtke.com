@@ -11,7 +11,7 @@ export const frontmatter = {
   date: "07-16-2016",
   devOnly: false,
   excerpt: `Captain Jon's Green Can Locker's are a patented locking mechanism for ammunition based out of Southern California. Customers love the quality of the product and the ease of installation.`,
-  githubRepoName: `Green-Can-Lockers_Website`,
+  githubRepoName: `green-can-lockers`,
   id: "greencanlockers",
   isWork: true,
   logo: <GreenCanLockers />,

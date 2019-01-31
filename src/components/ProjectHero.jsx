@@ -310,8 +310,12 @@ const ProjectHeroButton = styled.a`
     width: 100%;
   }
 
-  &:hover,
   &:focus {
+    background: #a07f40;
+    color: #050505;
+  }
+
+  &:hover {
     background: #a07f40;
     color: #050505;
 

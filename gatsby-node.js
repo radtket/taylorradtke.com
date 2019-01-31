@@ -76,7 +76,7 @@ exports.createPages = ({ graphql, actions }) => {
                     projectStack
                     thumbnail {
                       childImageSharp {
-                        fluid(maxWidth: 720, quality: 90) {
+                        fluid(maxWidth: 720, quality: 100) {
                           ...GatsbyImageSharpFluid_withWebp
                         }
                       }

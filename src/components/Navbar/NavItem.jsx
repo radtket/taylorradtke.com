@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 
 import { media, mediaMax } from "../../../config/Breakpoints";
 import theme from "../../../config/theme";
+import resumeIcon from "../../../static/icons/icon__resume-download.svg";
 
 const NavListItem = styled.li`
   display: block;
@@ -21,7 +22,7 @@ const NavListItem = styled.li`
 	`};
 `;
 
-const NavLink = styled(Link)`
+const LinkStyles = `
   display: inherit;
   color: #333;
   padding: 0 16px;
@@ -50,10 +51,13 @@ const NavLink = styled(Link)`
   &.active {
     color: #c0a062;
   }
+`;
+
+const NavLink = styled(Link)`
+  ${LinkStyles}
 
   ${mediaMax.tablet`
 		color: #fff;
-		text-align: right;
 
 		&:hover {
 			background: rgba(16, 16, 16, 0.9);
@@ -62,12 +66,63 @@ const NavLink = styled(Link)`
 	`}
 
   ${media.navbreak`
-		padding-left: 24px;
-		padding-right: 24px;
+		padding-left: 2.4rem;
+		padding-right: 2.4rem;
   `};
 `;
 
-const NavItem = ({ to, text }) => (
+const DownloadButton = styled.a`
+  ${LinkStyles}
+
+  ${mediaMax.tablet`
+		color: #fff;
+
+		&:hover {
+			background: rgba(16, 16, 16, 0.9);
+			color: #c0a062;
+		}
+	`}
+
+  ${media.navbreak`
+    background: #333;
+    border: 2px solid transparent;
+    border-radius: 2.4rem;
+    color: #fff;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    line-height: 1;
+    padding: 1.2rem 2.4rem;
+
+    &:hover {
+      background: #222;
+    }
+
+    &::before {
+      background-position: center center!important;
+      background-repeat: no-repeat!important;
+      background-size: contain!important;
+      background: url(${resumeIcon});
+      content: "";
+      display: block;
+      float: left;
+      height: 1.2rem;
+      margin-right: .6rem;
+      transition: all .2s cubic-bezier(0,0,.58,1);
+      width: 1.6rem;
+    }
+  `};
+`;
+
+export const NavItemButton = ({ download, text }) => (
+  <NavListItem>
+    <DownloadButton href={download} download>
+      {text}
+    </DownloadButton>
+  </NavListItem>
+);
+
+export const NavItem = ({ to, text }) => (
   <NavListItem>
     <NavLink
       to={to}
@@ -82,14 +137,22 @@ const NavItem = ({ to, text }) => (
   </NavListItem>
 );
 
-export default NavItem;
-
 NavItem.propTypes = {
   to: PropTypes.string,
   text: PropTypes.string
 };
 
+NavItemButton.propTypes = {
+  download: PropTypes.string,
+  text: PropTypes.string
+};
+
 NavItem.defaultProps = {
   to: "#",
+  text: ""
+};
+
+NavItemButton.defaultProps = {
+  download: "",
   text: ""
 };

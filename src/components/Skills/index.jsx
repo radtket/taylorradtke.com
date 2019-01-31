@@ -6,51 +6,65 @@ const Skills = () => (
     <SkillCategory
       SkillHeadline="Development"
       skillSet={[
-        "HTML5",
-        "CSS3",
-        "SASS",
-        "Bouron",
-        "Skeleton",
+        "Angular 2+",
+        "Apache",
         "Bootstrap",
-        "Foundation",
-        "Javascript",
-        "Gulp",
-        "Grunt",
-        "jQuery",
-        "Node.js",
-        "Modernizr",
-        "PHP",
-        "Wordpress",
-        "Drupal",
-        "Python",
+        "Bourbon",
+        "CSS3",
         "Django",
+        "Drupal",
+        "Foundation",
+        "Gatsby",
+        "Git",
+        "Grunt",
+        "Gulp",
+        "HTML5",
+        "JavasSript",
+        "jQuery",
+        "Modernizr",
+        "Node",
+        "npm",
+        "PHP",
+        "Pug/Jade",
+        "Python",
+        "React",
+        "SASS/SCSS",
+        "Skeleton",
         "SQL",
-        "Git"
+        "SVG",
+        "TypeScript",
+        "Vue",
+        "Webpack",
+        "Wordpress"
       ]}
     />
     <SkillCategory
       SkillHeadline="Tools"
       skillSet={[
-        "Vim",
-        "Sublime Text",
-        "MAMP/lamp",
         "Adobe Suite",
-        "Sketch",
-        "SVG",
-        "Photoshop",
+        "After Effects",
+        "Flash",
+        "Framer",
         "Illustrator",
         "InDesign",
-        "Edge Animate",
-        "Dreamweaver",
+        "InVision",
         "Lightroom",
-        "Flash",
-        "Fireworks",
-        "After Effects"
+        "MAMP/LAMP",
+        "Photoshop",
+        "Sketch",
+        "Vim",
+        "VS Code",
+        "XD"
       ]}
     />
     <SkillCategory
       SkillHeadline="Achievments"
-      skillSet={["Paul Harris Fellow", "Spot Award - 2017"]}
+      skillSet={[
+        "Cisco Security - Green Belt",
+        "Cisco Security - White Belt",
+        "Paul Harris Fellow",
+        "Spot Award - 2017"
+      ]}
     />
   </div>
 );

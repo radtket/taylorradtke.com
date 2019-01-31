@@ -5,8 +5,9 @@ import { Link } from "gatsby";
 import { ContainerFull } from "../../styles/SharedStyles";
 import { BrandingLogo } from "../Logos";
 import { media, mediaMax } from "../../../config/Breakpoints";
-import NavItem from "./NavItem";
+import { NavItem, NavItemButton } from "./NavItem";
 import Hamburger from "./Hamburger";
+import ResumePDF from "../../assets/documents/resume/taylor-radtke--resume.pdf";
 
 const NavbarWrap = styled.header`
   background-color: rgba(255, 255, 255, 0.97);
@@ -47,7 +48,12 @@ const SiteNav = styled.nav`
 		width: 100%;
 
 		.menu-open & {
-			display: block;
+      display: block;
+    }
+
+    > ul {
+      text-align: right;
+    }
 		`}
 
   ${media.tablet`
@@ -108,7 +114,7 @@ class Navbar extends React.Component {
               <NavItem text="experience" to="experience" />
               <NavItem text="works" to="works" />
               <NavItem text="Contact" to="contact" />
-              <NavItem text="Download CV" to="downloadcv" />
+              <NavItemButton text="Download CV" download={ResumePDF} />
             </ul>
           </SiteNav>
         </ContainerFull>

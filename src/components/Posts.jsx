@@ -3,26 +3,6 @@ import PropTypes from "prop-types";
 import Post from "./Post";
 
 class Posts extends Component {
-  split = items => {
-    const col1 = [];
-    const col2 = [];
-
-    items.forEach((item, i) => {
-      if (i % 2 !== 0) {
-        col1.push(item);
-      } else {
-        col2.push(item);
-      }
-    });
-
-    return (
-      <div className="grid">
-        <div className="col">{col1}</div>
-        <div className="col">{col2}</div>
-      </div>
-    );
-  };
-
   preparePosts = posts => {
     const nodes = [];
 
@@ -32,7 +12,7 @@ class Posts extends Component {
       }
     });
 
-    return this.split(nodes);
+    return nodes;
   };
 
   render() {
