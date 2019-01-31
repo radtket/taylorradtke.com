@@ -18,7 +18,7 @@ import {
 
 const ClientsSlider = styled(Slider)`
   .slick-slide {
-    > div {
+    /* > div {
       align-items: center;
       display: flex;
       float: none;
@@ -39,7 +39,7 @@ const ClientsSlider = styled(Slider)`
         transition: all 0.27s cubic-bezier(0.3, 0.1, 0.58, 1);
         width: 100%;
       }
-    }
+    } */
   }
 `;
 
