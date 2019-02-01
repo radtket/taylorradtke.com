@@ -1,49 +1,22 @@
 import React from "react";
 import Slider from "react-slick";
-import styled from "@emotion/styled";
+import Img from "gatsby-image";
 import { Container } from "../../styles/SharedStyles";
 import { SliderNextArrow, SliderPrevArrow } from "../SlickArrows";
-import {
-  Aapa,
-  AapaConference,
-  Atown,
-  BelleAndJames,
-  Crva,
-  DonTito,
-  MotleyFool,
-  RandS,
-  Riffa,
-  TotalWine
-} from "../Logos";
+// import {
+//   Aapa,
+//   AapaConference,
+//   Atown,
+//   BelleAndJames,
+//   Crva,
+//   DonTito,
+//   MotleyFool,
+//   RandS,
+//   Riffa,
+//   TotalWine
+// } from "../Logos";
 
-const ClientsSlider = styled(Slider)`
-  .slick-slide {
-    /* > div {
-      align-items: center;
-      display: flex;
-      float: none;
-      height: 100px;
-      justify-content: center;
-      margin-right: 12px;
-      transform-style: preserve-3d;
-
-      svg {
-        display: block;
-        height: 100%;
-        margin: auto;
-        max-height: 75%;
-        max-width: 75%;
-        position: relative;
-        top: 0;
-        transform: none;
-        transition: all 0.27s cubic-bezier(0.3, 0.1, 0.58, 1);
-        width: 100%;
-      }
-    } */
-  }
-`;
-
-const Clients = () => {
+const Clients = ({ clientLogos }) => {
   const settings = {
     nextArrow: <SliderNextArrow />,
     prevArrow: <SliderPrevArrow />,
@@ -70,16 +43,35 @@ const Clients = () => {
         breakpoint: 600,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1,
-          arrows: false
+          slidesToScroll: 1
         }
       }
     ]
   };
+
+  const logos = clientLogos.map(logo => {
+    const { id, childImageSharp } = logo.node;
+    const { fixed } = childImageSharp;
+    return (
+      <Img
+        fixed={fixed}
+        key={id}
+        imgStyle={{
+          objectFit: "contain",
+          width: "80%",
+          height: "80%",
+          left: "50%",
+          marginLeft: "-40%",
+          top: "10px"
+        }}
+      />
+    );
+  });
   return (
     <Container>
-      <ClientsSlider {...settings}>
-        <Aapa />
+      <Slider {...settings}>
+        {logos}
+        {/* <Aapa />
         <AapaConference />
         <Atown />
         <BelleAndJames />
@@ -88,9 +80,10 @@ const Clients = () => {
         <MotleyFool />
         <RandS />
         <Riffa />
-        <TotalWine />
-      </ClientsSlider>
+        <TotalWine /> */}
+      </Slider>
     </Container>
   );
 };
+
 export default Clients;

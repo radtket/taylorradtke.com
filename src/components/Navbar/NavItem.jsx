@@ -83,7 +83,7 @@ const DownloadButton = styled.a`
 		}
 	`}
 
-  ${media.navbreak`
+  ${media.tablet`
     background: #333;
     border: 2px solid transparent;
     border-radius: 2.4rem;

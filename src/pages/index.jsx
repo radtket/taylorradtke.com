@@ -47,6 +47,24 @@ export const query = graphql`
         }
       }
     }
+    logos: allFile(
+      filter: {
+        relativeDirectory: { eq: "client-logos" }
+        extension: { regex: "/(jpeg|jpg|gif|png)/" }
+      }
+    ) {
+      edges {
+        node {
+          id
+          relativePath
+          childImageSharp {
+            fixed(height: 100, quality: 100) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+    }
     avitar: file(relativePath: { eq: "hero__avitar.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 1400, quality: 90) {
@@ -65,7 +83,8 @@ export const query = graphql`
 `;
 
 const IndexPage = ({ data }) => {
-  const { allJavascriptFrontmatter } = data;
+  const { allJavascriptFrontmatter, logos } = data;
+  const { edges: clientLogos } = logos;
   const { edges: articles } = allJavascriptFrontmatter;
   return (
     <Layout>
@@ -91,7 +110,7 @@ const IndexPage = ({ data }) => {
       <PageSection
         sectionNumber="4"
         sectionName="Clients"
-        sectionContent={<Clients />}
+        sectionContent={<Clients clientLogos={clientLogos} />}
       />
       <PageSection
         sectionNumber="5"

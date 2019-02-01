@@ -118,7 +118,7 @@ const Footer = () => (
         {", All Rights Reserved."}
       </Copyright>
       <FooterSocial>
-        {Object.keys(config.accounts).map((acc, i) => {
+        {Object.keys(config.accounts).map(acc => {
           const prop = {};
           prop[acc] = true;
           return (

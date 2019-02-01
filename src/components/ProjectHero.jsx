@@ -111,11 +111,17 @@ const SectionProjectHero = styled.section`
     z-index: 1;
   }
 
+  ${mediaMax.tablet`
+    /* Navbar Offset */
+    padding-top: 55px;
+	`};
+
   ${mediaMax.giant`
 		background-attachment: scroll;
 	`};
 
   ${Container} {
+    min-height: 600px;
     height: 100vh;
     width: 100%;
   }
