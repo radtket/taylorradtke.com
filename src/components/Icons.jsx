@@ -1,5 +1,5 @@
 import React from "react";
-import { css } from "@emotion/core";
+import { css } from "styled-components";
 import { blink, squeeze } from "../styles/Animations";
 
 export const PaginationPrev = () => (

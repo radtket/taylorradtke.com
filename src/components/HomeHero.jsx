@@ -1,6 +1,6 @@
 import React from "react";
 import Img from "gatsby-image";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import { Container } from "../styles/SharedStyles";
 import { BrandingSignature } from "./Logos";
 import { siteDescription, siteTitleAlt, siteTitle } from "../../config/website";

@@ -1,4 +1,4 @@
-import { keyframes } from "@emotion/core";
+import { keyframes } from "styled-components";
 
 export const blink = keyframes`
 	90% {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-scroll";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import PropTypes from "prop-types";
 
 import { media, mediaMax } from "../../../config/Breakpoints";

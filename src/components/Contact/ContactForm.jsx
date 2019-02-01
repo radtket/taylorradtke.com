@@ -1,6 +1,5 @@
 import React from "react";
-import { css } from "@emotion/core";
-import styled from "@emotion/styled";
+import styled, { css } from "styled-components";
 import { media } from "../../../config/Breakpoints";
 import SendAirplaneIcon from "../../../static/icons/icon__mail--send.svg";
 

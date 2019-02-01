@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 
 import { mediaMax } from "../../../config/Breakpoints";
 import { ScreenReaderText } from "../../styles/SharedStyles";

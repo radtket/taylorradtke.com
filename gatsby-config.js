@@ -60,7 +60,7 @@ module.exports = {
         ]
       }
     },
-    "gatsby-plugin-emotion",
+    "gatsby-plugin-styled-components",
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {

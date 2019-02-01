@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import { PaginationPrev, PaginationNext, PaginationHome } from "./Icons";
 import { mediaMax } from "../../config/Breakpoints";
 import { ScreenReaderTextCSS } from "../styles/SharedStyles";

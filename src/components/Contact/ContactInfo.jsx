@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "@emotion/styled";
+import styled from "styled-components";
 import { media, mediaMax } from "../../../config/Breakpoints";
 import { Envelope, Phone, Location } from "../Icons";
 import config from "../../../config/website";
