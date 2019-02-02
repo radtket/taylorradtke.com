@@ -15,26 +15,28 @@ const ContactForm = () => (
     <FormInput type="text" name="name" id="name" placeholder="Name" required />
 
     <FormInput
-      type="text"
-      name="email"
       id="email"
+      name="email"
       placeholder="Email"
       required
+      type="text"
     />
 
     <FormInput type="text" name="subject" id="subject" placeholder="Subject" />
 
     <FormTextArea
-      name="message"
       id="message"
-      rows="6"
+      name="message"
       placeholder="Message"
       required
+      rows="6"
+      type="text"
     />
 
     <SubmitButton
-      id="submit_btn"
       className="btn btn--icon"
+      id="submit_btn"
+      role="button"
       type="submit"
       value="Submit"
     >

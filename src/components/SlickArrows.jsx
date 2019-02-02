@@ -4,13 +4,25 @@ import PropTypes from "prop-types";
 import { ArrowLeft, ArrowRight } from "./Icons";
 
 export const SliderNextArrow = ({ className, style, onClick }) => (
-  <SlickArrow className={className} style={{ ...style }} onClick={onClick}>
+  <SlickArrow
+    className={className}
+    style={{ ...style }}
+    onClick={onClick}
+    type="button"
+    role="button"
+  >
     <ArrowRight />
   </SlickArrow>
 );
 
 export const SliderPrevArrow = ({ className, style, onClick }) => (
-  <SlickArrow className={className} style={{ ...style }} onClick={onClick}>
+  <SlickArrow
+    className={className}
+    style={{ ...style }}
+    onClick={onClick}
+    type="button"
+    role="button"
+  >
     <ArrowLeft />
   </SlickArrow>
 );

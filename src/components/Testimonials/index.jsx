@@ -8,7 +8,7 @@ import Testimonial from "./Testimonial";
 import avitarJon from "../../assets/images/testimonials/testimonial__jon.jpg";
 import avitarJimmy from "../../assets/images/testimonials/testimonial__jimmy.jpg";
 import avitarHenri from "../../assets/images/testimonials/testimonial__henri.jpg";
-import avitarMary from "../../assets/images/testimonials/testimonial__mary.jpeg";
+import avitarMary from "../../assets/images/testimonials/testimonial__mary.jpg";
 
 class Testimonials extends Component {
   render() {

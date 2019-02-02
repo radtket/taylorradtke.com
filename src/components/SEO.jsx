@@ -34,7 +34,7 @@ const SEO = ({ postNode, postPath, postSEO, pageSEO }) => {
 
   const schemaOrgJSONLD = [
     {
-      "@context": "http://schema.org",
+      "@context": "https://schema.org/",
       "@type": "WebSite",
       url: siteUrl,
       name: title,
@@ -43,7 +43,7 @@ const SEO = ({ postNode, postPath, postSEO, pageSEO }) => {
   ];
   if (postSEO) {
     schemaOrgJSONLD.push({
-      "@context": "http://schema.org",
+      "@context": "https://schema.org/",
       "@type": "BreadcrumbList",
       itemListElement: [
         {
@@ -67,7 +67,7 @@ const SEO = ({ postNode, postPath, postSEO, pageSEO }) => {
     });
 
     schemaOrgJSONLD.push({
-      "@context": "http://schema.org",
+      "@context": "https://schema.org/",
       "@type": "BlogPosting",
       url: postURL,
       name: title,
@@ -96,7 +96,7 @@ const SEO = ({ postNode, postPath, postSEO, pageSEO }) => {
 
   if (pageSEO) {
     schemaOrgJSONLD.push({
-      "@context": "http://schema.org",
+      "@context": "https://schema.org/",
       "@type": "BreadcrumbList",
       itemListElement: [
         {
@@ -112,7 +112,11 @@ const SEO = ({ postNode, postPath, postSEO, pageSEO }) => {
     });
   }
   return (
-    <Helmet>
+    <Helmet
+      htmlAttributes={{
+        lang: "en"
+      }}
+    >
       {/* Favicons */}
       <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" />
       <link

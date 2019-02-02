@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { media, mediaMax } from "../../config/Breakpoints";
 
 import config from "../../config/website";
-import { ContainerFull } from "../styles/SharedStyles";
+import { ContainerFull, ScreenReaderText } from "../styles/SharedStyles";
 import { IconGen } from "./Icons";
 
 const FooterWrap = styled.footer`
@@ -118,16 +118,17 @@ const Footer = () => (
         {", All Rights Reserved."}
       </Copyright>
       <FooterSocial>
-        {Object.keys(config.accounts).map(acc => {
+        {Object.keys(config.accounts).map(accountName => {
           const prop = {};
-          prop[acc] = true;
+          prop[accountName] = true;
           return (
-            <li key={acc}>
+            <li key={accountName}>
               <a
                 target="_blank"
                 rel="external nofollow noopener noreferrer"
-                href={config.accounts[acc]}
+                href={config.accounts[accountName]}
               >
+                <ScreenReaderText>{accountName}</ScreenReaderText>
                 <IconGen {...prop} />
               </a>
             </li>

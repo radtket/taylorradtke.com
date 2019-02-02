@@ -3,9 +3,10 @@ module.exports = {
   author: "Taylor Radtke",
   siteTitle: "Taylor Radtke | A Creative Mind", // Navigation and Site Title
   siteTitleAlt: "Taylor Radtke", // Alternative Site title for SEO
-  siteUrl: "https://taylorradtke.com", // Domain of your site. No trailing slash!
+  siteUrl: "https://www.taylorradtke.com", // Domain of your site. No trailing slash!
   siteLanguage: "en", // Language Tag on <html> element
   siteLogo: "static/branding/logo__primary.png", // Used for SEO and manifest
+  siteShortName: "taylorradtke",
   siteDescription: `Taylor Radtke is a creative mind who specializes in minimal design that displays a bold message. After three
 	plus years of marketing in the service industry, Taylor takes his social skills mastered from constructing
 	cocktails through college to creating a finished project that his client truly loves. A mastermind at social

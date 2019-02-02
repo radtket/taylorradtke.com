@@ -97,14 +97,23 @@ class Lightbox extends Component {
           <LightboxContent>
             <Img fluid={images[selectedImage].node.childImageSharp.fluid} />
             <Controls>
-              <Button onClick={this.closeModal}>Close</Button>
+              <Button onClick={this.closeModal} type="button" role="button">
+                Close
+              </Button>
               <LeftRight>
-                <Button onClick={this.goBack} disabled={selectedImage === 0}>
+                <Button
+                  onClick={this.goBack}
+                  disabled={selectedImage === 0}
+                  type="button"
+                  role="button"
+                >
                   Previous
                 </Button>
                 <Button
                   onClick={this.goForward}
                   disabled={selectedImage === images.length - 1}
+                  type="button"
+                  role="button"
                 >
                   Next
                 </Button>
