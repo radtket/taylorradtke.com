@@ -12,9 +12,17 @@ const ContactForm = () => (
   >
     <input type="hidden" name="bot-field" />
 
-    <FormInput type="text" name="name" id="name" placeholder="Name" required />
+    <FormInput
+      aria-label="Name"
+      id="name"
+      name="name"
+      placeholder="Name"
+      required
+      type="text"
+    />
 
     <FormInput
+      aria-label="Email"
       id="email"
       name="email"
       placeholder="Email"
@@ -22,9 +30,16 @@ const ContactForm = () => (
       type="text"
     />
 
-    <FormInput type="text" name="subject" id="subject" placeholder="Subject" />
+    <FormInput
+      aria-label="Subject"
+      id="subject"
+      name="subject"
+      placeholder="Subject"
+      type="text"
+    />
 
     <FormTextArea
+      aria-label="Message"
       id="message"
       name="message"
       placeholder="Message"
@@ -34,7 +49,7 @@ const ContactForm = () => (
     />
 
     <SubmitButton
-      className="btn btn--icon"
+      aria-label="Submit"
       id="submit_btn"
       role="button"
       type="submit"

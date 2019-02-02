@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { ArrowLeft, ArrowRight } from "./Icons";
+import { ScreenReaderText } from "../styles/SharedStyles";
 
 export const SliderNextArrow = ({ className, style, onClick }) => (
   <SlickArrow
@@ -11,6 +12,7 @@ export const SliderNextArrow = ({ className, style, onClick }) => (
     type="button"
     role="button"
   >
+    <ScreenReaderText>Next</ScreenReaderText>
     <ArrowRight />
   </SlickArrow>
 );
@@ -23,6 +25,7 @@ export const SliderPrevArrow = ({ className, style, onClick }) => (
     type="button"
     role="button"
   >
+    <ScreenReaderText>Previous</ScreenReaderText>
     <ArrowLeft />
   </SlickArrow>
 );

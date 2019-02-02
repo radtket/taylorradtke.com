@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { Link } from "gatsby";
-import { ContainerFull } from "../../styles/SharedStyles";
+import { ContainerFull, ScreenReaderText } from "../../styles/SharedStyles";
 import { BrandingLogo } from "../Logos";
 import { media, mediaMax } from "../../../config/Breakpoints";
 import { NavItem, NavItemButton } from "./NavItem";
@@ -102,6 +102,7 @@ class Navbar extends React.Component {
       <NavbarWrap className={visibility}>
         <ContainerFull className="container__full">
           <NavbarLogo to="/">
+            <ScreenReaderText>TR</ScreenReaderText>
             <BrandingLogo />
           </NavbarLogo>
 
