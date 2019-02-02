@@ -8,7 +8,7 @@ import { GreenCanLockers } from "../../components/Logos";
 export const frontmatter = {
   clientName: "Captain Jon's Green Can Lockers",
   companyUrl: "http://greencanlockers.com/",
-  date: "07-16-2016",
+  date: "07/16/2016",
   devOnly: false,
   excerpt: `Captain Jon's Green Can Locker's are a patented locking mechanism for ammunition based out of Southern California. Customers love the quality of the product and the ease of installation.`,
   githubRepoName: `green-can-lockers`,

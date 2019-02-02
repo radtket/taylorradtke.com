@@ -127,7 +127,7 @@ const SEO = ({ postNode, postPath, postSEO, pageSEO }) => {
         sizes="16x16"
         href="/favicons/favicon-16x16.png"
       />
-      <link rel="shortcut icon" href="favicon.ico" />
+      <link rel="shortcut icon" href="/favicons/favicon.ico" />
       <meta name="msapplication-TileColor" content={backgroundColor} />
       <meta name="msapplication-config" content="browserconfig.xml" />
 

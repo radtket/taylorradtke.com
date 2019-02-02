@@ -25,6 +25,9 @@ module.exports = {
   ogSiteName: "", // Facebook Site Name
   ogLanguage: "en_US", // Facebook Language
 
+  // Google Analytics
+  googleAnalyticsId: "UA-115162174-1",
+
   // Manifest and Progress color
   themeColor: "#c0a062",
   backgroundColor: "#fff",

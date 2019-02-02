@@ -8,7 +8,7 @@ import { Aapa } from "../../components/Logos";
 export const frontmatter = {
   clientName: "AAPA",
   companyUrl: "https://yourpacan.org/",
-  date: "02-05-2018",
+  date: "02/05/2018",
   devOnly: false,
   excerpt: `A Campaign by AAPA showing the "Your PA Can Handle It" With thousands of hours of medical training and a versatile skill set, PAs are expanding access to team-based care. When it comes to quality healthcare, your PA can handle it.`,
   githubRepoName: `your-pa-can`,

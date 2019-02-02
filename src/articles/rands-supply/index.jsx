@@ -4,12 +4,12 @@ import { Article, preparePosts } from "../../components/Article";
 import PageSection from "../../components/PageSection/PageSection";
 import BrandColors from "../../components/BrandColors";
 import { RandS } from "../../components/Logos";
-import Lightbox from "../../components/Lightbox";
+// import Lightbox from "../../components/Lightbox";
 
 export const frontmatter = {
   clientName: "R&S Supply",
   companyUrl: "http://randssupply.net/",
-  date: "08-01-2016",
+  date: "12/12/2017",
   devOnly: false,
   excerpt: `R&S Supply is one of America's largest wholesale distributor of roofing, siding, window and gutter materials, tools, and supplies. They approached me to evaluate their website, and was able to produce a complete branding and web redesign.`,
   githubRepoName: `rs-supply--pug`,
@@ -37,7 +37,8 @@ export default props => {
   const { data } = props;
   const { edges } = data.allFile;
   const { projectBrandColors, clientName, logo } = frontmatter;
-  console.log(edges);
+  // Lightbox
+  // console.log(edges);
   return (
     <Article {...props}>
       <PageSection

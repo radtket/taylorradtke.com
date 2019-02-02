@@ -29,6 +29,7 @@ const ProjectHero = ({
         <ProjectHeroTableCell>
           <ProjectHeroTitle>
             {projectName}
+            {/* <span>{moment(`${date}`).format("MMMM YYYY")}</span> */}
             <span>{moment(new Date(`${date}`)).format("MMMM YYYY")}</span>
           </ProjectHeroTitle>
           <ProjectHeroWrap>
