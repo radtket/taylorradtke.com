@@ -72,7 +72,7 @@ class Navbar extends React.Component {
     super(props, context);
 
     this.state = {
-      visible: false
+      visible: false,
     };
 
     this.handleMouseDown = this.handleMouseDown.bind(this);
@@ -87,7 +87,7 @@ class Navbar extends React.Component {
   toggleMenu() {
     const { visible } = this.state;
     this.setState({
-      visible: !visible
+      visible: !visible,
     });
   }
 
@@ -115,7 +115,7 @@ class Navbar extends React.Component {
               <NavItem text="experience" to="experience" />
               <NavItem text="works" to="works" />
               <NavItem text="Contact" to="contact" />
-              <NavItemButton text="Download CV" download={ResumePDF} />
+              <NavItemButton download={ResumePDF} text="Download CV" />
             </ul>
           </SiteNav>
         </ContainerFull>

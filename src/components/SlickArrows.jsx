@@ -7,10 +7,10 @@ import { ScreenReaderText } from "../styles/SharedStyles";
 export const SliderNextArrow = ({ className, style, onClick }) => (
   <SlickArrow
     className={className}
-    style={{ ...style }}
     onClick={onClick}
-    type="button"
     role="button"
+    style={{ ...style }}
+    type="button"
   >
     <ScreenReaderText>Next</ScreenReaderText>
     <ArrowRight />
@@ -20,10 +20,10 @@ export const SliderNextArrow = ({ className, style, onClick }) => (
 export const SliderPrevArrow = ({ className, style, onClick }) => (
   <SlickArrow
     className={className}
-    style={{ ...style }}
     onClick={onClick}
-    type="button"
     role="button"
+    style={{ ...style }}
+    type="button"
   >
     <ScreenReaderText>Previous</ScreenReaderText>
     <ArrowLeft />
@@ -31,19 +31,23 @@ export const SliderPrevArrow = ({ className, style, onClick }) => (
 );
 
 SliderNextArrow.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 SliderPrevArrow.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 SliderNextArrow.defaultProps = {
-  className: ""
+  className: "",
+  onClick: null,
 };
 
 SliderPrevArrow.defaultProps = {
-  className: ""
+  className: "",
+  onClick: null,
 };
 
 const SlickArrow = styled.button`

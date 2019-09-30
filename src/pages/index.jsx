@@ -2,21 +2,27 @@ import React from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
-import config from "../../config/website";
-import Navbar from "../components/Navbar/Navbar";
+// Config
+import { siteTitle } from "../../config/website";
 
+// Styles
 import "../styles/global.scss";
 import "../../node_modules/slick-carousel/slick/slick.scss";
-import HomeHero from "../components/HomeHero";
-import PageSection from "../components/PageSection/PageSection";
-import Skills from "../components/Skills";
-import Experience from "../components/Experience";
-import Contact from "../components/Contact";
-import Testimonials from "../components/Testimonials";
-import Clients from "../components/Clients";
-import Posts from "../components/Posts";
+
+// Compoents
+import {
+  Clients,
+  Contact,
+  Experience,
+  HomeHero,
+  Layout,
+  Navbar,
+  PageSection,
+  Posts,
+  SEO,
+  Skills,
+  Testimonials,
+} from "../components";
 
 export const query = graphql`
   query IndexQuery {
@@ -82,48 +88,45 @@ export const query = graphql`
   }
 `;
 
-const IndexPage = ({ data }) => {
-  const { allJavascriptFrontmatter, logos } = data;
-  const { edges: clientLogos } = logos;
-  const { edges: articles } = allJavascriptFrontmatter;
-  return (
-    <Layout>
-      <Helmet title={config.siteTitle} />
-      <SEO postEdges={articles} />
-      <Navbar />
-      <HomeHero heroImage={data.hero} avitar={data.avitar} />
-      <PageSection
-        sectionNumber="1"
-        sectionName="Skills"
-        sectionContent={<Skills />}
-      />
-      <PageSection
-        sectionNumber="2"
-        sectionName="Experience"
-        sectionContent={<Experience />}
-      />
-      <PageSection
-        sectionNumber="3"
-        sectionName="Works"
-        sectionContent={<Posts posts={articles} />}
-      />
-      <PageSection
-        sectionNumber="4"
-        sectionName="Clients"
-        sectionContent={<Clients clientLogos={clientLogos} />}
-      />
-      <PageSection
-        sectionNumber="5"
-        sectionName="Testimonials"
-        sectionContent={<Testimonials />}
-      />
-      <PageSection
-        sectionNumber="6"
-        sectionName="Contact"
-        sectionContent={<Contact />}
-      />
-    </Layout>
-  );
-};
+const IndexPage = ({
+  data: { allJavascriptFrontmatter, logos, avitar, hero: heroImage },
+}) => (
+  <Layout>
+    <Helmet title={siteTitle} />
+    <SEO postEdges={allJavascriptFrontmatter.edges} />
+    <Navbar />
+    <HomeHero {...{ avitar, heroImage }} />
+    <PageSection
+      sectionContent={<Skills />}
+      sectionName="Skills"
+      sectionNumber="1"
+    />
+    <PageSection
+      sectionContent={<Experience />}
+      sectionName="Experience"
+      sectionNumber="2"
+    />
+    <PageSection
+      sectionContent={<Posts posts={allJavascriptFrontmatter.edges} />}
+      sectionName="Works"
+      sectionNumber="3"
+    />
+    <PageSection
+      sectionContent={<Clients clientLogos={logos.edges} />}
+      sectionName="Clients"
+      sectionNumber="4"
+    />
+    <PageSection
+      sectionContent={<Testimonials />}
+      sectionName="Testimonials"
+      sectionNumber="5"
+    />
+    <PageSection
+      sectionContent={<Contact />}
+      sectionName="Contact"
+      sectionNumber="6"
+    />
+  </Layout>
+);
 
 export default IndexPage;

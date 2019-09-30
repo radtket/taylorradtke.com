@@ -17,7 +17,7 @@ const ProjectHero = ({
   githubRepoName,
   projectName,
   projectRole,
-  projectStack
+  projectStack,
 }) => (
   <SectionProjectHero className="project-hero">
     <ProjectHeroVideo autoPlay loop muted poster={videoPoster}>
@@ -54,9 +54,9 @@ const ProjectHero = ({
 
               <ProjectHeroButton
                 href={`//${userGithub}.github.io/${githubRepoName}`}
-                title={`View Site ${projectName}`}
-                target="_blank"
                 rel="noopener noreferrer"
+                target="_blank"
+                title={`View Site ${projectName}`}
               >
                 <AllSeeingEye />
                 <span>View Site</span>
@@ -64,9 +64,9 @@ const ProjectHero = ({
 
               <ProjectHeroButton
                 href={`//github.com/${userGithub}/${githubRepoName}`}
-                title={`View Repo ${projectName}`}
-                target="_blank"
                 rel="noopener noreferrer"
+                target="_blank"
+                title={`View Repo ${projectName}`}
               >
                 <AllSeeingEye />
                 <span>View Repo</span>
@@ -85,7 +85,7 @@ ProjectHero.propTypes = {
   githubRepoName: PropTypes.string.isRequired,
   projectName: PropTypes.string.isRequired,
   projectStack: PropTypes.string.isRequired,
-  projectRole: PropTypes.string.isRequired
+  projectRole: PropTypes.string.isRequired,
 };
 
 export default ProjectHero;

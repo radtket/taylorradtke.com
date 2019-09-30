@@ -2,75 +2,56 @@ import React from "react";
 import styled from "styled-components";
 import { media, mediaMax } from "../../../config/Breakpoints";
 import { Envelope, Phone, Location } from "../Icons";
-import config from "../../../config/website";
+import { phone, location, email } from "../../../config/website";
+import { formatPhoneNumber } from "../../utils/helpers";
 
-function formatPhoneNumber(phone) {
-  const phoneTest = new RegExp(
-    /^((\+1)|1)? ?\(?(\d{3})\)?[ .-]?(\d{3})[ .-]?(\d{4})( ?(ext\.? ?|x)(\d*))?$/
-  );
+const ContactInfo = () => (
+  <ContactWrap>
+    <ContactItem>
+      <ContactIconWrap>
+        <Phone />
+      </ContactIconWrap>
+      <ContactItemDetails>
+        <ContactItemKey>Phone</ContactItemKey>
+        <dd>
+          <ContactItemValue href={`tel:+${phone}`}>
+            {formatPhoneNumber(phone)}
+          </ContactItemValue>
+        </dd>
+      </ContactItemDetails>
+    </ContactItem>
 
-  phone.trim();
-  const results = phoneTest.exec(phone);
-  if (results !== null && results.length > 8) {
-    return `(${results[3]}) ${results[4]}-${results[5]}${
-      typeof results[8] !== "undefined" ? ` x${results[8]}` : ""
-    }`;
-  }
-  return phone;
-}
+    <ContactItem>
+      <ContactIconWrap>
+        <Location />
+      </ContactIconWrap>
+      <ContactItemDetails>
+        <ContactItemKey>Location</ContactItemKey>
+        <dd>
+          <ContactItemValue
+            href="https://goo.gl/maps/T7sBujABHYG2"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            {location}
+          </ContactItemValue>
+        </dd>
+      </ContactItemDetails>
+    </ContactItem>
 
-const ContactInfo = () => {
-  const { phone, location, email } = config;
-  return (
-    <ContactWrap>
-      <ContactItem>
-        <ContactIconWrap>
-          <Phone />
-        </ContactIconWrap>
-        <ContactItemDetails>
-          <ContactItemKey>Phone</ContactItemKey>
-          <dd>
-            <ContactItemValue href={`tel:+${phone}`}>
-              {formatPhoneNumber(phone)}
-            </ContactItemValue>
-          </dd>
-        </ContactItemDetails>
-      </ContactItem>
-
-      <ContactItem>
-        <ContactIconWrap>
-          <Location />
-        </ContactIconWrap>
-        <ContactItemDetails>
-          <ContactItemKey>Location</ContactItemKey>
-          <dd>
-            <ContactItemValue
-              href="https://goo.gl/maps/T7sBujABHYG2"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {location}
-            </ContactItemValue>
-          </dd>
-        </ContactItemDetails>
-      </ContactItem>
-
-      <ContactItem>
-        <ContactIconWrap>
-          <Envelope />
-        </ContactIconWrap>
-        <ContactItemDetails>
-          <ContactItemKey>Email</ContactItemKey>
-          <dd>
-            <ContactItemValue href={`mailto:${email}`}>
-              {email}
-            </ContactItemValue>
-          </dd>
-        </ContactItemDetails>
-      </ContactItem>
-    </ContactWrap>
-  );
-};
+    <ContactItem>
+      <ContactIconWrap>
+        <Envelope />
+      </ContactIconWrap>
+      <ContactItemDetails>
+        <ContactItemKey>Email</ContactItemKey>
+        <dd>
+          <ContactItemValue href={`mailto:${email}`}>{email}</ContactItemValue>
+        </dd>
+      </ContactItemDetails>
+    </ContactItem>
+  </ContactWrap>
+);
 
 export default ContactInfo;
 

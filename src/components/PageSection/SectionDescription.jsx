@@ -3,25 +3,6 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import { media } from "../../../config/Breakpoints";
 
-const SectionDescription = ({ sectionName, sectionNumber }) => (
-  <Description>
-    <SectionName>{sectionName}</SectionName>
-    <SectionNumber>{`0${sectionNumber}`}</SectionNumber>
-  </Description>
-);
-
-SectionDescription.propTypes = {
-  sectionName: PropTypes.string,
-  sectionNumber: PropTypes.string
-};
-
-SectionDescription.defaultProps = {
-  sectionName: "",
-  sectionNumber: ""
-};
-
-export default SectionDescription;
-
 const Description = styled.aside`
   width: calc(100% - 4.8rem);
   float: left;
@@ -71,3 +52,22 @@ const SectionNumber = styled.span`
   top: 0;
   z-index: 0;
 `;
+
+const SectionDescription = ({ sectionName, sectionNumber }) => (
+  <Description>
+    <SectionName>{sectionName}</SectionName>
+    <SectionNumber>{`0${sectionNumber}`}</SectionNumber>
+  </Description>
+);
+
+SectionDescription.propTypes = {
+  sectionName: PropTypes.string,
+  sectionNumber: PropTypes.string,
+};
+
+SectionDescription.defaultProps = {
+  sectionName: "",
+  sectionNumber: "",
+};
+
+export default SectionDescription;

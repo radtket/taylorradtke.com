@@ -147,14 +147,14 @@ const Post = ({ post }) => {
   const { projectName, devOnly, path, thumbnail } = post.node.frontmatter;
   const { fluid } = thumbnail.childImageSharp;
   return (
-    <Project to={path} className="works--item" key={path}>
+    <Project className="works--item" to={path}>
       {thumbnail && <Img fluid={fluid} />}
       <ProjectText>
         <ProjectName>{projectName}</ProjectName>
         <ProjectType>Website</ProjectType>
         <ZoomIcon />
       </ProjectText>
-      {devOnly ? <div className="dev-only">Dev Only</div> : null}
+      {devOnly && <div className="dev-only">Dev Only</div>}
     </Project>
   );
 };
@@ -169,8 +169,8 @@ Post.propTypes = {
         projectName: PropTypes.string,
         devOnly: PropTypes.bool,
         path: PropTypes.string,
-        thumbnail: PropTypes.object
-      })
-    })
-  }).isRequired
+        thumbnail: PropTypes.object,
+      }),
+    }),
+  }).isRequired,
 };

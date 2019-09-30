@@ -12,8 +12,8 @@ const Job = ({ start, end, company, companyUrl, position, location, desc }) => (
         <JobCompany>
           <a
             href={companyUrl}
-            target="_blank"
             rel="noopener noreferrer"
+            target="_blank"
             title={`${company} Website`}
           >
             {company}
@@ -36,7 +36,7 @@ Job.propTypes = {
   companyUrl: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired
+  desc: PropTypes.string.isRequired,
 };
 
 const TimeLineDot = styled.div`

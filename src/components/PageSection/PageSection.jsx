@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { media } from "../../../config/Breakpoints";
 import SectionDescription from "./SectionDescription";
 import { Container, Section } from "../../styles/SharedStyles";
-import { BrowserMockup } from "../Article";
+import BrowserMockup from "../../styles/BrowserMockup";
 
 const PageSection = ({ sectionName, sectionNumber, sectionContent }) => (
   <Section id={sectionName.toLowerCase()}>
@@ -20,12 +20,12 @@ const PageSection = ({ sectionName, sectionNumber, sectionContent }) => (
 
 PageSection.propTypes = {
   sectionName: PropTypes.string,
-  sectionNumber: PropTypes.string
+  sectionNumber: PropTypes.string,
 };
 
 PageSection.defaultProps = {
   sectionName: "",
-  sectionNumber: ""
+  sectionNumber: "",
 };
 
 export default PageSection;

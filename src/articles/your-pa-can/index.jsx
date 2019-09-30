@@ -1,9 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Article, preparePosts } from "../../components/Article";
+import Article from "../../components/Article";
 import PageSection from "../../components/PageSection/PageSection";
-import BrandColors from "../../components/BrandColors";
 import { Aapa } from "../../components/Logos";
+import { preparePosts } from "../../utils/helpers";
 
 export const frontmatter = {
   clientName: "AAPA",
@@ -20,7 +20,7 @@ export const frontmatter = {
   projectName: "Your PA Can",
   projectRole: "Design, Development",
   projectStack: "Bourbon, Neat, eCharts.js, Gulp",
-  thumbnail: "./yourpacan_cover.jpg"
+  thumbnail: "./yourpacan_cover.jpg",
 };
 
 export default props => {
@@ -30,20 +30,20 @@ export default props => {
   return (
     <Article {...props}>
       <PageSection
-        sectionNumber="1"
-        sectionName="Branding"
-        sectionContent={(
+        sectionContent={
           <BrandColors
             brandingColors={projectBrandColors}
             clientName={clientName}
             logo={logo}
           />
-)}
+        }
+        sectionName="Branding"
+        sectionNumber="1"
       />
       <PageSection
-        sectionNumber="2"
-        sectionName="Landing"
         sectionContent={preparePosts(edges, "your-pa-can/images/landing")}
+        sectionName="Landing"
+        sectionNumber="2"
       />
     </Article>
   );

@@ -96,12 +96,12 @@ video {
 }
 
 html {
-	box-sizing: border-box;
-	font-size: 62.5%;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
-	line-height: 1.15;
 	-ms-overflow-style: scrollbar;
+	box-sizing: border-box;
+	font-size: 62.5%;
+	line-height: 1.15;
 	overflow-x: hidden;
 	text-rendering: optimizeLegibility;
 }

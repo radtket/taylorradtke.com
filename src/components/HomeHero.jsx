@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Img from "gatsby-image";
 import styled from "styled-components";
 import { Container } from "../styles/SharedStyles";
@@ -134,7 +135,7 @@ const HomeHero = ({ heroImage, avitar }) => (
     className="hero"
     id="about"
     style={{
-      backgroundImage: `url(${heroImage.childImageSharp.fluid.src})`
+      backgroundImage: `url(${heroImage.childImageSharp.fluid.src})`,
     }}
   >
     <Container>
@@ -154,5 +155,20 @@ const HomeHero = ({ heroImage, avitar }) => (
     </Container>
   </HeroWrap>
 );
+
+HomeHero.propTypes = {
+  avitar: PropTypes.shape({
+    childImageSharp: PropTypes.shape({
+      fluid: PropTypes.object,
+    }),
+  }).isRequired,
+  heroImage: PropTypes.shape({
+    childImageSharp: PropTypes.shape({
+      fluid: PropTypes.shape({
+        src: PropTypes.string,
+      }),
+    }),
+  }).isRequired,
+};
 
 export default HomeHero;

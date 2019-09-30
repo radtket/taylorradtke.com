@@ -1,10 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Article, preparePosts } from "../../components/Article";
+import { Article, BrandColors } from "../../components";
 import PageSection from "../../components/PageSection/PageSection";
-import BrandColors from "../../components/BrandColors";
 import { RandS } from "../../components/Logos";
-// import Lightbox from "../../components/Lightbox";
+import { preparePosts } from "../../utils/helpers";
 
 export const frontmatter = {
   clientName: "R&S Supply",
@@ -25,12 +24,12 @@ export const frontmatter = {
     "#333333",
     "#61778B",
     "#354B5E",
-    "#0A2334"
+    "#0A2334",
   ],
   projectName: "R&S Supply",
   projectRole: "Design, Development",
   projectStack: "Gatsby, React, Bourbon, Neat",
-  thumbnail: "./rands-large.jpg"
+  thumbnail: "./rands-large.jpg",
 };
 
 export default props => {
@@ -42,25 +41,25 @@ export default props => {
   return (
     <Article {...props}>
       <PageSection
-        sectionNumber="1"
-        sectionName="Branding"
-        sectionContent={(
+        sectionContent={
           <BrandColors
             brandingColors={projectBrandColors}
             clientName={clientName}
             logo={logo}
           />
-)}
+        }
+        sectionName="Branding"
+        sectionNumber="1"
       />
       <PageSection
-        sectionNumber="2"
-        sectionName="Landing"
         sectionContent={preparePosts(edges, "rands-supply/images/landing")}
+        sectionName="Landing"
+        sectionNumber="2"
       />
       <PageSection
-        sectionNumber="3"
-        sectionName="Locations"
         sectionContent={preparePosts(edges, "rands-supply/images/locations")}
+        sectionName="Locations"
+        sectionNumber="3"
       />
     </Article>
   );

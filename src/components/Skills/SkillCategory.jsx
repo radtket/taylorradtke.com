@@ -6,7 +6,7 @@ import { media } from "../../../config/Breakpoints";
 import { HeadlineSecondary } from "../../styles/SharedStyles";
 
 const SkillCategory = ({ SkillHeadline, skillSet }) => (
-  <div>
+  <>
     <HeadlineSecondary>{SkillHeadline}</HeadlineSecondary>
     <SkillsList>
       {skillSet.map(skill => (
@@ -16,17 +16,17 @@ const SkillCategory = ({ SkillHeadline, skillSet }) => (
         </ListItem>
       ))}
     </SkillsList>
-  </div>
+  </>
 );
 
 SkillCategory.propTypes = {
   SkillHeadline: PropTypes.string,
-  skillSet: PropTypes.arrayOf(PropTypes.string)
+  skillSet: PropTypes.arrayOf(PropTypes.string),
 };
 
 SkillCategory.defaultProps = {
   SkillHeadline: "",
-  skillSet: [""]
+  skillSet: [""],
 };
 
 export default SkillCategory;

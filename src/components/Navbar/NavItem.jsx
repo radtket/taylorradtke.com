@@ -116,7 +116,7 @@ const DownloadButton = styled.a`
 
 export const NavItemButton = ({ download, text }) => (
   <NavListItem>
-    <DownloadButton href={download} download>
+    <DownloadButton download href={download}>
       {text}
     </DownloadButton>
   </NavListItem>
@@ -125,12 +125,12 @@ export const NavItemButton = ({ download, text }) => (
 export const NavItem = ({ to, text }) => (
   <NavListItem>
     <NavLink
-      to={to}
       activeClass="active"
-      spy
-      smooth
-      offset={-55}
       duration={500}
+      offset={-55}
+      smooth
+      spy
+      to={to}
     >
       {text}
     </NavLink>
@@ -139,20 +139,20 @@ export const NavItem = ({ to, text }) => (
 
 NavItem.propTypes = {
   to: PropTypes.string,
-  text: PropTypes.string
+  text: PropTypes.string,
 };
 
 NavItemButton.propTypes = {
   download: PropTypes.string,
-  text: PropTypes.string
+  text: PropTypes.string,
 };
 
 NavItem.defaultProps = {
   to: "#",
-  text: ""
+  text: "",
 };
 
 NavItemButton.defaultProps = {
   download: "",
-  text: ""
+  text: "",
 };

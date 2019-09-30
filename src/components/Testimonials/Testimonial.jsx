@@ -2,35 +2,35 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-const Testimonial = ({ avitar, name, company, testimonial }) => {
-  const testimonialBody = testimonial.map(item => <p key={item}>{item}</p>);
-
-  return (
-    <blockquote style={{ maxWidth: 700, margin: "auto" }}>
-      <figure style={{ textAlign: "center" }}>
-        <Avitar src={avitar} alt={`${name} of ${company}`} />
-      </figure>
-      <Quote>{testimonialBody}</Quote>
-      <Author>
-        {`- ${name}`}
-        <span>{company}</span>
-      </Author>
-    </blockquote>
-  );
-};
+const Testimonial = ({ avitar, name, company, testimonial }) => (
+  <blockquote style={{ maxWidth: 700, margin: "auto" }}>
+    <figure style={{ textAlign: "center" }}>
+      <Avitar alt={`${name} of ${company}`} src={avitar} />
+    </figure>
+    <Quote>
+      {testimonial.map(item => (
+        <p key={item}>{item}</p>
+      ))}
+    </Quote>
+    <Author>
+      {`- ${name}`}
+      <span>{company}</span>
+    </Author>
+  </blockquote>
+);
 
 export default Testimonial;
 
 Testimonial.propTypes = {
   avitar: PropTypes.string,
   name: PropTypes.string.isRequired,
-  company: PropTypes.string
+  company: PropTypes.string,
   // testimonial: PropTypes.arrayOf(PropTypes.string)
 };
 
 Testimonial.defaultProps = {
   avitar: "",
-  company: ""
+  company: "",
 };
 
 const Avitar = styled.img`

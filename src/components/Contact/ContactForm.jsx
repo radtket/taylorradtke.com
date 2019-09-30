@@ -5,12 +5,12 @@ import SendAirplaneIcon from "../../../static/icons/icon__mail--send.svg";
 
 const ContactForm = () => (
   <ContactFormWrap
-    name="contact"
-    method="post"
     data-netlify="true"
     data-netlify-honeypot="bot-field"
+    method="post"
+    name="contact"
   >
-    <input type="hidden" name="bot-field" />
+    <input name="bot-field" type="hidden" />
 
     <FormInput
       aria-label="Name"
@@ -82,7 +82,7 @@ const SubmitButton = styled.button`
   box-shadow: none;
   color: #ffffff;
   cursor: pointer;
-  display: inline-block;
+  display: block;
   float: right;
   font-size: 1.2rem;
   font-weight: 600;
@@ -98,7 +98,6 @@ const SubmitButton = styled.button`
   touch-action: manipulation;
   transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
   user-select: none;
-  vertical-align: middle;
   white-space: nowrap;
 
   &::before {

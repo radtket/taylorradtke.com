@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { media, mediaMax } from "../../config/Breakpoints";
 
-import config from "../../config/website";
+import { author, accounts } from "../../config/website";
 import { ContainerFull, ScreenReaderText } from "../styles/SharedStyles";
 import { IconGen } from "./Icons";
 
@@ -114,19 +114,19 @@ const Footer = () => (
     <ContainerFull>
       <Copyright>
         {`© ${new Date().getFullYear()} `}
-        <span>{config.author}</span>
+        <span>{author}</span>
         {", All Rights Reserved."}
       </Copyright>
       <FooterSocial>
-        {Object.keys(config.accounts).map(accountName => {
+        {Object.keys(accounts).map(accountName => {
           const prop = {};
           prop[accountName] = true;
           return (
             <li key={accountName}>
               <a
-                target="_blank"
+                href={accounts[accountName]}
                 rel="external nofollow noopener noreferrer"
-                href={config.accounts[accountName]}
+                target="_blank"
               >
                 <ScreenReaderText>{accountName}</ScreenReaderText>
                 <IconGen {...prop} />

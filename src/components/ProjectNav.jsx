@@ -66,13 +66,13 @@ const ProjectNav = ({ prev, next }) => (
       </Link>
     )}
 
-    <Link to="/#work" style={{ textAlign: "center" }}>
+    <Link style={{ textAlign: "center" }} to="/#work">
       <PaginationHome />
       <span style={{ marginLeft: "1rem" }}>All Works</span>
     </Link>
 
     {next && (
-      <Link to={next.node.frontmatter.path} style={{ textAlign: "right" }}>
+      <Link style={{ textAlign: "right" }} to={next.node.frontmatter.path}>
         <span style={{ marginRight: "1rem" }}>
           {next.node.frontmatter.projectName}
         </span>
@@ -90,22 +90,22 @@ ProjectNav.propTypes = {
       fileAbsolutePath: PropTypes.string,
       frontmatter: PropTypes.shape({
         clientName: PropTypes.string,
-        path: PropTypes.string
-      })
-    })
+        path: PropTypes.string,
+      }),
+    }),
   }),
   prev: PropTypes.shape({
     node: PropTypes.shape({
       fileAbsolutePath: PropTypes.string,
       frontmatter: PropTypes.shape({
         clientName: PropTypes.string,
-        path: PropTypes.string
-      })
-    })
-  })
+        path: PropTypes.string,
+      }),
+    }),
+  }),
 };
 
 ProjectNav.defaultProps = {
   next: null,
-  prev: null
+  prev: null,
 };

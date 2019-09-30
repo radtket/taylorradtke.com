@@ -1,9 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Article, preparePosts } from "../../components/Article";
+import { Article, BrandColors } from "../../components";
 import PageSection from "../../components/PageSection/PageSection";
-import BrandColors from "../../components/BrandColors";
 import { GreenCanLockers } from "../../components/Logos";
+import { preparePosts } from "../../utils/helpers";
 
 export const frontmatter = {
   clientName: "Captain Jon's Green Can Lockers",
@@ -20,7 +20,7 @@ export const frontmatter = {
   projectName: "Captain Jon",
   projectRole: "Design, Development",
   projectStack: "Bootstrap 3, Owl Carousel, jQuery",
-  thumbnail: "./green_can-large.jpg"
+  thumbnail: "./green_can-large.jpg",
 };
 
 export default props => {
@@ -30,20 +30,20 @@ export default props => {
   return (
     <Article {...props}>
       <PageSection
-        sectionNumber="1"
-        sectionName="Branding"
-        sectionContent={(
+        sectionContent={
           <BrandColors
             brandingColors={projectBrandColors}
             clientName={clientName}
             logo={logo}
           />
-)}
+        }
+        sectionName="Branding"
+        sectionNumber="1"
       />
       <PageSection
-        sectionNumber="2"
-        sectionName="Landing"
         sectionContent={preparePosts(edges, "green-can-lockers/images/landing")}
+        sectionName="Landing"
+        sectionNumber="2"
       />
     </Article>
   );

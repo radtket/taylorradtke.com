@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import { mediaMax } from "../../../config/Breakpoints";
@@ -102,9 +103,9 @@ const HamburgerBar = styled.span`
 const Hamburger = ({ handleMouseDown }) => (
   <HamburgerWrap
     className="hamburger"
-    type="button"
-    role="button"
     onMouseDown={handleMouseDown}
+    role="button"
+    type="button"
   >
     <HamburgerBox className="hamburger__box">
       <ScreenReaderText>Menu</ScreenReaderText>
@@ -112,5 +113,9 @@ const Hamburger = ({ handleMouseDown }) => (
     </HamburgerBox>
   </HamburgerWrap>
 );
+
+Hamburger.propTypes = {
+  handleMouseDown: PropTypes.func.isRequired,
+};
 
 export default Hamburger;

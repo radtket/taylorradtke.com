@@ -1,9 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Article, preparePosts } from "../../components/Article";
+import { Article, BrandColors } from "../../components";
 import PageSection from "../../components/PageSection/PageSection";
-import BrandColors from "../../components/BrandColors";
 import { AapaConference } from "../../components/Logos";
+import { preparePosts } from "../../utils/helpers";
 
 export const frontmatter = {
   clientName: "AAPA",
@@ -24,12 +24,12 @@ export const frontmatter = {
     "#ED3E7A",
     "#C9DA2A",
     "#999999",
-    "#202020"
+    "#202020",
   ],
   projectName: "AAPA 2018",
   projectRole: "Design, Development, CMS",
   projectStack: "Wordpress, Bourbon, Neat",
-  thumbnail: "./works-thumbnail-aapa.jpg"
+  thumbnail: "./works-thumbnail-aapa.jpg",
 };
 
 export default props => {
@@ -39,35 +39,35 @@ export default props => {
   return (
     <Article {...props}>
       <PageSection
-        sectionNumber="1"
-        sectionName="Branding"
-        sectionContent={(
+        sectionContent={
           <BrandColors
             brandingColors={projectBrandColors}
             clientName={clientName}
             logo={logo}
           />
-)}
+        }
+        sectionName="Branding"
+        sectionNumber="1"
       />
       <PageSection
-        sectionNumber="2"
-        sectionName="Home"
         sectionContent={preparePosts(edges, "aapa-conference/images/home")}
+        sectionName="Home"
+        sectionNumber="2"
       />
       <PageSection
-        sectionNumber="3"
-        sectionName="Events"
         sectionContent={preparePosts(edges, "aapa-conference/images/events")}
+        sectionName="Events"
+        sectionNumber="3"
       />
       <PageSection
-        sectionNumber="4"
-        sectionName="Tabs"
         sectionContent={preparePosts(edges, "aapa-conference/images/tabs")}
+        sectionName="Tabs"
+        sectionNumber="4"
       />
       <PageSection
-        sectionNumber="5"
-        sectionName="Contact"
         sectionContent={preparePosts(edges, "aapa-conference/images/contact")}
+        sectionName="Contact"
+        sectionNumber="5"
       />
     </Article>
   );

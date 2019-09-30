@@ -39,6 +39,6 @@ module.exports = {
     instagram: "https://instagram.com/taylor.radtke",
     linkedin: "https://linkedin.com/in/radtket/",
     codepen: "https://codepen.io/radtket/",
-    github: "https://github.com/radtket"
-  }
+    github: "https://github.com/radtket",
+  },
 };

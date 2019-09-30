@@ -1,17 +1,16 @@
 import React from "react";
 import Helmet from "react-helmet";
-import config from "../../config/website";
+import {
+  backgroundColor,
+  siteTitle,
+  siteTitleAlt,
+  siteUrl,
+  siteDescription,
+  userTwitter,
+  author,
+} from "../../config/website";
 
 const SEO = ({ postNode, postPath, postSEO, pageSEO }) => {
-  const {
-    backgroundColor,
-    siteTitle,
-    siteTitleAlt,
-    siteUrl,
-    siteDescription,
-    userTwitter,
-    author
-  } = config;
   let title;
   let description;
   let image;
@@ -38,8 +37,8 @@ const SEO = ({ postNode, postPath, postSEO, pageSEO }) => {
       "@type": "WebSite",
       url: siteUrl,
       name: title,
-      alternateName: siteTitleAlt
-    }
+      alternateName: siteTitleAlt,
+    },
   ];
   if (postSEO) {
     schemaOrgJSONLD.push({
@@ -51,8 +50,8 @@ const SEO = ({ postNode, postPath, postSEO, pageSEO }) => {
           position: 1,
           item: {
             "@id": `${siteUrl}/work`,
-            name: "Work"
-          }
+            name: "Work",
+          },
         },
         {
           "@type": "ListItem",
@@ -60,10 +59,10 @@ const SEO = ({ postNode, postPath, postSEO, pageSEO }) => {
           item: {
             "@id": postURL,
             name: title,
-            image
-          }
-        }
-      ]
+            image,
+          },
+        },
+      ],
     });
 
     schemaOrgJSONLD.push({
@@ -73,24 +72,24 @@ const SEO = ({ postNode, postPath, postSEO, pageSEO }) => {
       name: title,
       author: {
         "@type": "Person",
-        name: author
+        name: author,
       },
       publisher: {
         "@type": "Organization",
         name: siteTitle,
         logo: {
           "@type": "ImageObject",
-          url: `${config.siteUrl}/branding/logo__primary.png`
-        }
+          url: `${siteUrl}/branding/logo__primary.png`,
+        },
       },
       datePublished: postNode.date,
       alternateName: "",
       headline: postNode.clientName,
       image: {
         "@type": "ImageObject",
-        url: image
+        url: image,
       },
-      description
+      description,
     });
   }
 
@@ -105,40 +104,40 @@ const SEO = ({ postNode, postPath, postSEO, pageSEO }) => {
           item: {
             "@id": postURL,
             name: title,
-            image
-          }
-        }
-      ]
+            image,
+          },
+        },
+      ],
     });
   }
   return (
     <Helmet
       htmlAttributes={{
-        lang: "en"
+        lang: "en",
       }}
     >
       {/* Favicons */}
-      <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png" />
+      <link href="/favicons/apple-touch-icon.png" rel="apple-touch-icon" />
       <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
         href="/favicons/favicon-32x32.png"
+        rel="icon"
+        sizes="32x32"
+        type="image/png"
       />
       <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
         href="/favicons/favicon-16x16.png"
+        rel="icon"
+        sizes="16x16"
+        type="image/png"
       />
-      <link rel="shortcut icon" href="/favicons/favicon.ico" />
-      <meta name="msapplication-TileColor" content={backgroundColor} />
-      <meta name="msapplication-config" content="browserconfig.xml" />
+      <link href="/favicons/favicon.ico" rel="shortcut icon" />
+      <meta content={backgroundColor} name="msapplication-TileColor" />
+      <meta content="browserconfig.xml" name="msapplication-config" />
 
       {/* General tags */}
-      <meta name="description" content={description} />
-      <meta name="image" content={image} />
-      <link rel="canonical" href={postSEO ? postURL : siteUrl} />
+      <meta content={description} name="description" />
+      <meta content={image} name="image" />
+      <link href={postSEO ? postURL : siteUrl} rel="canonical" />
 
       {/* Schema.org tags */}
       <script type="application/ld+json">
@@ -146,18 +145,18 @@ const SEO = ({ postNode, postPath, postSEO, pageSEO }) => {
       </script>
 
       {/* OpenGraph tags */}
-      <meta property="og:url" content={postSEO ? postURL : siteUrl} />
-      {postSEO ? <meta property="og:type" content="article" /> : null}
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
+      <meta content={postSEO ? postURL : siteUrl} property="og:url" />
+      {postSEO ? <meta content="article" property="og:type" /> : null}
+      <meta content={title} property="og:title" />
+      <meta content={description} property="og:description" />
+      <meta content={image} property="og:image" />
 
       {/* Twitter Card tags */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content={userTwitter || ""} />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      <meta content="summary_large_image" name="twitter:card" />
+      <meta content={userTwitter || ""} name="twitter:creator" />
+      <meta content={title} name="twitter:title" />
+      <meta content={description} name="twitter:description" />
+      <meta content={image} name="twitter:image" />
     </Helmet>
   );
 };

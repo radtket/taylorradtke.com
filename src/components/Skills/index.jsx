@@ -35,7 +35,7 @@ const Skills = () => (
         "TypeScript",
         "Vue",
         "Webpack",
-        "Wordpress"
+        "Wordpress",
       ]}
     />
     <SkillCategory
@@ -54,7 +54,7 @@ const Skills = () => (
         "Sketch",
         "Vim",
         "VS Code",
-        "XD"
+        "XD",
       ]}
     />
     <SkillCategory
@@ -63,7 +63,7 @@ const Skills = () => (
         "Cisco Security - Green Belt",
         "Cisco Security - White Belt",
         "Paul Harris Fellow",
-        "Spot Award - 2017"
+        "Spot Award - 2017",
       ]}
     />
   </div>

@@ -6,7 +6,7 @@ import Img from "gatsby-image";
 class Lightbox extends Component {
   state = {
     showLightbox: false,
-    selectedImage: 0
+    selectedImage: 0,
   };
 
   componentDidMount = () => {
@@ -22,7 +22,7 @@ class Lightbox extends Component {
     const { showLightbox } = this.state;
     this.setState({
       showLightbox: !showLightbox,
-      selectedImage: index
+      selectedImage: index,
     });
   };
 
@@ -80,8 +80,8 @@ class Lightbox extends Component {
           {images.map((img, i) => (
             <GalleryItem key={img.node.childImageSharp.fluid.src}>
               <a
-                href={img.node.childImageSharp.fluid.src}
                 alt="Car Image"
+                href={img.node.childImageSharp.fluid.src}
                 onClick={e => this.handleClick(e, i)}
               >
                 <StyledImg fluid={img.node.childImageSharp.fluid} />
@@ -91,29 +91,29 @@ class Lightbox extends Component {
         </Gallery>
 
         <LightboxModal
-          visible={showLightbox}
           onKeyUp={e => this.handleKeyDown(e)}
+          visible={showLightbox}
         >
           <LightboxContent>
             <Img fluid={images[selectedImage].node.childImageSharp.fluid} />
             <Controls>
-              <Button onClick={this.closeModal} type="button" role="button">
+              <Button onClick={this.closeModal} role="button" type="button">
                 Close
               </Button>
               <LeftRight>
                 <Button
-                  onClick={this.goBack}
                   disabled={selectedImage === 0}
-                  type="button"
+                  onClick={this.goBack}
                   role="button"
+                  type="button"
                 >
                   Previous
                 </Button>
                 <Button
-                  onClick={this.goForward}
                   disabled={selectedImage === images.length - 1}
-                  type="button"
+                  onClick={this.goForward}
                   role="button"
+                  type="button"
                 >
                   Next
                 </Button>
@@ -196,7 +196,7 @@ const LeftRight = styled.div`
 `;
 
 Lightbox.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.object).isRequired
+  images: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Lightbox;

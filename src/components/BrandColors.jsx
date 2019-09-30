@@ -56,7 +56,7 @@ const BrandLogo = styled.figure`
 `;
 
 const BrandColors = ({ brandingColors, clientName, logo }) => (
-  <div>
+  <>
     <BrandLogo>{logo}</BrandLogo>
     <Wrap>
       {brandingColors.map(item => (
@@ -66,13 +66,13 @@ const BrandColors = ({ brandingColors, clientName, logo }) => (
         </BrandColorWrap>
       ))}
     </Wrap>
-  </div>
+  </>
 );
 
 BrandColors.propTypes = {
   clientName: PropTypes.string.isRequired,
   brandingColors: PropTypes.arrayOf(PropTypes.string).isRequired,
-  logo: PropTypes.element.isRequired
+  logo: PropTypes.element.isRequired,
 };
 
 export default BrandColors;

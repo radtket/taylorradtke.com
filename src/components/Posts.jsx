@@ -1,29 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import Post from "./Post";
 
-class Posts extends Component {
-  preparePosts = posts => {
-    const nodes = [];
-
-    posts.forEach(post => {
-      if (post.node.path !== "/404/") {
-        nodes.push(<Post key={post.node.frontmatter.path} post={post} />);
+const Posts = ({ posts }) => (
+  <div className="posts" id="work">
+    {posts.reduce((all, one) => {
+      if (one.node.path !== "/404/") {
+        all.push(<Post key={one.node.frontmatter.path} post={one} />);
       }
-    });
-
-    return nodes;
-  };
-
-  render() {
-    const { posts } = this.props;
-    return (
-      <div id="work" className="posts">
-        {this.preparePosts(posts)}
-      </div>
-    );
-  }
-}
+      return all;
+    }, [])}
+  </div>
+);
 
 Posts.propTypes = {
   posts: PropTypes.arrayOf(
@@ -32,11 +20,11 @@ Posts.propTypes = {
         frontmatter: PropTypes.shape({
           projectName: PropTypes.string,
           devOnly: PropTypes.bool,
-          path: PropTypes.string
-        })
-      })
+          path: PropTypes.string,
+        }),
+      }),
     })
-  ).isRequired
+  ).isRequired,
 };
 
 export default Posts;
