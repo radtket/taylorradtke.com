@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Article from "../../components/Article";
+import { Article, BrandColors } from "../../components";
 import PageSection from "../../components/PageSection/PageSection";
 import { Aapa } from "../../components/Logos";
 import { preparePosts } from "../../utils/helpers";

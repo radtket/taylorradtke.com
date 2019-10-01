@@ -3,7 +3,7 @@ const path = require(`path`);
 
 exports.onCreateBabelConfig = ({ actions }) => {
   actions.setBabelPlugin({
-    name: `babel-plugin-root-import`
+    name: `babel-plugin-root-import`,
   });
 };
 
@@ -22,7 +22,7 @@ exports.onCreatePage = ({ page, actions }) => {
   });
 };
 
-function getPagination(articles, article) {
+const getPagination = (articles, article) => {
   const index = articles.findIndex(
     a => a.node.frontmatter.path === article.node.frontmatter.path
   );
@@ -37,14 +37,11 @@ function getPagination(articles, article) {
     prevIndex = articles.length - 1;
   }
 
-  const nextArticle = articles[nextIndex];
-  const prevArticle = articles[prevIndex];
-
   return {
-    nextArticle,
-    prevArticle
+    nextArticle: articles[nextIndex],
+    prevArticle: articles[prevIndex],
   };
-}
+};
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -115,8 +112,8 @@ exports.createPages = ({ graphql, actions }) => {
             component: path.resolve(edge.node.fileAbsolutePath),
             context: {
               frontmatter,
-              ...pagination
-            }
+              ...pagination,
+            },
           });
         });
       })

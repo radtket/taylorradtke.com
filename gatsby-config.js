@@ -1,37 +1,47 @@
-const config = require("./config/website");
+const {
+  backgroundColor,
+  googleAnalyticsId,
+  pathPrefix: configPath,
+  siteDescription,
+  siteShortName,
+  siteTitle,
+  siteUrl,
+  themeColor,
+  userTwitter,
+} = require("./config/website");
 
-const pathPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix;
+const pathPrefix = configPath === "/" ? "" : configPath;
 
 module.exports = {
-  pathPrefix: config.pathPrefix,
+  pathPrefix: configPath,
   siteMetadata: {
-    title: config.siteTitle,
-    description: config.siteDescription,
-    author: config.userTwitter,
-    siteUrl: config.siteUrl + pathPrefix
+    title: siteTitle,
+    description: siteDescription,
+    author: userTwitter,
+    siteUrl: siteUrl + pathPrefix,
   },
   plugins: [
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`open sans:300,400,600,700`, `oswald:400`]
-      }
+        fonts: [`open sans:300,400,600,700`, `oswald:400`],
+      },
     },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `pages`,
-        path: `${__dirname}/src/pages`
-      }
+        path: `${__dirname}/src/pages`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `articles`,
-        path: `${__dirname}/src/articles`
-      }
+        path: `${__dirname}/src/articles`,
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -39,42 +49,42 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: config.siteTitle,
-        short_name: config.siteShortName,
-        description: config.siteDescription,
-        start_url: config.pathPrefix,
-        background_color: config.backgroundColor,
-        theme_color: config.themeColor,
+        name: siteTitle,
+        short_name: siteShortName,
+        description: siteDescription,
+        start_url: configPath,
+        background_color: backgroundColor,
+        theme_color: themeColor,
         display: `minimal-ui`,
         icons: [
           {
             src: "/favicons/android-chrome-192x192.png",
             sizes: "192x192",
-            type: "image/png"
+            type: "image/png",
           },
           {
             src: "/favicons/android-chrome-512x512.png",
             sizes: "512x512",
-            type: "image/png"
-          }
-        ]
-      }
+            type: "image/png",
+          },
+        ],
+      },
     },
     "gatsby-plugin-styled-components",
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {
         color: `black`,
-        showSpinner: false
-      }
+        showSpinner: false,
+      },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: config.googleAnalyticsId
-      }
+        trackingId: googleAnalyticsId,
+      },
     },
     "gatsby-plugin-offline",
-    "gatsby-plugin-netlify"
-  ]
+    "gatsby-plugin-netlify",
+  ],
 };
