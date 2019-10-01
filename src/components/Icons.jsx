@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { css } from "styled-components";
+import styled from "styled-components";
 import { blink, squeeze } from "../styles/Animations";
 
 export const PaginationPrev = () => (
@@ -99,16 +99,19 @@ export const Twitter = () => (
   </svg>
 );
 
+const AllSeeingEyeWrap = styled.svg`
+  margin: auto;
+
+  #eye {
+    animation: ${squeeze} 2.4s infinite;
+  }
+  #lid {
+    animation: ${blink} 2.4s infinite;
+  }
+`;
+
 export const AllSeeingEye = () => (
-  <svg
-    css={css`
-      margin: auto;
-    `}
-    height="100"
-    version="1.1"
-    viewBox="0 0 30 30"
-    width="100"
-  >
+  <AllSeeingEyeWrap height="100" version="1.1" viewBox="0 0 30 30" width="100">
     <defs>
       <path
         d="M0,15.089434 C0,16.3335929 5.13666091,24.1788679 14.9348958,24.1788679 C24.7325019,24.1788679 29.8697917,16.3335929 29.8697917,15.089434 C29.8697917,13.8456167 24.7325019,6 14.9348958,6 C5.13666091,6 0,13.8456167 0,15.089434 Z"
@@ -116,29 +119,17 @@ export const AllSeeingEye = () => (
       />
       <mask id="mask">
         <rect fill="white" height="100%" width="100%" />
-        <use
-          css={css`
-            animation: ${blink} 2.4s infinite;
-          `}
-          fill="black"
-          id="lid"
-          xlinkHref="#outline"
-        />
+        <use fill="black" id="lid" xlinkHref="#outline" />
       </mask>
     </defs>
-    <g
-      css={css`
-        animation: ${squeeze} 2.4s infinite;
-      `}
-      id="eye"
-    >
+    <g id="eye">
       <path
         d="M0,15.089434 C0,16.3335929 5.13666091,24.1788679 14.9348958,24.1788679 C24.7325019,24.1788679 29.8697917,16.3335929 29.8697917,15.089434 C29.8697917,13.8456167 24.7325019,6 14.9348958,6 C5.13666091,6 0,13.8456167 0,15.089434 Z M14.9348958,22.081464 C11.2690863,22.081464 8.29688487,18.9510766 8.29688487,15.089434 C8.29688487,11.2277914 11.2690863,8.09740397 14.9348958,8.09740397 C18.6007053,8.09740397 21.5725924,11.2277914 21.5725924,15.089434 C21.5725924,18.9510766 18.6007053,22.081464 14.9348958,22.081464 L14.9348958,22.081464 Z M18.2535869,15.089434 C18.2535869,17.0200844 16.7673289,18.5857907 14.9348958,18.5857907 C13.1018339,18.5857907 11.6162048,17.0200844 11.6162048,15.089434 C11.6162048,13.1587835 13.1018339,11.593419 14.9348958,11.593419 C15.9253152,11.593419 14.3271242,14.3639878 14.9348958,15.089434 C15.451486,15.7055336 18.2535869,14.2027016 18.2535869,15.089434 L18.2535869,15.089434 Z"
         fill="#050505"
       />
       <use fill="#111111" mask="url(#mask)" xlinkHref="#outline" />
     </g>
-  </svg>
+  </AllSeeingEyeWrap>
 );
 
 export const IconGen = ({ codepen, github, twitter, linkedin, instagram }) => {
