@@ -39,27 +39,20 @@ const Clients = ({ clientLogos }) => (
         ],
       }}
     >
-      {clientLogos.map(({ node }) => {
-        const {
-          id,
-          childImageSharp: { fixed },
-        } = node;
-
-        return (
-          <Img
-            key={id}
-            fixed={fixed}
-            imgStyle={{
-              objectFit: "contain",
-              width: "80%",
-              height: "80%",
-              left: "50%",
-              marginLeft: "-40%",
-              top: "10px",
-            }}
-          />
-        );
-      })}
+      {clientLogos.map(({ node: { id, childImageSharp: { fixed } } }) => (
+        <Img
+          key={id}
+          {...{ fixed }}
+          imgStyle={{
+            objectFit: "contain",
+            width: "80%",
+            height: "80%",
+            left: "50%",
+            marginLeft: "-40%",
+            top: "10px",
+          }}
+        />
+      ))}
     </Slider>
   </Container>
 );

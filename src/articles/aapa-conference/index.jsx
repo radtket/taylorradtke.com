@@ -42,8 +42,7 @@ export default props => {
         sectionContent={
           <BrandColors
             brandingColors={projectBrandColors}
-            clientName={clientName}
-            logo={logo}
+            {...{ clientName, logo }}
           />
         }
         sectionName="Branding"

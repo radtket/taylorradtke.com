@@ -130,7 +130,7 @@ const Signature = styled.figure`
   }
 `;
 
-const HomeHero = ({ heroImage, avitar }) => (
+const HomeHero = ({ heroImage, avitar: { childImageSharp } }) => (
   <HeroWrap
     className="hero"
     id="about"
@@ -150,7 +150,7 @@ const HomeHero = ({ heroImage, avitar }) => (
       </HeroProfile>
 
       <HeroImageWrap>
-        <Img fluid={avitar.childImageSharp.fluid} />
+        <Img {...childImageSharp} />
       </HeroImageWrap>
     </Container>
   </HeroWrap>

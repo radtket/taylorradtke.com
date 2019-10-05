@@ -114,26 +114,21 @@ const Footer = () => (
     <ContainerFull>
       <Copyright>
         {`© ${new Date().getFullYear()} `}
-        <span>{author}</span>
-        {", All Rights Reserved."}
+        <span>{author}</span>, All Rights Reserved.
       </Copyright>
       <FooterSocial>
-        {Object.keys(accounts).map(accountName => {
-          const prop = {};
-          prop[accountName] = true;
-          return (
-            <li key={accountName}>
-              <a
-                href={accounts[accountName]}
-                rel="external nofollow noopener noreferrer"
-                target="_blank"
-              >
-                <ScreenReaderText>{accountName}</ScreenReaderText>
-                <IconGen {...prop} />
-              </a>
-            </li>
-          );
-        })}
+        {Object.keys(accounts).map(accountName => (
+          <li key={accountName}>
+            <a
+              href={accounts[accountName]}
+              rel="external nofollow noopener noreferrer"
+              target="_blank"
+            >
+              <ScreenReaderText>{accountName}</ScreenReaderText>
+              {IconGen(accountName)}
+            </a>
+          </li>
+        ))}
       </FooterSocial>
     </ContainerFull>
   </FooterWrap>

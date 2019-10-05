@@ -10,32 +10,13 @@ import { siteTitleAlt } from "../../config/website";
 const Article = ({
   children,
   pageContext: { frontmatter, nextArticle, prevArticle },
-}) => {
-  const {
-    date,
-    excerpt,
-    githubRepoName,
-    path,
-    projectName,
-    projectRole,
-    projectStack,
-  } = frontmatter;
-  return (
-    <Layout>
-      <Helmet title={`${siteTitleAlt} | ${projectName}`} />
-      <SEO postNode={frontmatter} postPath={path} postSEO />
-      <ProjectNav next={nextArticle} prev={prevArticle} />
-      <ProjectHero
-        date={date}
-        excerpt={excerpt}
-        githubRepoName={githubRepoName}
-        projectName={projectName}
-        projectRole={projectRole}
-        projectStack={projectStack}
-      />
-      {children}
-    </Layout>
-  );
-};
-
+}) => (
+  <Layout>
+    <Helmet title={`${siteTitleAlt} | ${frontmatter.projectName}`} />
+    <SEO postNode={frontmatter} postPath={frontmatter.path} postSEO />
+    <ProjectNav next={nextArticle} prev={prevArticle} />
+    <ProjectHero {...frontmatter} />
+    {children}
+  </Layout>
+);
 export default Article;

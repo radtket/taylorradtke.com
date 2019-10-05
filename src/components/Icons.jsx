@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import { blink, squeeze } from "../styles/Animations";
 
@@ -132,37 +131,23 @@ export const AllSeeingEye = () => (
   </AllSeeingEyeWrap>
 );
 
-export const IconGen = ({ codepen, github, twitter, linkedin, instagram }) => {
-  if (github) {
-    return <GitHub />;
-  }
-  if (codepen) {
-    return <CodePen />;
-  }
-  if (twitter) {
-    return <Twitter />;
-  }
-  if (linkedin) {
-    return <LinkedIn />;
-  }
-  if (instagram) {
-    return <Instagram />;
-  }
-  return <span />;
-};
+export const IconGen = accountName => {
+  switch (accountName) {
+    case "github":
+      return <GitHub />;
+    case "codepen":
+      return <CodePen />;
 
-IconGen.propTypes = {
-  codepen: PropTypes.bool,
-  github: PropTypes.bool,
-  twitter: PropTypes.bool,
-  linkedin: PropTypes.bool,
-  instagram: PropTypes.bool,
-};
+    case "twitter":
+      return <Twitter />;
 
-IconGen.defaultProps = {
-  codepen: false,
-  github: false,
-  twitter: false,
-  linkedin: false,
-  instagram: false,
+    case "linkedin":
+      return <LinkedIn />;
+
+    case "instagram":
+      return <Instagram />;
+
+    default:
+      return null;
+  }
 };

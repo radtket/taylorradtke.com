@@ -9,10 +9,7 @@ import BrowserMockup from "../../styles/BrowserMockup";
 const PageSection = ({ sectionName, sectionNumber, sectionContent }) => (
   <Section id={sectionName.toLowerCase()}>
     <Container>
-      <SectionDescription
-        sectionName={sectionName}
-        sectionNumber={sectionNumber}
-      />
+      <SectionDescription {...{ sectionName, sectionNumber }} />
       <SectionContent>{sectionContent}</SectionContent>
     </Container>
   </Section>
