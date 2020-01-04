@@ -6,12 +6,12 @@ const NavItem = ({ to, text }) => {
   return (
     <StyledNavItem>
       <StyledNavLink
-        activeClass="active"
-        duration={500}
-        offset={-55}
-        smooth
-        spy
-        to={to}
+        activeClassName="active"
+        // duration={500}
+        // offset={-55}
+        // smooth
+        // spy
+        {...{ to }}
       >
         {text}
       </StyledNavLink>

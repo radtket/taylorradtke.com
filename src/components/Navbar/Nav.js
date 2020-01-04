@@ -11,11 +11,11 @@ const Nav = () => {
   return (
     <StyledNav>
       <ul>
-        <NavItem text="About" to="about" />
-        <NavItem text="Skills" to="skills" />
-        <NavItem text="Experience" to="experience" />
-        <NavItem text="Works" to="works" />
-        <NavItem text="Contact" to="contact" />
+        <NavItem text="About" to="/about" />
+        <NavItem text="Skills" to="/skills" />
+        <NavItem text="Experience" to="/experience" />
+        <NavItem text="Works" to="/works" />
+        <NavItem text="Contact" to="/contact" />
         <StyledNavItem>
           <StyledDownloadButton download href={ResumePDF}>
             Download CV
