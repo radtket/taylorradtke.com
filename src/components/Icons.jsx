@@ -39,3 +39,15 @@ export const CheckMark = () => (
     />
   </svg>
 );
+
+export const ArrowLeft = () => (
+  <svg viewBox="0 0 20 35" xmlns="https://www.w3.org/2000/svg">
+    <path d="M.7 15.8L15.8.7c1-1 2.5-1 3.5 0s1 2.5 0 3.5L5.9 17.5l13.4 13.3c1 1 1 2.5 0 3.5s-2.5 1-3.5 0L.7 19.3c-.9-1-.9-2.6 0-3.5z" />
+  </svg>
+);
+
+export const ArrowRight = () => (
+  <svg viewBox="0 0 20 35" xmlns="https://www.w3.org/2000/svg">
+    <path d="M19.3 19.2L4.2 34.3c-1 1-2.5 1-3.5 0s-1-2.5 0-3.5l13.4-13.3L.7 4.2c-1-1-1-2.5 0-3.5s2.5-1 3.5 0l15.1 15c.9 1 .9 2.6 0 3.5z" />
+  </svg>
+);
