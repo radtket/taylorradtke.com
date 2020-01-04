@@ -7,6 +7,7 @@ import Hero from "../components/Home/Hero";
 
 // Sections
 import Skills from "../components/Home/Skills";
+import Experience from "../components/Home/Experience";
 
 const IndexPage = () => {
   return (
@@ -15,6 +16,7 @@ const IndexPage = () => {
       <Navbar />
       <Hero />
       <Skills />
+      <Experience />
     </Layout>
   );
 };
