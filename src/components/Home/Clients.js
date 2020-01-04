@@ -2,7 +2,6 @@ import React from "react";
 import Slider from "react-slick";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
-import PageSection from "../PageSection";
 import { StyledContainer } from "../../styles/Shared";
 import SliderArrow from "../SliderArrow";
 
