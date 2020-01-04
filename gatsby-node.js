@@ -66,7 +66,7 @@ exports.createPages = ({ graphql, actions }) => {
                 node {
                   fileAbsolutePath
                   frontmatter {
-                    projectName
+                    clientName
                     companyUrl
                     date
                     excerpt

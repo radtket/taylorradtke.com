@@ -1,6 +1,9 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import LayoutPortfolio from "../../components/LayoutPortfolio";
+import BrandColors from "../../components/LayoutPortfolio/BrandColors";
+import PageSection from "../../components/PageSection";
+import { AapaConference } from "../../components/ClientLogos";
 
 export const frontmatter = {
   companyUrl: "https://www.aapa.org/",
@@ -21,13 +24,14 @@ export const frontmatter = {
     "#999999",
     "#202020",
   ],
+  clientName: "AAPA",
   projectName: "AAPA 2018",
   projectRole: "Design, Development, CMS",
   projectStack: "Wordpress, Bourbon, Neat",
   thumbnail: "./works-thumbnail-aapa.jpg",
 };
 
-const AAPA = props => {
+const AAPA = ({ pageContext, ...props }) => {
   const { screens } = useStaticQuery(graphql`
     query {
       screens: file(
@@ -43,10 +47,22 @@ const AAPA = props => {
   `);
 
   console.log({ props, screens });
+  const components = [
+    {
+      name: "Branding",
+      component: (
+        <BrandColors {...pageContext.frontmatter} logo={<AapaConference />} />
+      ),
+    },
+  ];
 
   return (
-    <LayoutPortfolio {...props}>
-      <h1>{frontmatter.title}</h1>
+    <LayoutPortfolio {...{ ...props, ...pageContext }}>
+      {components.map(({ name, component }, index) => (
+        <PageSection key={name} {...{ name, index }}>
+          {component}
+        </PageSection>
+      ))}
     </LayoutPortfolio>
   );
 };
