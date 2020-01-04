@@ -18,10 +18,16 @@ export const formatPhoneNumber = phone => {
 
 export const preparePosts = (availibleImages, sectionImagesPath) =>
   availibleImages
-    .sort((a, b) => (a.node.relativePath > b.node.relativePath ? 1 : -1))
+    .sort(({ node: { relativePath: a } }, { node: { relativePath: b } }) =>
+      a > b ? 1 : -1
+    )
     .reduce((all, { node }) => {
-      const { relativePath, id, childImageSharp } = node;
-      const { fluid } = childImageSharp;
+      const {
+        relativePath,
+        id,
+        childImageSharp: { fluid },
+      } = node;
+
       if (relativePath.includes(`${sectionImagesPath}`)) {
         all.push(<BrowserMockup key={id} fluid={fluid} />);
       }

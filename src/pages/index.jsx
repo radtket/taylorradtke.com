@@ -7,7 +7,7 @@ import { siteTitle } from "../../config/website";
 
 // Styles
 import "../styles/global.scss";
-import "../../node_modules/slick-carousel/slick/slick.scss";
+import "slick-carousel/slick/slick.scss";
 
 // Compoents
 import {

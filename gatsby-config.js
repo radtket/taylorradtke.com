@@ -55,7 +55,7 @@ module.exports = {
         start_url: configPath,
         background_color: backgroundColor,
         theme_color: themeColor,
-        display: `minimal-ui`,
+        display: `standalone`,
         icons: [
           {
             src: "/favicons/android-chrome-192x192.png",
