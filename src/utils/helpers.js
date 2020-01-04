@@ -16,3 +16,18 @@ export const slugify = string => {
     .replace(/^-+/, "") // Trim - from start of text
     .replace(/-+$/, ""); // Trim - from end of text
 };
+
+export const formatPhoneNumber = phone => {
+  const phoneTest = new RegExp(
+    /^((\+1)|1)? ?\(?(\d{3})\)?[ .-]?(\d{3})[ .-]?(\d{4})( ?(ext\.? ?|x)(\d*))?$/
+  );
+
+  phone.trim();
+  const results = phoneTest.exec(phone);
+  if (results !== null && results.length > 8) {
+    return `(${results[3]}) ${results[4]}-${results[5]}${
+      typeof results[8] !== "undefined" ? ` x${results[8]}` : ""
+    }`;
+  }
+  return phone;
+};

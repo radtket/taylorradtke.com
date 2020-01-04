@@ -12,6 +12,7 @@ import Skills from "../components/Home/Skills";
 import Experience from "../components/Home/Experience";
 import Clients from "../components/Home/Clients";
 import Testimonials from "../components/Home/Testimonials";
+import Contact from "../components/Home/Contact";
 
 const IndexPage = () => {
   const components = [
@@ -19,6 +20,7 @@ const IndexPage = () => {
     { name: "Experience", component: <Experience /> },
     { name: "Clients", component: <Clients /> },
     { name: "Testimonials", component: <Testimonials /> },
+    { name: "Contact", component: <Contact /> },
   ];
   return (
     <Layout>

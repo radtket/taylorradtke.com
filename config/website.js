@@ -18,9 +18,11 @@ module.exports = {
 	his mind continue to share the beauty of digital`,
 
   // Contact Info
-  location: "Washington, DC",
-  email: "taylorradtke@gmail.com",
-  phone: "18049297374",
+  contact: {
+    city: "Washington, DC",
+    email: "taylorradtke@gmail.com",
+    phone: "18049297374",
+  },
 
   userGithub: "radtket",
   userTwitter: "@taylor_radtke", // Twitter Username

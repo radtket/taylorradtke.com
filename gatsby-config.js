@@ -10,6 +10,7 @@ const {
   userTwitter,
   name,
   accounts,
+  contact,
 } = require("./config/website");
 
 const pathPrefix = configPath === "/" ? "" : configPath;
@@ -23,6 +24,7 @@ module.exports = {
     siteUrl: siteUrl + pathPrefix,
     name,
     accounts,
+    contact,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
