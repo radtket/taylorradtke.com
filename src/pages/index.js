@@ -13,15 +13,18 @@ import Experience from "../components/Home/Experience";
 import Clients from "../components/Home/Clients";
 import Testimonials from "../components/Home/Testimonials";
 import Contact from "../components/Home/Contact";
+import Works from "../components/Home/Works";
+
+const components = [
+  { name: "Skills", component: <Skills /> },
+  { name: "Experience", component: <Experience /> },
+  { name: "Clients", component: <Clients /> },
+  { name: "Works", component: <Works /> },
+  { name: "Testimonials", component: <Testimonials /> },
+  { name: "Contact", component: <Contact /> },
+];
 
 const IndexPage = () => {
-  const components = [
-    { name: "Skills", component: <Skills /> },
-    { name: "Experience", component: <Experience /> },
-    { name: "Clients", component: <Clients /> },
-    { name: "Testimonials", component: <Testimonials /> },
-    { name: "Contact", component: <Contact /> },
-  ];
   return (
     <Layout>
       <SEO title="Home" />
