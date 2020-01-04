@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import Footer from "./Footer";
+import GlobalStyles from "../styles/GlobalStyles";
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,6 +26,7 @@ const Layout = ({ children }) => {
 
   return (
     <main>
+      <GlobalStyles />
       {children}
       <Footer {...data.site.siteMetadata} />
     </main>
