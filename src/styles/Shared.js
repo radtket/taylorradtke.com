@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { StyledSection } from "./Section";
 
 export const ScreenReaderTextCSS = `
   border: 0;
@@ -13,32 +14,6 @@ export const ScreenReaderTextCSS = `
 
 export const ScreenReaderText = styled.span`
   ${ScreenReaderTextCSS}
-`;
-
-export const Section = styled.section`
-  background-attachment: fixed;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-bottom: 1px solid #dddddd;
-  box-sizing: border-box;
-  display: block;
-  overflow: hidden;
-  padding: 140px 0;
-  position: relative;
-  width: 100%;
-
-  @media only screen and (max-width: 1024px) {
-    padding: 120px 0;
-  }
-
-  @media only screen and (max-width: 768px) {
-    padding: 80px 0;
-  }
-
-  @media only screen and (max-width: 480px) {
-    padding: 60px 0;
-  }
 `;
 
 // Typography
@@ -61,7 +36,7 @@ export const StyledContainer = styled.div`
     content: "";
     display: block;
   }
-  ${Section} {
+  ${StyledSection} {
     &:last-child {
       border-bottom: 0;
     }
@@ -80,7 +55,7 @@ export const StyledContainerFull = styled.div`
     content: "";
     display: block;
   }
-  ${Section} {
+  ${StyledSection} {
     &:last-child {
       border-bottom: 0;
     }

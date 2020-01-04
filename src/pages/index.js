@@ -1,10 +1,12 @@
 import React from "react";
-import { Link } from "gatsby";
 
 import SEO from "../components/examples/seo";
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Home/Hero";
+
+// Sections
+import Skills from "../components/Home/Skills";
 
 const IndexPage = () => {
   return (
@@ -12,7 +14,7 @@ const IndexPage = () => {
       <SEO title="Home" />
       <Navbar />
       <Hero />
-      <Link to="/page-2/">Go to page 2</Link>
+      <Skills />
     </Layout>
   );
 };
