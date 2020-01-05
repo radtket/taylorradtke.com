@@ -33,12 +33,11 @@ const getPagination = (articles, article) => {
   );
 
   let nextIndex = index + 1;
-  let prevIndex = index - 1;
-
   if (nextIndex === articles.length) {
     nextIndex = 0;
   }
 
+  let prevIndex = index - 1;
   if (prevIndex < 0) {
     prevIndex = articles.length - 1;
   }

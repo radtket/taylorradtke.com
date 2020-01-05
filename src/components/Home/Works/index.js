@@ -14,14 +14,10 @@ const Works = () => {
         edges {
           node {
             frontmatter {
-              date
-              excerpt
-              githubRepoName
               clientName
-              projectName
+              devOnly
               path
-              projectRole
-              projectStack
+              projectName
               thumbnail {
                 childImageSharp {
                   fluid(maxWidth: 720, quality: 100) {

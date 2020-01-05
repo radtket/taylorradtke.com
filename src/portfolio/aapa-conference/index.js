@@ -4,6 +4,7 @@ import LayoutPortfolio from "../../components/LayoutPortfolio";
 import BrandColors from "../../components/LayoutPortfolio/BrandColors";
 import PageSection from "../../components/PageSection";
 import { AapaConference } from "../../components/ClientLogos";
+import BrowserMockupList from "../../styles/Portfolio/BrowserMockupList";
 
 export const frontmatter = {
   companyUrl: "https://www.aapa.org/",
@@ -32,27 +33,103 @@ export const frontmatter = {
 };
 
 const AAPA = ({ pageContext, ...props }) => {
-  const { screens } = useStaticQuery(graphql`
+  const { home, events, tabs, contact } = useStaticQuery(graphql`
     query {
-      screens: file(
-        relativePath: { eq: "aapa-conference/works-thumbnail-aapa.jpg" }
+      home: allFile(
+        filter: {
+          sourceInstanceName: { eq: "portfolio" }
+          relativeDirectory: { eq: "aapa-conference/images/home" }
+        }
       ) {
-        childImageSharp {
-          fluid(maxWidth: 1400, quality: 90) {
-            ...GatsbyImageSharpFluid_withWebp
+        edges {
+          node {
+            id
+            childImageSharp {
+              fluid(maxWidth: 2000) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+      events: allFile(
+        filter: {
+          sourceInstanceName: { eq: "portfolio" }
+          relativeDirectory: { eq: "aapa-conference/images/events" }
+        }
+      ) {
+        edges {
+          node {
+            id
+            childImageSharp {
+              fluid(maxWidth: 2000) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+      tabs: allFile(
+        filter: {
+          sourceInstanceName: { eq: "portfolio" }
+          relativeDirectory: { eq: "aapa-conference/images/tabs" }
+        }
+      ) {
+        edges {
+          node {
+            id
+            childImageSharp {
+              fluid(maxWidth: 2000) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+      contact: allFile(
+        filter: {
+          sourceInstanceName: { eq: "portfolio" }
+          relativeDirectory: { eq: "aapa-conference/images/contact" }
+        }
+      ) {
+        edges {
+          node {
+            id
+            childImageSharp {
+              fluid(maxWidth: 2000) {
+                ...GatsbyImageSharpFluid
+              }
+            }
           }
         }
       }
     }
   `);
 
-  console.log({ props, screens });
+  console.log({ props });
+
   const components = [
     {
       name: "Branding",
       component: (
         <BrandColors {...pageContext.frontmatter} logo={<AapaConference />} />
       ),
+    },
+    {
+      name: "Home",
+      component: <BrowserMockupList {...home} />,
+    },
+    {
+      name: "Events",
+      component: <BrowserMockupList {...events} />,
+    },
+    {
+      name: "Tabs",
+      component: <BrowserMockupList {...tabs} />,
+    },
+    {
+      name: "Contact",
+      component: <BrowserMockupList {...contact} />,
     },
   ];
 

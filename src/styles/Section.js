@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { media } from "./utils";
-import StyledBrowserMockup from "./BrowserMockup";
+import StyledBrowserMockup from "./Portfolio/BrowserMockup";
 
 export const StyledSection = styled.section`
   background-attachment: fixed;
