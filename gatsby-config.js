@@ -28,6 +28,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    "gatsby-plugin-styled-components",
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
@@ -65,12 +66,12 @@ module.exports = {
         name: siteTitle,
         short_name: siteShortName,
         description: siteDescription,
-        start_url: configPath,
         // start_url: `/`,
+        start_url: configPath,
         background_color: backgroundColor,
         theme_color: themeColor,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/favicons/mstile-144x144.png`,
       },
     },
     {
@@ -79,8 +80,7 @@ module.exports = {
         trackingId: googleAnalyticsId,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    "gatsby-plugin-offline",
+    "gatsby-plugin-netlify",
   ],
 };

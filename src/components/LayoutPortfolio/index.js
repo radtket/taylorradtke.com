@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Layout from "../Layout";
 import PortfolioNav from "./PortfolioNav";
 import ProjectHero from "./ProjectHero";
+// import SEO from "../SEO";
 
 const LayoutPortfolio = ({
   children,
@@ -41,18 +42,22 @@ LayoutPortfolio.propTypes = {
       projectRole: PropTypes.string,
       projectStack: PropTypes.string,
     }),
-    nextArticle: {
-      frontmatter: PropTypes.shape({
-        projectName: PropTypes.string,
-        path: PropTypes.string,
+    nextArticle: PropTypes.shape({
+      node: PropTypes.shape({
+        frontmatter: PropTypes.shape({
+          projectName: PropTypes.string,
+          path: PropTypes.string,
+        }),
       }),
-    },
-    prevArticle: {
-      frontmatter: PropTypes.shape({
-        projectName: PropTypes.string,
-        path: PropTypes.string,
+    }),
+    prevArticle: PropTypes.shape({
+      node: PropTypes.shape({
+        frontmatter: PropTypes.shape({
+          projectName: PropTypes.string,
+          path: PropTypes.string,
+        }),
       }),
-    },
+    }),
   }).isRequired,
 };
 
