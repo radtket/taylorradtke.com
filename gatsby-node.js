@@ -92,19 +92,24 @@ exports.createPages = ({ graphql, actions }) => {
       srcSetWebp
       sizes
     }
-  `).then(result => {
-    const articles = result.data.allJavascriptFrontmatter.edges;
-    articles.forEach(edge => {
-      const { frontmatter } = edge.node;
-      const pagination = getPagination(articles, edge);
-      createPage({
-        path: `${edge.node.frontmatter.path}`,
-        component: path.resolve(edge.node.fileAbsolutePath),
-        context: {
-          frontmatter,
-          ...pagination,
-        },
+  `)
+    .then(result => {
+      const articles = result.data.allJavascriptFrontmatter.edges;
+      articles.forEach(edge => {
+        const { frontmatter } = edge.node;
+        const pagination = getPagination(articles, edge);
+        createPage({
+          path: `${edge.node.frontmatter.path}`,
+          component: path.resolve(edge.node.fileAbsolutePath),
+          context: {
+            frontmatter,
+            ...pagination,
+          },
+        });
       });
+    })
+    .catch(err => {
+      console.log(err);
+      console.log(err.message);
     });
-  });
 };
