@@ -108,8 +108,6 @@ const AapaConference = ({ pageContext, ...props }) => {
     }
   `);
 
-  console.log({ props });
-
   const components = [
     {
       name: "Branding",

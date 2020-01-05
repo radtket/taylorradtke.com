@@ -32,9 +32,7 @@ const Works = () => {
     }
   `);
 
-  console.log({ edges });
   return edges.reduce((all, { node: { frontmatter } }) => {
-    console.log({ frontmatter });
     if (frontmatter.path !== "/404/") {
       all.push(<WorkCard key={frontmatter.path} {...frontmatter} />);
     }

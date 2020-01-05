@@ -8,8 +8,7 @@ import {
   StyledBrandLogo,
 } from "../../styles/Portfolio/BrandColors";
 
-const BrandColors = ({ projectBrandColors, clientName, logo, ...props }) => {
-  console.log({ props, clientName });
+const BrandColors = ({ projectBrandColors, clientName, logo }) => {
   return (
     <>
       <StyledBrandLogo>{logo}</StyledBrandLogo>
