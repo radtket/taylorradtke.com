@@ -2,7 +2,9 @@ import styled from "styled-components";
 import { media, mediaMax } from "./utils";
 
 export const StyledFooter = styled.footer`
-  background-color: #fff;
+  background-color: ${({ theme }) => {
+    return theme.colors.primary || "#fff";
+  }};
   text-align: center;
 
   &::after {

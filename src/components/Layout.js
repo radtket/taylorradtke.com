@@ -2,14 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import Footer from "./Footer";
 import GlobalStyles from "../styles/GlobalStyles";
+import Theme from "../styles/Theme";
 
 const Layout = ({ children }) => {
   return (
-    <main>
-      <GlobalStyles />
-      {children}
-      <Footer />
-    </main>
+    <Theme>
+      <main>
+        <GlobalStyles />
+        {children}
+        <Footer />
+      </main>
+    </Theme>
   );
 };
 
