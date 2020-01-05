@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
 import { media, mediaMax } from "../utils";
-import SendAirplaneIcon from "../../../static/icons/icon__mail--send.svg";
 
 export const StyledContactForm = styled.form`
   max-width: 500px;
@@ -40,20 +39,12 @@ export const StyledSubmitButton = styled.button`
   user-select: none;
   white-space: nowrap;
 
-  &::before {
-    background-image: url(${SendAirplaneIcon});
-    background-position: 50% !important;
-    background-repeat: no-repeat !important;
-    background-size: contain !important;
-    content: "";
-    display: inline-block;
+  svg {
     height: 1.2rem;
-    margin-right: 0.6rem;
     position: relative;
-    top: -1px;
-    transition: all 0.2s ease-out;
-    vertical-align: middle;
-    width: 16px;
+    top: 1px;
+    margin-right: 0.6rem;
+    fill: #fff;
   }
 
   &:hover,

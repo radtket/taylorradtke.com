@@ -5,6 +5,7 @@ import {
   StyledSubmitButton,
   StyledFormTextArea,
 } from "../../../styles/Home/Contact";
+import { IconAirplaneSend } from "../../Icons";
 
 const ContactForm = () => {
   return (
@@ -59,6 +60,7 @@ const ContactForm = () => {
         type="submit"
         value="Submit"
       >
+        <IconAirplaneSend />
         Submit
       </StyledSubmitButton>
     </StyledContactForm>

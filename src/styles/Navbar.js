@@ -3,9 +3,6 @@ import { Link } from "gatsby";
 import { media, mediaMax } from "./utils";
 import theme from "../../config/theme";
 
-//! FIX: Make native svg
-import resumeIcon from "../../static/icons/icon__resume-download.svg";
-
 export const StyledNavbar = styled.header`
   background-color: rgba(255, 255, 255, 0.97);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
@@ -250,19 +247,12 @@ export const StyledDownloadButton = styled.a`
       background: #222;
     }
 
-    &::before {
-      background-position: center center!important;
-      background-repeat: no-repeat!important;
-      background-size: contain!important;
-      //! FIX: Make native svg
-      background: url(${resumeIcon});
-      content: "";
-      display: block;
-      float: left;
+    svg {
       height: 1.2rem;
-      margin-right: .6rem;
-      transition: all .2s cubic-bezier(0,0,.58,1);
-      width: 1.6rem;
+      position: relative;
+      top: 1px;
+      margin-right: 0.6rem;
+      fill: #fff;
     }
   `};
 `;

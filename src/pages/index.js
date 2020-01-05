@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Helmet from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
 import "slick-carousel/slick/slick.css";
 
 import SEO from "../components/SEO";
@@ -25,9 +27,25 @@ const components = [
 ];
 
 const IndexPage = () => {
+  const {
+    site: {
+      siteMetadata: { title },
+    },
+  } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+          }
+        }
+      }
+    `
+  );
   return (
     <Layout>
-      <SEO title="Home" />
+      <Helmet {...{ title }} />
+      <SEO />
       <Navbar />
       <Hero />
       {components.map(({ name, component }, index) => (

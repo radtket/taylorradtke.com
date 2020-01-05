@@ -1,30 +1,34 @@
+const urljoin = require("url-join");
 const {
+  accounts,
   backgroundColor,
+  contact,
   googleAnalyticsId,
-  pathPrefix: configPath,
+  name,
+  pathPrefix,
   siteDescription,
+  siteLogo,
   siteShortName,
   siteTitle,
+  siteTitleAlt,
   siteUrl,
   themeColor,
   userTwitter,
-  name,
-  accounts,
-  contact,
 } = require("./config/website");
 
-const pathPrefix = configPath === "/" ? "" : configPath;
-
 module.exports = {
-  pathPrefix: configPath,
+  pathPrefix,
   siteMetadata: {
     title: siteTitle,
     description: siteDescription,
     author: userTwitter,
-    siteUrl: siteUrl + pathPrefix,
+    siteUrl: urljoin(siteUrl, pathPrefix),
     name,
     accounts,
     contact,
+    siteLogo,
+    siteTitleAlt,
+    backgroundColor,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -66,8 +70,7 @@ module.exports = {
         name: siteTitle,
         short_name: siteShortName,
         description: siteDescription,
-        // start_url: `/`,
-        start_url: configPath,
+        start_url: pathPrefix,
         background_color: backgroundColor,
         theme_color: themeColor,
         display: `minimal-ui`,

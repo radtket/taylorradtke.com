@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Helmet from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
 import Layout from "../Layout";
 import PortfolioNav from "./PortfolioNav";
 import ProjectHero from "./ProjectHero";
-// import SEO from "../SEO";
+import SEO from "../SEO";
 
 const LayoutPortfolio = ({
   children,
@@ -17,8 +19,24 @@ const LayoutPortfolio = ({
     },
   },
 }) => {
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            name
+          }
+        }
+      }
+    `
+  );
+
   return (
     <Layout>
+      <Helmet
+        title={`${site.siteMetadata.name} |  ${frontmatter.projectName}`}
+      />
+      <SEO isPost postNode={frontmatter} />
       <ProjectHero {...frontmatter} />
       <PortfolioNav {...{ next, prev }} />
       {children}

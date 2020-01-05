@@ -6,6 +6,7 @@ import {
 } from "../../styles/Navbar";
 import NavItem from "./NavItem";
 import ResumePDF from "../../assets/resume/taylor-radtke--resume.pdf";
+import { IconResume } from "../Icons";
 
 const Nav = () => {
   return (
@@ -18,6 +19,7 @@ const Nav = () => {
         <NavItem text="Contact" to="/contact" />
         <StyledNavItem>
           <StyledDownloadButton download href={ResumePDF}>
+            <IconResume />
             Download CV
           </StyledDownloadButton>
         </StyledNavItem>
