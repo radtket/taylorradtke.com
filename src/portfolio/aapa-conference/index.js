@@ -1,12 +1,14 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import LayoutPortfolio from "../../components/LayoutPortfolio";
 import BrandColors from "../../components/LayoutPortfolio/BrandColors";
 import PageSection from "../../components/PageSection";
-import { AapaConference } from "../../components/ClientLogos";
+import { LogoAapaConference } from "../../components/ClientLogos";
 import BrowserMockupList from "../../styles/Portfolio/BrowserMockupList";
 
 export const frontmatter = {
+  clientName: "AAPA",
   companyUrl: "https://www.aapa.org/",
   date: "11/28/2017",
   devOnly: false,
@@ -14,6 +16,7 @@ export const frontmatter = {
   githubRepoName: `aapa-conference-2018`,
   id: "aapaconference",
   isWork: true,
+  logo: <LogoAapaConference />,
   path: "/work/aapa-conference",
   projectBrandColors: [
     "#6B478E",
@@ -25,14 +28,13 @@ export const frontmatter = {
     "#999999",
     "#202020",
   ],
-  clientName: "AAPA",
   projectName: "AAPA 2018",
   projectRole: "Design, Development, CMS",
   projectStack: "Wordpress, Bourbon, Neat",
   thumbnail: "./works-thumbnail-aapa.jpg",
 };
 
-const AAPA = ({ pageContext, ...props }) => {
+const AapaConference = ({ pageContext, ...props }) => {
   const { home, events, tabs, contact } = useStaticQuery(graphql`
     query {
       home: allFile(
@@ -112,7 +114,10 @@ const AAPA = ({ pageContext, ...props }) => {
     {
       name: "Branding",
       component: (
-        <BrandColors {...pageContext.frontmatter} logo={<AapaConference />} />
+        <BrandColors
+          {...pageContext.frontmatter}
+          logo={<LogoAapaConference />}
+        />
       ),
     },
     {
@@ -134,7 +139,7 @@ const AAPA = ({ pageContext, ...props }) => {
   ];
 
   return (
-    <LayoutPortfolio {...{ ...props, ...pageContext }}>
+    <LayoutPortfolio {...{ ...props, pageContext }}>
       {components.map(({ name, component }, index) => (
         <PageSection key={name} {...{ name, index }}>
           {component}
@@ -144,4 +149,22 @@ const AAPA = ({ pageContext, ...props }) => {
   );
 };
 
-export default AAPA;
+AapaConference.propTypes = {
+  pageContext: PropTypes.shape({
+    frontmatter: PropTypes.shape({
+      clientName: PropTypes.string,
+      companyUrl: PropTypes.string,
+      date: PropTypes.string,
+      excerpt: PropTypes.string,
+      githubRepoName: PropTypes.string,
+      id: PropTypes.string,
+      path: PropTypes.string,
+      projectBrandColors: PropTypes.arrayOf(PropTypes.string),
+      projectName: PropTypes.string,
+      projectRole: PropTypes.string,
+      projectStack: PropTypes.string,
+    }),
+  }).isRequired,
+};
+
+export default AapaConference;

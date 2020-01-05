@@ -4,15 +4,13 @@ import { Link } from "gatsby";
 import StyledPortfolioNav from "../../styles/Portfolio/PortfolioNav";
 import { PaginationPrev, PaginationNext, PaginationHome } from "../Icons";
 
-const PortfolioNav = ({ nextLayoutPortfolio, prevLayoutPortfolio }) => {
+const PortfolioNav = ({ next, prev }) => {
   return (
     <StyledPortfolioNav>
-      {prevLayoutPortfolio && (
-        <Link to={prevLayoutPortfolio.node.frontmatter.path}>
+      {prev && (
+        <Link to={prev.path}>
           <PaginationPrev />
-          <span style={{ marginLeft: "1rem" }}>
-            {prevLayoutPortfolio.node.frontmatter.projectName}
-          </span>
+          <span style={{ marginLeft: "1rem" }}>{prev.projectName}</span>
         </Link>
       )}
 
@@ -21,14 +19,9 @@ const PortfolioNav = ({ nextLayoutPortfolio, prevLayoutPortfolio }) => {
         <span style={{ marginLeft: "1rem" }}>All Works</span>
       </Link>
 
-      {nextLayoutPortfolio && (
-        <Link
-          style={{ textAlign: "right" }}
-          to={nextLayoutPortfolio.node.frontmatter.path}
-        >
-          <span style={{ marginRight: "1rem" }}>
-            {nextLayoutPortfolio.node.frontmatter.projectName}
-          </span>
+      {next && (
+        <Link style={{ textAlign: "right" }} to={next.path}>
+          <span style={{ marginRight: "1rem" }}>{next.projectName}</span>
           <PaginationNext />
         </Link>
       )}
@@ -37,29 +30,19 @@ const PortfolioNav = ({ nextLayoutPortfolio, prevLayoutPortfolio }) => {
 };
 
 PortfolioNav.propTypes = {
-  nextLayoutPortfolio: PropTypes.shape({
-    node: PropTypes.shape({
-      fileAbsolutePath: PropTypes.string,
-      frontmatter: PropTypes.shape({
-        projectName: PropTypes.string,
-        path: PropTypes.string,
-      }),
-    }),
+  next: PropTypes.shape({
+    projectName: PropTypes.string,
+    path: PropTypes.string,
   }),
-  prevLayoutPortfolio: PropTypes.shape({
-    node: PropTypes.shape({
-      fileAbsolutePath: PropTypes.string,
-      frontmatter: PropTypes.shape({
-        projectName: PropTypes.string,
-        path: PropTypes.string,
-      }),
-    }),
+  prev: PropTypes.shape({
+    projectName: PropTypes.string,
+    path: PropTypes.string,
   }),
 };
 
 PortfolioNav.defaultProps = {
-  nextLayoutPortfolio: null,
-  prevLayoutPortfolio: null,
+  next: null,
+  prev: null,
 };
 
 export default PortfolioNav;

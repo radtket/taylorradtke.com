@@ -4,11 +4,22 @@ import Layout from "../Layout";
 import PortfolioNav from "./PortfolioNav";
 import ProjectHero from "./ProjectHero";
 
-const LayoutPortfolio = ({ children, frontmatter }) => {
+const LayoutPortfolio = ({
+  children,
+  pageContext: {
+    frontmatter,
+    nextArticle: {
+      node: { frontmatter: next },
+    },
+    prevArticle: {
+      node: { frontmatter: prev },
+    },
+  },
+}) => {
   return (
     <Layout>
       <ProjectHero {...frontmatter} />
-      <PortfolioNav {...frontmatter} />
+      <PortfolioNav {...{ next, prev }} />
       {children}
     </Layout>
   );
