@@ -1,7 +1,7 @@
 import React from "react";
 import "slick-carousel/slick/slick.css";
 
-import SEO from "../components/examples/seo";
+import SEO from "../components/SEO";
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Home/Hero";
