@@ -116,8 +116,8 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    color: #333333;
-    font-family: "Open Sans", sans-serif;
+    color: ${({ theme }) => theme.colors.grey[100]};
+    font-family:  ${({ theme }) => theme.font.family.primary};
     font-size: 1.6em;
     font-weight: 400;
     line-height: 1.5;
@@ -143,8 +143,8 @@ const GlobalStyles = createGlobalStyle`
   h4,
   h5,
   h6 {
-    font-family: Oswald, sans-serif;
-    font-size: 16px;
+    font-family:  ${({ theme }) => theme.font.family.secondary};
+    font-size: 1.6rem;
     font-weight: 400;
     margin: 0;
     text-transform: uppercase;

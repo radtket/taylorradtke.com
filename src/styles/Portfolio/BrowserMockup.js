@@ -2,20 +2,25 @@ import styled from "styled-components";
 import Img from "gatsby-image";
 
 const StyledBrowserMockup = styled(Img)`
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: ${({ theme }) => `0 20px 40px  ${theme.colors.shadows.black[30]},
+    0 15px 12px ${theme.colors.shadows.black[20]}`};
   margin-bottom: 60px;
 
   @media only screen and (min-width: 600px) {
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 8px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: ${({
+      theme,
+    }) => `0 10px 20px  ${theme.colors.shadows.black[30]},
+    0 8px 6px ${theme.colors.shadows.black[20]}`};
+
     display: block;
     margin-bottom: 120px;
     overflow: visible !important;
     &::before {
-      background: #ddd;
+      background: ${({ theme }) => theme.colors.grey[500]};
       border-top-left-radius: 3px;
       border-top-right-radius: 3px;
       border: 1px solid;
-      color: #999;
+      color: ${({ theme }) => theme.colors.grey[200]};
       content: "● ● ●";
       display: block;
       font-size: 1.5em;
@@ -29,7 +34,7 @@ const StyledBrowserMockup = styled(Img)`
   > div {
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid ${({ theme }) => theme.colors.shadows.black[20]};
     border-top: 0;
     overflow: hidden;
     position: relative;

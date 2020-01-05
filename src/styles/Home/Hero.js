@@ -53,7 +53,7 @@ export const StyledHeroProfile = styled.article`
   > p {
     font-weight: 300;
     text-align: left;
-    color: #dddddd;
+    color: ${({ theme }) => theme.colors.grey[500]};
 
     @media only screen and (min-width: 600px) {
       text-align: justify;
@@ -61,14 +61,14 @@ export const StyledHeroProfile = styled.article`
   }
 
   h1 {
-    color: #ffffff;
+    color: ${({ theme }) => theme.colors.common.white};
     font-size: 2.4rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
 
   h3 {
-    color: #c0a062;
+    color: ${({ theme }) => theme.colors.primary.main};
     font-size: 2rem;
     letter-spacing: 0.3rem;
     margin-bottom: 2.4rem;
@@ -109,7 +109,7 @@ export const StyledSignature = styled.figure`
   text-align: right;
 
   svg {
-    fill: #c0a062;
+    fill: ${({ theme }) => theme.colors.primary.main};
     display: inline-block;
     height: 100px;
     vertical-align: middle;
@@ -117,7 +117,7 @@ export const StyledSignature = styled.figure`
   }
 
   figcaption {
-    color: #666666;
+    color: ${({ theme }) => theme.colors.grey[300]};
     font-size: 1.2rem;
     font-weight: 600;
     letter-spacing: 0.1em;

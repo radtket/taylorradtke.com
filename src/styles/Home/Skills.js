@@ -1,20 +1,16 @@
 import styled from "styled-components";
+import { clearFix } from "polished";
 import { media } from "../utils";
 
 export const StyledSkillsList = styled.ul`
   margin-bottom: 2.4rem;
   display: block;
-
-  &::after {
-    clear: both;
-    content: "";
-    display: block;
-  }
+  ${clearFix()}
 `;
 
 export const StyledSkillsListItem = styled.li`
-  color: #666;
-  font-family: Oswald, sans-serif;
+  color: ${({ theme }) => theme.colors.grey[300]};
+  font-family: ${({ theme }) => theme.font.family.secondary};
   font-size: 1.4rem;
   letter-spacing: 0.1em;
   margin-bottom: 1.2rem;

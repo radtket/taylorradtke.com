@@ -1,30 +1,30 @@
 import styled from "styled-components";
+import { position, size } from "polished";
 
+// eslint-disable-next-line import/prefer-default-export
 export const StyledSliderArrow = styled.button`
+  ${position("absolute", "50%", null, null, null)};
+  ${size("24px")};
   background: transparent;
   border-radius: 2px;
-  border: 1px solid #333;
+  border: 1px solid ${({ theme }) => theme.colors.grey[100]};
   cursor: pointer;
   display: block;
   font-size: 0;
-  height: 24px;
   line-height: 0;
   outline: 0;
   padding: 0;
-  position: absolute;
   text-align: center;
-  top: 50%;
   transform: translate(0, -50%);
-  width: 24px;
 
   &:hover {
-    background: #333;
+    background: ${({ theme }) => theme.colors.grey[100]};
     color: transparent;
     outline: none;
 
     svg {
       opacity: 1;
-      fill: #fff;
+      fill: ${({ theme }) => theme.colors.common.white};
     }
   }
 

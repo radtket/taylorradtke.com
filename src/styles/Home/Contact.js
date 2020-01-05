@@ -1,36 +1,38 @@
 import styled, { css } from "styled-components";
+import { clearFix, size, padding, position, margin } from "polished";
 import { media, mediaMax } from "../utils";
+import { useSpacing } from "../Theme";
 
 export const StyledContactForm = styled.form`
   max-width: 500px;
-  margin: auto auto 1.2rem auto;
+  margin: auto auto ${useSpacing(1)} auto;
 
   ${media.tablet`
 		float: right;
 		width: calc(100% - 300px);
-		margin-left: 2.4rem;
+		margin-left: ${useSpacing(2)};
 		max-width: 100%;
 	`};
 `;
 
 export const StyledSubmitButton = styled.button`
   appearance: none;
-  background: #333333;
-  border-radius: 2.4rem;
+  background: ${({ theme }) => theme.colors.grey[100]};
+  border-radius: ${useSpacing(2)};
   border: 2px solid transparent;
   box-shadow: none;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.common.white};
   cursor: pointer;
   display: block;
   float: right;
-  font-size: 1.2rem;
+  font-size: ${useSpacing(1)};
   font-weight: 600;
   letter-spacing: 0.1em;
   line-height: 1;
-  margin: 6px 0 0 0;
+  margin: ${useSpacing(0.5)} 0 0 0;
   outline: 0;
   overflow: visible;
-  padding: 1.2rem 2.4rem;
+  padding: ${useSpacing(1)} ${useSpacing(2)};
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
@@ -40,18 +42,18 @@ export const StyledSubmitButton = styled.button`
   white-space: nowrap;
 
   svg {
-    height: 1.2rem;
+    height: ${useSpacing(1)};
     position: relative;
     top: 1px;
-    margin-right: 0.6rem;
-    fill: #fff;
+    margin-right: ${useSpacing(0.5)};
+    fill: ${({ theme }) => theme.colors.common.white};
   }
 
   &:hover,
   &:focus {
     border-color: transparent;
-    color: rgba(255, 255, 255, 0.85);
-    background-color: rgba(0, 0, 0, 0.7);
+    color: ${({ theme }) => theme.colors.shadows.white[85]};
+    background-color: ${({ theme }) => theme.colors.shadows.black[70]};
     box-shadow: none;
     outline: 0;
   }
@@ -72,39 +74,36 @@ export const StyledSubmitButton = styled.button`
 `;
 
 export const InputStyles = css`
+  ${size("38px", "100%")};
   appearance: none;
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.colors.common.white};
   background-image: none;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid ${({ theme }) => theme.colors.shadows.black[20]};
   border-radius: 0;
-  box-shadow: inset 0 1px 3px rgba(16, 16, 16, 0.06);
-  color: #999999;
+  box-shadow: inset 0 1px 3px ${({ theme }) => theme.colors.shadows.dark[6]};
+  color: ${({ theme }) => theme.colors.grey[200]};
   display: inline-block;
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.2rem;
-  height: 38px;
+  font-family: ${({ theme }) => theme.font.family.primary};
+  font-size: ${useSpacing(1)};
   letter-spacing: 0.05rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: ${useSpacing(1)};
   outline: 0;
-  padding: 0.6rem 1.2rem;
+  padding: ${padding(useSpacing(0.5), useSpacing(1))};
   transition: all 150ms ease;
   vertical-align: middle;
-  width: 100%;
+
   &:hover {
-    border-color: #999999;
+    border-color: ${({ theme }) => theme.colors.grey[200]};
   }
 
   &:focus {
-    border-color: #333;
+    border-color: ${({ theme }) => theme.colors.grey[100]};
     box-shadow: 0 0 3px hsla(0, 0%, 6%, 0.3);
-    color: #333;
+    color: ${({ theme }) => theme.colors.grey[100]};
     outline: 0;
   }
 
-  &:-ms-input-placeholder {
-    text-transform: uppercase;
-  }
-
+  &:-ms-input-placeholder,
   &::placeholder {
     text-transform: uppercase;
   }
@@ -116,9 +115,8 @@ export const StyledFormInput = styled.input`
 
 export const StyledFormTextArea = styled.textarea`
   ${InputStyles};
+  ${padding("0.8rem", null)};
   min-height: 114px;
-  padding-bottom: 0.8rem;
-  padding-top: 0.8rem;
   resize: vertical;
 `;
 
@@ -131,13 +129,8 @@ export const StyledContactWrap = styled.ul`
 `;
 
 export const StyledContactItem = styled.li`
-  margin-bottom: 2.4rem;
-
-  &::after {
-    clear: both;
-    content: "";
-    display: block;
-  }
+  margin-bottom: ${useSpacing(2)};
+  ${clearFix()}
 `;
 
 export const StyledContactIconWrap = styled.figure`
@@ -147,35 +140,29 @@ export const StyledContactIconWrap = styled.figure`
   width: 4.8rem;
 
   ${media.tablet`
-		border-left: 1px solid rgba(0, 0, 0, 0.2);
+		border-left: 1px solid ${({ theme }) => theme.colors.shadows.black[20]};
 		display: inline-block;
 		float: right;
-		margin-left: 1.2rem;
+		margin-left: ${useSpacing(1)};
 	`};
 
   ${mediaMax.tablet`
-		border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-		margin-bottom: 0.4rem;
-		margin-left: auto;
-		margin-right: auto;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.shadows.black[20]};
+    ${margin(null, "auto", "0.4rem")};
 	`};
 
   > svg {
-    fill: #333;
-    height: 100%;
-    left: 0;
+    ${size("100%", "50%")}
+    ${position("relative", 0, null, null, 0)};
+    fill: ${({ theme }) => theme.colors.grey[100]};
     max-width: 16px;
-    position: relative;
-    top: 0;
     transition: all 0.27s cubic-bezier(0.3, 0.1, 0.58, 1);
-    width: 50%;
   }
 `;
 
 export const StyledContactItemDetails = styled.dl`
-  color: #999;
-  padding-bottom: 0.6rem;
-  padding-top: 0.6rem;
+  color: ${({ theme }) => theme.colors.grey[200]};
+  padding: ${padding(useSpacing(0.5), null, useSpacing(0.5), null)};
   text-align: center;
 
   ${media.tablet`
@@ -186,14 +173,14 @@ export const StyledContactItemDetails = styled.dl`
 `;
 
 export const StyledContactItemKey = styled.dt`
-  font-size: 1.2rem;
-  margin-bottom: 0.6rem;
+  font-size: ${useSpacing(1)};
   font-weight: 600;
   letter-spacing: 0.1em;
+  margin-bottom: ${useSpacing(0.5)};
   text-transform: uppercase;
 `;
 
 export const StyledContactItemValue = styled.a`
-  color: #666;
+  color: ${({ theme }) => theme.colors.grey[300]};
   margin-bottom: 0;
 `;

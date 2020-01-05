@@ -31,7 +31,7 @@ export const StyledQuote = styled.div`
 export const StyledAuthor = styled.cite`
   margin-right: 0.6rem;
   text-align: right;
-  color: #666;
+  color: ${({ theme }) => theme.colors.grey[300]};
   display: block;
   font-size: 1.2rem;
   font-weight: 600;

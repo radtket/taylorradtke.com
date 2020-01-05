@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { media } from "../utils";
 
 export const StyledTimeLineDot = styled.div`
-  background: #c0a062;
+  background: ${({ theme }) => theme.colors.primary.main};
   border-radius: 50%;
-  box-shadow: 0 0 0 6px #ffffff;
+  box-shadow: 0 0 0 6px ${({ theme }) => theme.colors.common.white};
   height: 1rem;
   left: -3.1rem;
   position: absolute;
@@ -49,28 +49,28 @@ export const StyledJobTimeFrame = styled.li`
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #c0a062;
+  color: ${({ theme }) => theme.colors.primary.main};
 `;
 
 export const StyledJobCompany = styled.li`
-  font-size: 20px;
+  font-size: 2rem;
   font-size: 2rem;
 
   > a {
-    color: #101010;
+    color: ${({ theme }) => theme.colors.grey[600]};
 
     &:hover {
-      color: #c0a062;
+      color: ${({ theme }) => theme.colors.primary.main};
     }
   }
 `;
 
 export const StyledJobPosition = styled.li`
-  color: #666;
+  color: ${({ theme }) => theme.colors.grey[300]};
 `;
 
 export const StyledJobLocation = styled.li`
-  color: #999;
+  color: ${({ theme }) => theme.colors.grey[200]};
   font-size: 1.2rem;
 `;
 

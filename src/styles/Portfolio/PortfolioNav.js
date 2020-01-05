@@ -9,25 +9,25 @@ const StyledPortfolioNav = styled.nav`
   left: 0;
   z-index: 99;
   justify-items: center;
-  background-color: rgba(255, 255, 255, 0.97);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  background-color: ${({ theme }) => theme.colors.shadows.white[97]};
+  box-shadow: 0 1px 1px ${({ theme }) => theme.colors.shadows.black[10]};
 
   a {
     padding: 0 2.4rem;
     border: 0;
     display: block;
-    color: #333;
+    color: ${({ theme }) => theme.colors.grey[100]};
     width: 33.333%;
     float: left;
     line-height: 55px;
     transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
 
     &:hover {
-      color: #333;
-      background: #c0a062;
+      color: ${({ theme }) => theme.colors.grey[100]};
+      background: ${({ theme }) => theme.colors.primary.main};
 
       svg {
-        fill: #333;
+        fill: ${({ theme }) => theme.colors.grey[100]};
       }
     }
 

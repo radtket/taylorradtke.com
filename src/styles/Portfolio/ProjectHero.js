@@ -1,11 +1,12 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { clearFix } from "polished";
 import { media, mediaMax } from "../utils";
 import { StyledContainer } from "../Shared";
 
 export const StyledProjectHero = styled.section`
   background-attachment: fixed;
-  background-color: #151515;
+  background-color: ${({ theme }) => theme.colors.grey[700]};
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -15,7 +16,7 @@ export const StyledProjectHero = styled.section`
   width: 100%;
 
   &::before {
-    background: rgba(16, 16, 16, 0.5);
+    background: ${({ theme }) => theme.colors.shadows.dark[50]};
     content: "";
     height: 100%;
     left: 0;
@@ -56,7 +57,7 @@ export const StyledProjectHeroTableCell = styled.div`
 `;
 
 export const StyledProjectHeroTitle = styled.h1`
-  color: #fff;
+  color: ${({ theme }) => theme.colors.common.white};
   font-size: 6rem;
   line-height: 1;
   margin-bottom: 0.6rem;
@@ -72,8 +73,8 @@ export const StyledProjectHeroTitle = styled.h1`
 	`};
 
   span {
-    color: #999;
-    font-family: Oswald, sans-serif;
+    color: ${({ theme }) => theme.colors.grey[200]};
+    font-family: ${({ theme }) => theme.font.family.secondary};
     font-size: 2rem;
     letter-spacing: 0.3rem;
     margin-top: 0.6rem;
@@ -92,12 +93,7 @@ export const StyledProjectHeroTitle = styled.h1`
 export const StyledProjectHeroWrap = styled.div`
   overflow: hidden;
   position: relative;
-
-  &::after {
-    clear: both;
-    content: "";
-    display: block;
-  }
+  ${clearFix()}
 
   hr {
     padding: 0;
@@ -106,7 +102,7 @@ export const StyledProjectHeroWrap = styled.div`
     overflow: visible;
     height: 2px;
     margin: 1.2rem 0;
-    border-top: 2px solid #c0a062;
+    border-top: 2px solid ${({ theme }) => theme.colors.primary.main};
 
     ${media.phoneLg`
 			width: 7.2rem;
@@ -124,7 +120,7 @@ export const StyledProjectHeroBody = styled.article`
 `;
 
 export const StyledProjectHeroBodyDesc = styled.p`
-  color: #999;
+  color: ${({ theme }) => theme.colors.grey[200]};
   margin-bottom: 2.4rem;
   line-height: 1.5;
   font-size: 1.8rem;
@@ -134,7 +130,7 @@ export const StyledProjectHeroBodyDesc = styled.p`
 `;
 
 export const StyledProjectHeroBodyRole = styled.p`
-  color: #fff;
+  color: ${({ theme }) => theme.colors.common.white};
   margin-bottom: 0.6rem;
   font-size: 1.2rem;
   font-weight: 600;
@@ -152,11 +148,7 @@ export const StyledProjectHeroBodyRoleDesc = styled.h3`
 `;
 
 export const StyledProjectHeroBodyMeta = styled.ul`
-  &::after {
-    clear: both;
-    content: "";
-    display: table;
-  }
+  ${clearFix()}
 `;
 
 export const StyledProjectHeroBodyMetaItem = styled.li`
@@ -184,13 +176,13 @@ export const StyledProjectHeroVideo = styled.video`
 
 export const StyledProjectHeroButton = styled.a`
   appearance: none;
-  background: #c0a062;
+  background: ${({ theme }) => theme.colors.primary.main};
   border-radius: 3px;
   border: 0;
   color: #050505;
   cursor: pointer;
   display: block;
-  font-size: 16px;
+  font-size: 1.6rem;
   -webkit-font-smoothing: antialiased;
   font-weight: 700;
   height: 48px;

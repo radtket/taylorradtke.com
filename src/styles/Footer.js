@@ -1,41 +1,37 @@
 import styled from "styled-components";
+import { padding, size, position, clearFix } from "polished";
 import { media, mediaMax } from "./utils";
 
 export const StyledFooter = styled.footer`
+  ${clearFix()}
   background-color: ${({ theme }) => {
-    return theme.colors.primary || "#fff";
+    console.log({ theme });
+    return theme.colors.common.white;
   }};
   text-align: center;
 
-  &::after {
-    clear: both;
-    content: "";
-    display: block;
-  }
-
   ${mediaMax.tablet`
-		padding-top: 1.2rem;
-		padding-bottom: 1.2rem;
+    ${padding("1.2rem", null)}
 	`};
 `;
 
 export const StyledCopyright = styled.p`
-  font-family: Oswald, sans-serif;
-  text-transform: uppercase;
-  font-size: 12px;
+  font-family: ${({ theme }) => theme.font.family.secondary};
+  font-size: 1.2rem;
   letter-spacing: 0.3em;
-  text-indent: 0.3em;
   margin-bottom: 12px;
+  text-indent: 0.3em;
+  text-transform: uppercase;
 
   ${media.tablet`
-		margin: 0;
 		float: left;
 		height: 55px;
 		line-height: 55px;
+		margin: 0;
 	`};
 
   > span {
-    color: #c0a062;
+    color: ${({ theme }) => theme.colors.primary.main};
   }
 `;
 
@@ -44,63 +40,55 @@ export const StyledSocialList = styled.ul`
 
   ${media.tablet`
     float: right;
-    &::after {
-    clear: both;
-    content: "";
-    display: block;
-  }
+    ${clearFix()}
   `};
 
   li {
     float: left;
     margin-right: 1.6rem;
     position: relative;
+
     ${media.tablet`
-      /* height: 55px;
-      line-height: 55px; */
         height: 100%;
         line-height: 1;
-        /* 27.5px / 2 = 14px */
         top: 14px;
     `};
+
     a {
-      width: 27.5px;
-      height: 27.5px;
+      ${size("27.5px")}
+      color: ${({ theme }) => theme.colors.grey[100]};
+      display: inline-block;
       line-height: 27.5px !important;
       position: relative;
-      display: inline-block;
-      color: #333;
       transition: all 0.27s cubic-bezier(0.3, 0.1, 0.58, 1);
+
       &::before {
+        ${size("100%")};
+        ${position("absolute", 0, null, null, 0)};
         border-radius: 2px;
-        border: 1px solid #333;
+        border: 1px solid ${({ theme }) => theme.colors.grey[100]};
         content: "";
         display: inline-block;
-        height: 100%;
-        left: 0;
-        position: absolute;
-        top: 0;
         transform: rotate(45deg);
         transition: all 0.27s cubic-bezier(0.3, 0.1, 0.58, 1);
-        width: 100%;
       }
+
       &:hover {
         &::before {
-          background: #333;
+          background: ${({ theme }) => theme.colors.grey[100]};
         }
+
         svg {
-          fill: #fff;
+          fill: ${({ theme }) => theme.colors.common.white};
         }
       }
+
       svg {
-        fill: #333;
-        height: 100%;
-        left: 0;
+        ${size("100%", "50%")};
+        ${position("relative", 0, null, null, 0)};
+        fill: ${({ theme }) => theme.colors.grey[100]};
         max-width: 16px;
-        position: relative;
-        top: 0;
         transition: all 0.27s cubic-bezier(0.3, 0.1, 0.58, 1);
-        width: 50%;
       }
     }
   }

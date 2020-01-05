@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Link } from "gatsby";
 import IconZoom from "../../assets/icons/icon__zoom.png";
+import { hex2rgba } from "../utils";
 
 export const StyledWorkCardText = styled.figcaption`
   bottom: 0;
@@ -13,7 +14,7 @@ export const StyledWorkCardText = styled.figcaption`
 `;
 
 export const StyledWorkCardName = styled.h3`
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.common.white};
   font-size: 2.4rem;
   left: 0;
   letter-spacing: 0.1em;
@@ -27,7 +28,7 @@ export const StyledWorkCardName = styled.h3`
 
 export const StyledWorkCardType = styled.p`
   bottom: 0;
-  color: #dddddd;
+  color: ${({ theme }) => theme.colors.grey[500]};
   font-family: "Oswald", sans-serif;
   font-size: 1.2rem;
   left: 0;
@@ -41,7 +42,7 @@ export const StyledWorkCardType = styled.p`
 `;
 
 export const StyledZoomIcon = styled.span`
-  background-color: rgba(192, 160, 98, 0.85);
+  background-color: ${({ theme }) => hex2rgba(theme.colors.primary.main, 0.85)};
   border-radius: 50%;
   height: 33.3333%;
   left: 50%;
@@ -91,7 +92,7 @@ export const StyledWorkCard = styled(Link)`
   &:hover {
     .gatsby-image-wrapper {
       &::after {
-        background-color: #101010;
+        background-color: ${({ theme }) => theme.colors.grey[600]};
         opacity: 0.1;
       }
       img {
@@ -121,7 +122,7 @@ export const StyledWorkCard = styled(Link)`
     position: relative;
 
     &::after {
-      background-color: #101010;
+      background-color: ${({ theme }) => theme.colors.grey[600]};
       content: "";
       height: 100%;
       left: 0;

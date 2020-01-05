@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { clearFix } from "polished";
 import { StyledSection } from "./Section";
 
 export const ScreenReaderTextCSS = `
@@ -31,11 +32,8 @@ export const StyledContainer = styled.div`
   max-width: 1200px;
   padding: 0 12px;
   width: 100%;
-  &::after {
-    clear: both;
-    content: "";
-    display: block;
-  }
+  ${clearFix()}
+
   ${StyledSection} {
     &:last-child {
       border-bottom: 0;
@@ -49,12 +47,8 @@ export const StyledContainerFull = styled.div`
   padding: 0 12px;
   position: relative;
   width: 100%;
+  ${clearFix()}
 
-  &::after {
-    clear: both;
-    content: "";
-    display: block;
-  }
   ${StyledSection} {
     &:last-child {
       border-bottom: 0;

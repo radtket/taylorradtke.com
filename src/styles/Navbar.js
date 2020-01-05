@@ -1,28 +1,25 @@
 import styled from "styled-components";
 import { Link } from "gatsby";
+import { position, size, padding } from "polished";
 import { media, mediaMax } from "./utils";
-import theme from "../../config/theme";
 
 export const StyledNavbar = styled.header`
-  background-color: rgba(255, 255, 255, 0.97);
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-  left: 0;
-  position: fixed;
-  top: 0;
+  ${position("fixed", 0, null, null, 0)};
+  background-color: ${({ theme }) => theme.colors.shadows.white[97]};
+  box-shadow: 0 1px 1px ${({ theme }) => theme.colors.shadows.black[10]};
   width: 100%;
   z-index: 99;
 `;
 
 export const StyledNavbarLogo = styled(Link)`
+  ${size("55px")};
   float: left;
-  height: 55px;
   line-height: 55px;
   text-align: center;
-  width: 55px;
 
   svg {
     display: block;
-    fill: #333;
+    fill: ${({ theme }) => theme.colors.grey[100]};
     height: 100%;
     margin: auto;
     max-width: 65%;
@@ -33,7 +30,7 @@ export const StyledNav = styled.nav`
   float: right;
 
   ${mediaMax.tablet`
-    background: rgba(16, 16, 16, 0.97);
+    background: ${({ theme }) => theme.colors.shadows.dark[97]};
     display: none;
     left: 0;
     overflow-y: hidden;
@@ -46,8 +43,8 @@ export const StyledNav = styled.nav`
     }
 
     > ul {
-      text-align: right;
-    }
+        text-align: right;
+      }
 		`}
 
   ${media.tablet`
@@ -62,6 +59,7 @@ export const StyledNav = styled.nav`
 `;
 
 export const StyledHamburger = styled.button`
+  ${size("55px")};
   background-color: transparent;
   border: 0;
   color: inherit;
@@ -69,7 +67,6 @@ export const StyledHamburger = styled.button`
   display: none;
   float: right;
   font: inherit;
-  height: 55px;
   margin: 0;
   overflow: visible;
   padding: 0;
@@ -77,7 +74,6 @@ export const StyledHamburger = styled.button`
   transition-duration: 0.15s;
   transition-property: opacity, filter;
   transition-timing-function: linear;
-  width: 55px;
 
   ${mediaMax.tablet`
     align-items: center;
@@ -91,11 +87,10 @@ export const StyledHamburger = styled.button`
 `;
 
 export const StyledHamburgerWrap = styled.span`
+  ${size("24px", "35px")};
   display: block;
-  height: 24px;
   margin: auto;
   position: relative;
-  width: 35px;
 `;
 
 export const StyledHamburgerBar = styled.span`
@@ -109,11 +104,10 @@ export const StyledHamburgerBar = styled.span`
   &,
   &::before,
   &::after {
-    background-color: #333333;
-    height: 4px;
+    ${size("4px", "35px")};
+    background-color: ${({ theme }) => theme.colors.grey[100]};
     position: absolute;
     transition-property: transform;
-    width: 35px;
   }
 
   &::before,
@@ -162,7 +156,7 @@ export const StyledNavItem = styled.li`
 
   ${mediaMax.tablet`
 		overflow: hidden;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		border-bottom: 1px solid ${({ theme }) => theme.colors.shadows.white[10]};
 	`};
 
   ${media.tablet`
@@ -173,14 +167,11 @@ export const StyledNavItem = styled.li`
 
 const LinkStyles = `
   display: inherit;
-  color: #333;
   padding: 0 16px;
   transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
-  font-family: ${theme.fonts.oswald};
-  font-size: 12px;
+  font-size: 1.2rem;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-
   appearance: none;
   background-color: transparent;
   border-color: transparent;
@@ -198,61 +189,64 @@ const LinkStyles = `
 
   &:hover,
   &.active {
-    color: #c0a062;
+    color: ${({ theme }) => theme.colors.primary.main};
   }
 `;
 
 export const StyledNavLink = styled(Link)`
   ${LinkStyles}
+  color: ${({ theme }) => theme.colors.grey[100]};
+  font-family: ${({ theme }) => theme.font.family.secondary};
 
   ${mediaMax.tablet`
-		color: #fff;
+		color: ${({ theme }) => theme.colors.common.white};
 
 		&:hover {
-			background: rgba(16, 16, 16, 0.9);
-			color: #c0a062;
+			background: ${({ theme }) => theme.colors.shadows.dark[90]};
+			color: ${({ theme }) => theme.colors.primary.main};
 		}
 	`}
 
   ${media.navbreak`
-		padding-left: 2.4rem;
-		padding-right: 2.4rem;
+    ${padding(null, "2.4rem")}
   `};
 `;
 
 export const StyledDownloadButton = styled.a`
   ${LinkStyles}
+  color: ${({ theme }) => theme.colors.grey[100]};
+  font-family: ${({ theme }) => theme.font.family.secondary};
 
   ${mediaMax.tablet`
-		color: #fff;
+		color: ${({ theme }) => theme.colors.common.white};
 
 		&:hover {
-			background: rgba(16, 16, 16, 0.9);
-			color: #c0a062;
+			background: ${({ theme }) => theme.colors.shadows.dark[90]};
+			color: ${({ theme }) => theme.colors.primary.main};
 		}
 	`}
 
   ${media.tablet`
-    background: #333;
+    background: ${({ theme }) => theme.colors.grey[100]};
     border: 2px solid transparent;
     border-radius: 2.4rem;
-    color: #fff;
-    font-family: "Open Sans", sans-serif;
+    color: ${({ theme }) => theme.colors.common.white};
+    font-family:  ${({ theme }) => theme.font.family.primary};
     font-weight: 600;
     letter-spacing: 0.1em;
     line-height: 1;
     padding: 1.2rem 2.4rem;
 
     &:hover {
-      background: #222;
-    }
-
-    svg {
-      height: 1.2rem;
-      position: relative;
-      top: 1px;
-      margin-right: 0.6rem;
-      fill: #fff;
+      background: ${({ theme }) => theme.colors.grey[400]};
     }
   `};
+
+  svg {
+    fill: ${({ theme }) => theme.colors.common.white};
+    height: 1.2rem;
+    margin-right: 0.6rem;
+    position: relative;
+    top: 1px;
+  }
 `;
