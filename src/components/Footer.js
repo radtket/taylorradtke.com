@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { useStaticQuery, graphql } from "gatsby";
 import {
   StyledFooter,
   StyledSocialList,
@@ -8,7 +8,27 @@ import {
 import { StyledContainerFull } from "../styles/Shared";
 import SocialMediaIcon from "./SocialMediaIcon";
 
-const Footer = ({ name, accounts }) => {
+const Footer = () => {
+  const {
+    site: {
+      siteMetadata: { name, accounts },
+    },
+  } = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          name
+          accounts {
+            twitter
+            instagram
+            linkedin
+            codepen
+            github
+          }
+        }
+      }
+    }
+  `);
   return (
     <StyledFooter>
       <StyledContainerFull>
@@ -28,17 +48,6 @@ const Footer = ({ name, accounts }) => {
       </StyledContainerFull>
     </StyledFooter>
   );
-};
-
-Footer.propTypes = {
-  name: PropTypes.string.isRequired,
-  accounts: PropTypes.shape({
-    twitter: PropTypes.string,
-    instagram: PropTypes.string,
-    linkedin: PropTypes.string,
-    codepen: PropTypes.string,
-    github: PropTypes.string,
-  }).isRequired,
 };
 
 export default Footer;
