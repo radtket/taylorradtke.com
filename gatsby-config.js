@@ -1,34 +1,45 @@
+const urljoin = require("url-join");
 const {
+  accounts,
   backgroundColor,
+  contact,
   googleAnalyticsId,
-  pathPrefix: configPath,
+  name,
+  pathPrefix,
   siteDescription,
+  siteLogo,
   siteShortName,
   siteTitle,
+  siteTitleAlt,
   siteUrl,
   themeColor,
   userTwitter,
 } = require("./config/website");
 
-const pathPrefix = configPath === "/" ? "" : configPath;
-
 module.exports = {
-  pathPrefix: configPath,
+  pathPrefix,
   siteMetadata: {
     title: siteTitle,
     description: siteDescription,
     author: userTwitter,
-    siteUrl: siteUrl + pathPrefix,
+    siteUrl: urljoin(siteUrl, pathPrefix),
+    name,
+    accounts,
+    contact,
+    siteLogo,
+    siteTitleAlt,
+    backgroundColor,
   },
   plugins: [
-    `gatsby-plugin-sass`,
+    `gatsby-plugin-react-helmet`,
+    "gatsby-plugin-styled-components",
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [`open sans:300,400,600,700`, `oswald:400`],
+        display: "swap",
       },
     },
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -39,8 +50,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `articles`,
-        path: `${__dirname}/src/articles`,
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `portfolio`,
+        path: `${__dirname}/src/portfolio`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -52,30 +70,11 @@ module.exports = {
         name: siteTitle,
         short_name: siteShortName,
         description: siteDescription,
-        start_url: configPath,
+        start_url: pathPrefix,
         background_color: backgroundColor,
         theme_color: themeColor,
-        display: `standalone`,
-        icons: [
-          {
-            src: "/favicons/android-chrome-192x192.png",
-            sizes: "192x192",
-            type: "image/png",
-          },
-          {
-            src: "/favicons/android-chrome-512x512.png",
-            sizes: "512x512",
-            type: "image/png",
-          },
-        ],
-      },
-    },
-    "gatsby-plugin-styled-components",
-    {
-      resolve: `gatsby-plugin-nprogress`,
-      options: {
-        color: `black`,
-        showSpinner: false,
+        display: `minimal-ui`,
+        icon: `src/images/favicons/mstile-144x144.png`,
       },
     },
     {

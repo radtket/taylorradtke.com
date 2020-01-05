@@ -1,5 +1,10 @@
-/* eslint-disable no-console */
 const path = require(`path`);
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    devtool: "eval-source-map",
+  });
+};
 
 exports.onCreateBabelConfig = ({ actions }) => {
   actions.setBabelPlugin({
@@ -7,9 +12,7 @@ exports.onCreateBabelConfig = ({ actions }) => {
   });
 };
 
-exports.onCreatePage = ({ page, actions }) => {
-  const { createPage } = actions;
-
+exports.onCreatePage = ({ page, actions: { createPage } }) => {
   return new Promise((resolve, reject) => {
     createPage(page);
 
@@ -46,77 +49,62 @@ const getPagination = (articles, article) => {
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  return new Promise((resolve, reject) => {
-    // Query for all markdown "nodes" and for the slug we previously created.
-    resolve(
-      graphql(
-        `
-          {
-            allJavascriptFrontmatter(
-              filter: { frontmatter: { path: { regex: "/work/" } } }
-              sort: { fields: [frontmatter___date], order: DESC }
-            ) {
-              edges {
-                node {
-                  fileAbsolutePath
-                  frontmatter {
-                    clientName
-                    companyUrl
-                    date
-                    excerpt
-                    githubRepoName
-                    id
-                    path
-                    projectBrandColors
-                    projectName
-                    projectRole
-                    projectStack
-                    thumbnail {
-                      childImageSharp {
-                        fluid(maxWidth: 720, quality: 100) {
-                          ...GatsbyImageSharpFluid_withWebp
-                        }
-                      }
-                    }
+  return graphql(`
+    {
+      allJavascriptFrontmatter(
+        filter: { frontmatter: { path: { regex: "/work/" } } }
+        sort: { fields: [frontmatter___date], order: DESC }
+      ) {
+        edges {
+          node {
+            fileAbsolutePath
+            frontmatter {
+              clientName
+              companyUrl
+              date
+              excerpt
+              githubRepoName
+              id
+              path
+              projectBrandColors
+              projectName
+              projectRole
+              projectStack
+              thumbnail {
+                childImageSharp {
+                  fluid(maxWidth: 720, quality: 100) {
+                    ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }
             }
           }
-
-          fragment GatsbyImageSharpFluid_withWebp on ImageSharpFluid {
-            base64
-            aspectRatio
-            src
-            srcSet
-            srcWebp
-            srcSetWebp
-            sizes
-          }
-        `
-      ).then(result => {
-        if (result.errors) {
-          console.log(result.errors);
-          console.log(result);
-          reject(result.errors);
         }
+      }
+    }
 
-        const articles = result.data.allJavascriptFrontmatter.edges;
-
-        articles.forEach(edge => {
-          const { frontmatter } = edge.node;
-          const pagination = getPagination(articles, edge);
-
-          createPage({
-            path: frontmatter.path, // required
-            component: path.resolve(edge.node.fileAbsolutePath),
-            context: {
-              frontmatter,
-              ...pagination,
-            },
-          });
-        });
-      })
-    );
+    fragment GatsbyImageSharpFluid_withWebp on ImageSharpFluid {
+      base64
+      aspectRatio
+      src
+      srcSet
+      srcWebp
+      srcSetWebp
+      sizes
+    }
+  `).then(result => {
+    const articles = result.data.allJavascriptFrontmatter.edges;
+    articles.forEach(edge => {
+      const { frontmatter } = edge.node;
+      const pagination = getPagination(articles, edge);
+      createPage({
+        path: `${edge.node.frontmatter.path}`,
+        component: path.resolve(edge.node.fileAbsolutePath),
+        context: {
+          frontmatter,
+          ...pagination,
+        },
+      });
+    });
   });
 };

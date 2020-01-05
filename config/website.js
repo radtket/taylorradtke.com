@@ -1,11 +1,12 @@
-module.exports = {
+const config = {
   pathPrefix: "/", // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "/portfolio"
+  name: "Taylor Radtke",
   author: "Taylor Radtke",
   siteTitle: "Taylor Radtke | A Creative Mind", // Navigation and Site Title
   siteTitleAlt: "Taylor Radtke", // Alternative Site title for SEO
   siteUrl: "https://www.taylorradtke.com", // Domain of your site. No trailing slash!
   siteLanguage: "en", // Language Tag on <html> element
-  siteLogo: "static/branding/logo__primary.png", // Used for SEO and manifest
+  siteLogo: "/branding/logo__primary.png", // Used for SEO and manifest
   siteShortName: "taylorradtke",
   siteDescription: `Taylor Radtke is a creative mind who specializes in minimal design that displays a bold message. After three
 	plus years of marketing in the service industry, Taylor takes his social skills mastered from constructing
@@ -17,9 +18,11 @@ module.exports = {
 	his mind continue to share the beauty of digital`,
 
   // Contact Info
-  location: "Washington, DC",
-  email: "taylorradtke@gmail.com",
-  phone: "18049297374",
+  contact: {
+    city: "Washington, DC",
+    email: "taylorradtke@gmail.com",
+    phone: "18049297374",
+  },
 
   userGithub: "radtket",
   userTwitter: "@taylor_radtke", // Twitter Username
@@ -42,3 +45,20 @@ module.exports = {
     github: "https://github.com/radtket",
   },
 };
+
+// Validate
+
+// Make sure pathPrefix is empty if not needed
+if (config.pathPrefix === "/") {
+  config.pathPrefix = "";
+} else {
+  // Make sure pathPrefix only contains the first forward slash
+  config.pathPrefix = `/${config.pathPrefix.replace(/^\/|\/$/g, "")}`;
+}
+
+// Make sure siteUrl doesn't have an ending forward slash
+if (config.siteUrl.substr(-1) === "/") {
+  config.siteUrl = config.siteUrl.slice(0, -1);
+}
+
+module.exports = config;

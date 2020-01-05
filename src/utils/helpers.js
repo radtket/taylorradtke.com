@@ -1,5 +1,21 @@
-import React from "react";
-import BrowserMockup from "../styles/BrowserMockup";
+export const slugify = string => {
+  const a =
+    "àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;";
+  const b =
+    "aaaaaaaaaacccddeeeeeeeegghiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuuwxyyzzz------";
+  const p = new RegExp(a.split("").join("|"), "g");
+
+  return string
+    .toString()
+    .toLowerCase()
+    .replace(/\s+/g, "-") // Replace spaces with -
+    .replace(p, c => b.charAt(a.indexOf(c))) // Replace special characters
+    .replace(/&/g, "-and-") // Replace & with 'and'
+    .replace(/[^\w]+/g, "") // Remove all non-word characters
+    .replace(/\-\-+/g, "-") // Replace multiple - with single -
+    .replace(/^-+/, "") // Trim - from start of text
+    .replace(/-+$/, ""); // Trim - from end of text
+};
 
 export const formatPhoneNumber = phone => {
   const phoneTest = new RegExp(
@@ -15,21 +31,3 @@ export const formatPhoneNumber = phone => {
   }
   return phone;
 };
-
-export const preparePosts = (availibleImages, sectionImagesPath) =>
-  availibleImages
-    .sort(({ node: { relativePath: a } }, { node: { relativePath: b } }) =>
-      a > b ? 1 : -1
-    )
-    .reduce((all, { node }) => {
-      const {
-        relativePath,
-        id,
-        childImageSharp: { fluid },
-      } = node;
-
-      if (relativePath.includes(`${sectionImagesPath}`)) {
-        all.push(<BrowserMockup key={id} fluid={fluid} />);
-      }
-      return all;
-    }, []);
