@@ -14,7 +14,7 @@ const {
   siteUrl,
   themeColor,
   userTwitter,
-} = require("./config/website");
+} = require("./config");
 
 module.exports = {
   pathPrefix,
