@@ -10,9 +10,9 @@ import {
 } from "../styles/Section";
 import { slugify } from "../utils/helpers";
 
-const PageSection = ({ name, index, children }) => {
+const PageSection = ({ name, index, id, children }) => {
   return (
-    <StyledSection id={slugify(name)}>
+    <StyledSection id={id || slugify(name)}>
       <StyledContainer>
         <StyledSectionDescription>
           <StyledSectionName>{name}</StyledSectionName>
@@ -27,7 +27,12 @@ const PageSection = ({ name, index, children }) => {
 PageSection.propTypes = {
   name: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
+  id: PropTypes.string,
   children: PropTypes.node.isRequired,
+};
+
+PageSection.defaultProps = {
+  id: null,
 };
 
 export default PageSection;

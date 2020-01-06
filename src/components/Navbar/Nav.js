@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Scrollspy from "react-scrollspy";
 import {
   StyledNav,
@@ -8,21 +9,22 @@ import {
 } from "../../styles/Navbar";
 import ResumePDF from "../../assets/resume/taylor-radtke--resume.pdf";
 import { IconResume } from "../Icons";
-import { capitalize } from "../../utils/helpers";
 
-const Nav = () => {
-  const items = ["about", "skills", "experience", "works", "contact"];
-
+const Nav = ({ sections }) => {
   return (
     <StyledNav>
-      <Scrollspy currentClassName="is-active" {...{ items }} offset={-55}>
-        {items.map(id => (
-          <StyledNavItem key={id}>
+      <Scrollspy
+        currentClassName="is-active"
+        items={sections.map(({ id }) => id)}
+        offset={-55}
+      >
+        {sections.map(item => (
+          <StyledNavItem key={item.id}>
             <StyledNavLink
               onClick={e => {
                 // Handles Smooth Scroll
                 e.preventDefault();
-                const element = document.getElementById(id);
+                const element = document.getElementById(item.id);
                 if (typeof window !== "undefined") {
                   const top = element
                     ? element.getBoundingClientRect().top + window.pageYOffset
@@ -36,7 +38,7 @@ const Nav = () => {
               }}
               type="button"
             >
-              {capitalize(id)}
+              {item.name}
             </StyledNavLink>
           </StyledNavItem>
         ))}
@@ -49,6 +51,15 @@ const Nav = () => {
       </Scrollspy>
     </StyledNav>
   );
+};
+
+Nav.propTypes = {
+  sections: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      id: PropTypes.string,
+    })
+  ).isRequired,
 };
 
 export default Nav;
