@@ -14,16 +14,26 @@ const Footer = () => {
       siteMetadata: { name, accounts },
     },
   } = useStaticQuery(graphql`
-    query SiteTitleQuery {
+    query {
       site {
         siteMetadata {
           name
           accounts {
-            twitter
-            instagram
-            linkedin
-            codepen
-            github
+            twitter {
+              url
+            }
+            instagram {
+              url
+            }
+            linkedin {
+              url
+            }
+            codepen {
+              url
+            }
+            github {
+              url
+            }
           }
         }
       }
@@ -37,7 +47,7 @@ const Footer = () => {
           <span>{name}</span>, All Rights Reserved.
         </StyledCopyright>
         <StyledSocialList>
-          {Object.entries(accounts).map(([key, href]) => {
+          {Object.entries(accounts).map(([key, { url: href }]) => {
             return (
               <li {...{ key }}>
                 <SocialMediaIcon {...{ href, name: key }} />

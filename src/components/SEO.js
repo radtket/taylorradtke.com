@@ -12,14 +12,17 @@ const SEO = ({ postNode, isPost }) => {
       query {
         site {
           siteMetadata {
-            author
             backgroundColor
             description
             name
             siteLogo
-            siteTitleAlt
             siteUrl
             title
+            accounts {
+              twitter {
+                account
+              }
+            }
           }
         }
       }
@@ -28,17 +31,16 @@ const SEO = ({ postNode, isPost }) => {
 
   let { title, description, siteLogo: image } = siteMetadata;
   const {
-    author,
+    accounts: { twitter },
     backgroundColor,
     name,
-    siteTitleAlt,
     siteUrl,
     title: siteTitle,
   } = siteMetadata;
   let postURL;
 
   if (isPost) {
-    title = `${siteTitleAlt} | ${postNode.projectName}`;
+    title = `${name} | ${postNode.projectName}`;
     description = postNode.description
       ? postNode.description
       : postNode.excerpt;
@@ -60,7 +62,7 @@ const SEO = ({ postNode, isPost }) => {
       "@type": "WebSite",
       url: siteUrl,
       name: title,
-      alternateName: siteTitleAlt || "",
+      alternateName: name || "",
     },
   ];
   if (isPost) {
@@ -97,7 +99,7 @@ const SEO = ({ postNode, isPost }) => {
             url: `${siteUrl}/branding/logo__primary.png`,
           },
         },
-        alternateName: siteTitleAlt || "",
+        alternateName: name || "",
         headline: title,
         image: {
           "@type": "ImageObject",
@@ -152,7 +154,7 @@ const SEO = ({ postNode, isPost }) => {
 
       {/* Twitter Card tags */}
       <meta content="summary_large_image" name="twitter:card" />
-      <meta content={author || ""} name="twitter:creator" />
+      <meta content={twitter.account || ""} name="twitter:creator" />
       <meta content={title} name="twitter:title" />
       <meta content={description} name="twitter:description" />
       <meta content={image} name="twitter:image" />

@@ -1,14 +1,12 @@
 const config = {
   pathPrefix: "/", // Prefix for all links. If you deploy your site to example.com/portfolio your pathPrefix should be "/portfolio"
   name: "Taylor Radtke",
-  author: "Taylor Radtke",
   siteTitle: "Taylor Radtke | A Creative Mind", // Navigation and Site Title
-  siteTitleAlt: "Taylor Radtke", // Alternative Site title for SEO
   siteUrl: "https://www.taylorradtke.com", // Domain of your site. No trailing slash!
   siteLanguage: "en", // Language Tag on <html> element
   siteLogo: "/branding/logo__primary.png", // Used for SEO and manifest
-  siteShortName: "taylorradtke",
-  siteDescription: `Taylor Radtke is a creative mind who specializes in minimal design that displays a bold message. After three
+  short_name: "taylorradtke",
+  description: `Taylor Radtke is a creative mind who specializes in minimal design that displays a bold message. After three
 	plus years of marketing in the service industry, Taylor takes his social skills mastered from constructing
 	cocktails through college to creating a finished project that his client truly loves. A mastermind at social
 	media marketing, with a concentration on an age demographic of 18-35. Taylor has a great latitude of culture
@@ -24,13 +22,11 @@ const config = {
     phone: "18049297374",
   },
 
-  userGithub: "radtket",
-  userTwitter: "@taylor_radtke", // Twitter Username
   ogSiteName: "", // Facebook Site Name
   ogLanguage: "en_US", // Facebook Language
 
   // Google Analytics
-  googleAnalyticsId: "UA-115162174-1",
+  trackingId: "UA-115162174-1",
 
   // Manifest and Progress color
   themeColor: "#c0a062",
@@ -38,11 +34,26 @@ const config = {
 
   // Social Media
   accounts: {
-    twitter: "https://twitter.com/taylor_radtke",
-    instagram: "https://instagram.com/taylor.radtke",
-    linkedin: "https://linkedin.com/in/radtket/",
-    codepen: "https://codepen.io/radtket/",
-    github: "https://github.com/radtket",
+    twitter: {
+      account: "taylor_radtke",
+      url: "https://twitter.com/taylor_radtke",
+    },
+    instagram: {
+      account: "taylor.radtke",
+      url: "https://instagram.com/taylor.radtke",
+    },
+    linkedin: {
+      account: "radtket",
+      url: "https://linkedin.com/in/radtket/",
+    },
+    codepen: {
+      account: "radtket",
+      url: "https://codepen.io/radtket/",
+    },
+    github: {
+      account: "radtket",
+      url: "https://github.com/radtket",
+    },
   },
 };
 

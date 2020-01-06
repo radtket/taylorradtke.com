@@ -1,33 +1,30 @@
+/* eslint-disable camelcase */
 const urljoin = require("url-join");
 const {
   accounts,
   backgroundColor,
   contact,
-  googleAnalyticsId,
+  description,
   name,
   pathPrefix,
-  siteDescription,
+  short_name,
   siteLogo,
-  siteShortName,
   siteTitle,
-  siteTitleAlt,
   siteUrl,
   themeColor,
-  userTwitter,
+  trackingId,
 } = require("./config");
 
 module.exports = {
   pathPrefix,
   siteMetadata: {
     title: siteTitle,
-    description: siteDescription,
-    author: userTwitter,
+    description,
     siteUrl: urljoin(siteUrl, pathPrefix),
     name,
     accounts,
     contact,
     siteLogo,
-    siteTitleAlt,
     backgroundColor,
   },
   plugins: [
@@ -68,8 +65,8 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: siteTitle,
-        short_name: siteShortName,
-        description: siteDescription,
+        short_name,
+        description,
         start_url: pathPrefix,
         background_color: backgroundColor,
         theme_color: themeColor,
@@ -80,7 +77,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: googleAnalyticsId,
+        trackingId,
       },
     },
     "gatsby-plugin-offline",

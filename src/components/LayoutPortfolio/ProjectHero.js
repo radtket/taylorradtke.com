@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useStaticQuery, graphql } from "gatsby";
 import { format } from "date-fns";
 import {
   AllSeeingEye,
@@ -30,8 +31,25 @@ const ProjectHero = ({
   projectRole,
   projectStack,
 }) => {
-  // ! Fix: User query to get
-  const userGithub = "radtket";
+  const {
+    site: {
+      siteMetadata: {
+        accounts: { github },
+      },
+    },
+  } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          accounts {
+            github {
+              account
+            }
+          }
+        }
+      }
+    }
+  `);
 
   return (
     <StyledProjectHero>
@@ -67,7 +85,7 @@ const ProjectHero = ({
                 </StyledProjectHeroBodyMeta>
 
                 <StyledProjectHeroButton
-                  href={`//${userGithub}.github.io/${githubRepoName}`}
+                  href={`//${github.account}.github.io/${githubRepoName}`}
                   rel="noopener noreferrer"
                   target="_blank"
                   title={`View Site ${projectName}`}
@@ -77,7 +95,7 @@ const ProjectHero = ({
                 </StyledProjectHeroButton>
 
                 <StyledProjectHeroButton
-                  href={`//github.com/${userGithub}/${githubRepoName}`}
+                  href={`//github.com/${github.account}/${githubRepoName}`}
                   rel="noopener noreferrer"
                   target="_blank"
                   title={`View Repo ${projectName}`}
