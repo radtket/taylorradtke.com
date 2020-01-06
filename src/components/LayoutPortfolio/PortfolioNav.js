@@ -14,7 +14,7 @@ const PortfolioNav = ({ next, prev }) => {
         </Link>
       )}
 
-      <Link style={{ textAlign: "center" }} to="/#work">
+      <Link style={{ textAlign: "center" }} to="/#works">
         <PaginationHome />
         <span style={{ marginLeft: "1rem" }}>All Works</span>
       </Link>

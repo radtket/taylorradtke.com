@@ -5,7 +5,7 @@ import { media } from "../utils";
 export const StyledSkillsList = styled.ul`
   margin-bottom: 2.4rem;
   display: block;
-  ${clearFix()}
+  ${clearFix()};
 `;
 
 export const StyledSkillsListItem = styled.li`

@@ -150,21 +150,6 @@ export const StyledHamburgerBar = styled.span`
   }
 `;
 
-export const StyledNavItem = styled.li`
-  display: block;
-  line-height: 35px;
-
-  ${mediaMax.tablet`
-		overflow: hidden;
-		border-bottom: 1px solid ${({ theme }) => theme.colors.shadows.white[10]};
-	`};
-
-  ${media.tablet`
-		display: inline-block;
-		line-height: 55px;
-	`};
-`;
-
 const LinkStyles = `
   display: inherit;
   padding: 0 16px;
@@ -186,17 +171,16 @@ const LinkStyles = `
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-
-  &:hover,
-  &.active {
-    color: ${({ theme }) => theme.colors.primary.main};
-  }
 `;
 
-export const StyledNavLink = styled(Link)`
+export const StyledNavLink = styled.button`
   ${LinkStyles}
   color: ${({ theme }) => theme.colors.grey[100]};
   font-family: ${({ theme }) => theme.font.family.secondary};
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary.main};
+  }
 
   ${mediaMax.tablet`
 		color: ${({ theme }) => theme.colors.common.white};
@@ -212,10 +196,40 @@ export const StyledNavLink = styled(Link)`
   `};
 `;
 
+export const StyledNavItem = styled.li`
+  display: block;
+  line-height: 35px;
+
+  &.is-active {
+    ${StyledNavLink} {
+      color: ${({ theme }) => theme.colors.primary.main};
+    }
+  }
+
+  ${mediaMax.tablet`
+		overflow: hidden;
+		border-bottom: 1px solid ${({ theme }) => theme.colors.shadows.white[10]};
+	`};
+
+  ${media.tablet`
+		display: inline-block;
+		line-height: 55px;
+	`};
+`;
+
 export const StyledDownloadButton = styled.a`
   ${LinkStyles}
   color: ${({ theme }) => theme.colors.grey[100]};
   font-family: ${({ theme }) => theme.font.family.secondary};
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary.main};
+
+    svg {
+      fill: ${({ theme }) => theme.colors.primary.main};
+    }
+  }
+
 
   ${mediaMax.tablet`
 		color: ${({ theme }) => theme.colors.common.white};
@@ -248,5 +262,6 @@ export const StyledDownloadButton = styled.a`
     margin-right: 0.6rem;
     position: relative;
     top: 1px;
+    transition: fill 0.2s cubic-bezier(0, 0, 0.58, 1);
   }
 `;

@@ -3,11 +3,8 @@ import { padding, size, position, clearFix } from "polished";
 import { media, mediaMax } from "./utils";
 
 export const StyledFooter = styled.footer`
-  ${clearFix()}
-  background-color: ${({ theme }) => {
-    console.log({ theme });
-    return theme.colors.common.white;
-  }};
+  ${clearFix()};
+  background-color: ${({ theme }) => theme.colors.common.white};
   text-align: center;
 
   ${mediaMax.tablet`
@@ -40,7 +37,7 @@ export const StyledSocialList = styled.ul`
 
   ${media.tablet`
     float: right;
-    ${clearFix()}
+    ${clearFix()};
   `};
 
   li {

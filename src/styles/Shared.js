@@ -32,7 +32,7 @@ export const StyledContainer = styled.div`
   max-width: 1200px;
   padding: 0 12px;
   width: 100%;
-  ${clearFix()}
+  ${clearFix()};
 
   ${StyledSection} {
     &:last-child {
@@ -47,7 +47,7 @@ export const StyledContainerFull = styled.div`
   padding: 0 12px;
   position: relative;
   width: 100%;
-  ${clearFix()}
+  ${clearFix()};
 
   ${StyledSection} {
     &:last-child {

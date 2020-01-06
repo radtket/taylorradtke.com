@@ -1,29 +1,52 @@
 import React from "react";
+import Scrollspy from "react-scrollspy";
 import {
   StyledNav,
   StyledNavItem,
+  StyledNavLink,
   StyledDownloadButton,
 } from "../../styles/Navbar";
-import NavItem from "./NavItem";
 import ResumePDF from "../../assets/resume/taylor-radtke--resume.pdf";
 import { IconResume } from "../Icons";
+import { capitalize } from "../../utils/helpers";
 
 const Nav = () => {
+  const items = ["about", "skills", "experience", "works", "contact"];
+
   return (
     <StyledNav>
-      <ul>
-        <NavItem text="About" to="/about" />
-        <NavItem text="Skills" to="/skills" />
-        <NavItem text="Experience" to="/experience" />
-        <NavItem text="Works" to="/works" />
-        <NavItem text="Contact" to="/contact" />
+      <Scrollspy currentClassName="is-active" {...{ items }} offset={-55}>
+        {items.map(id => (
+          <StyledNavItem key={id}>
+            <StyledNavLink
+              onClick={e => {
+                // Handles Smooth Scroll
+                e.preventDefault();
+                const element = document.getElementById(id);
+                if (typeof window !== "undefined") {
+                  const top = element
+                    ? element.getBoundingClientRect().top + window.pageYOffset
+                    : 0;
+                  window.scroll({
+                    top,
+                    left: 0,
+                    behavior: "smooth",
+                  });
+                }
+              }}
+              type="button"
+            >
+              {capitalize(id)}
+            </StyledNavLink>
+          </StyledNavItem>
+        ))}
         <StyledNavItem>
           <StyledDownloadButton download href={ResumePDF}>
             <IconResume />
             Download CV
           </StyledDownloadButton>
         </StyledNavItem>
-      </ul>
+      </Scrollspy>
     </StyledNav>
   );
 };

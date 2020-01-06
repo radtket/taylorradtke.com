@@ -11,7 +11,7 @@ export const StyledBrandColors = styled.div`
   padding-bottom: 3rem;
   padding-top: 3rem;
   text-align: center;
-  ${clearFix()}
+  ${clearFix()};
 `;
 
 export const StyledBrandColorWrap = styled.figure`

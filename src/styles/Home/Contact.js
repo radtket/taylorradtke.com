@@ -42,6 +42,7 @@ export const StyledSubmitButton = styled.button`
   white-space: nowrap;
 
   svg {
+    transition: fill 0.2s cubic-bezier(0, 0, 0.58, 1);
     height: ${useSpacing(1)};
     position: relative;
     top: 1px;
@@ -56,6 +57,10 @@ export const StyledSubmitButton = styled.button`
     background-color: ${({ theme }) => theme.colors.shadows.black[70]};
     box-shadow: none;
     outline: 0;
+
+    svg {
+      color: ${({ theme }) => theme.colors.shadows.white[85]};
+    }
   }
 
   &:active {
@@ -130,7 +135,7 @@ export const StyledContactWrap = styled.ul`
 
 export const StyledContactItem = styled.li`
   margin-bottom: ${useSpacing(2)};
-  ${clearFix()}
+  ${clearFix()};
 `;
 
 export const StyledContactIconWrap = styled.figure`

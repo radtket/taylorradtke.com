@@ -93,7 +93,7 @@ export const StyledProjectHeroTitle = styled.h1`
 export const StyledProjectHeroWrap = styled.div`
   overflow: hidden;
   position: relative;
-  ${clearFix()}
+  ${clearFix()};
 
   hr {
     padding: 0;
@@ -148,7 +148,7 @@ export const StyledProjectHeroBodyRoleDesc = styled.h3`
 `;
 
 export const StyledProjectHeroBodyMeta = styled.ul`
-  ${clearFix()}
+  ${clearFix()};
 `;
 
 export const StyledProjectHeroBodyMetaItem = styled.li`
