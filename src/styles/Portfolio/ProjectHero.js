@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import { clearFix } from "polished";
-import { media, mediaMax } from "../utils";
+import { clearFix, size, position, margin } from "polished";
+import { media, mediaMax, useSpacing } from "../utils";
 import { StyledContainer } from "../Shared";
 
 export const StyledProjectHero = styled.section`
@@ -16,13 +16,10 @@ export const StyledProjectHero = styled.section`
   width: 100%;
 
   &::before {
+    ${size("100%")};
+    ${position("absolute", 0, null, null, 0)};
     background: ${({ theme }) => theme.colors.shadows.dark[50]};
     content: "";
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
     z-index: 1;
   }
 
@@ -37,16 +34,14 @@ export const StyledProjectHero = styled.section`
 `;
 
 export const StyledProjectHeroContainer = styled(StyledContainer)`
+  ${size("100vh", "100%")};
   min-height: 600px;
-  height: 100vh;
-  width: 100%;
 `;
 
 export const StyledProjectHeroTable = styled.div`
+  ${size("100%")};
   display: table;
-  height: 100%;
   position: relative;
-  width: 100%;
   z-index: 2;
 `;
 
@@ -60,12 +55,12 @@ export const StyledProjectHeroTitle = styled.h1`
   color: ${({ theme }) => theme.colors.common.white};
   font-size: 6rem;
   line-height: 1;
-  margin-bottom: 0.6rem;
+  margin-bottom: ${useSpacing(0.75)};
   text-transform: uppercase;
 
   ${media.phoneLg`
 		font-size: 10rem;
-		margin-bottom: 2.4rem;
+		margin-bottom: ${useSpacing(3)};
 	`};
 
   ${media.tablet`
@@ -77,32 +72,32 @@ export const StyledProjectHeroTitle = styled.h1`
     font-family: ${({ theme }) => theme.font.family.secondary};
     font-size: 2rem;
     letter-spacing: 0.3rem;
-    margin-top: 0.6rem;
+    margin-top: ${useSpacing(0.75)};
     text-transform: uppercase;
     display: block;
 
     ${media.phoneLg`
       display: inline;
-      margin-bottom: 1.2rem;
-      padding-left: 0.6rem;
+      margin-bottom: ${useSpacing(1.25)};
+      padding-left: ${useSpacing(0.75)};
       margin-top: 0;
     `};
   }
 `;
 
 export const StyledProjectHeroWrap = styled.div`
+  ${clearFix()};
   overflow: hidden;
   position: relative;
-  ${clearFix()};
 
   hr {
-    padding: 0;
-    display: block;
-    border: 0;
-    overflow: visible;
-    height: 2px;
-    margin: 1.2rem 0;
+    ${margin(useSpacing(1.5), 0)};
     border-top: 2px solid ${({ theme }) => theme.colors.primary.main};
+    border: 0;
+    display: block;
+    height: 2px;
+    overflow: visible;
+    padding: 0;
 
     ${media.phoneLg`
 			width: 7.2rem;
@@ -113,7 +108,7 @@ export const StyledProjectHeroWrap = styled.div`
 
 export const StyledProjectHeroBody = styled.article`
   ${media.phoneLg`
-		margin-left: 4.8rem;
+		margin-left: ${useSpacing(6)};
 		float: left;
 		width: 71%;
 	`};
@@ -121,18 +116,19 @@ export const StyledProjectHeroBody = styled.article`
 
 export const StyledProjectHeroBodyDesc = styled.p`
   color: ${({ theme }) => theme.colors.grey[200]};
-  margin-bottom: 2.4rem;
+  margin-bottom: ${useSpacing(3)};
   line-height: 1.5;
   font-size: 1.8rem;
+
   ${media.phoneLg`
-		font-size: 2.4rem;
+		font-size: ${useSpacing(3)};
 	`};
 `;
 
 export const StyledProjectHeroBodyRole = styled.p`
   color: ${({ theme }) => theme.colors.common.white};
-  margin-bottom: 0.6rem;
-  font-size: 1.2rem;
+  margin-bottom: ${useSpacing(0.75)};
+  font-size: ${useSpacing(1.25)};
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -143,7 +139,7 @@ export const StyledProjectHeroBodyRoleDesc = styled.h3`
   font-family: Open Sans, sans-serif;
   letter-spacing: 0.05rem;
   line-height: 1.2;
-  margin-bottom: 1.2rem;
+  margin-bottom: ${useSpacing(1.25)};
   text-transform: none;
 `;
 
@@ -152,12 +148,12 @@ export const StyledProjectHeroBodyMeta = styled.ul`
 `;
 
 export const StyledProjectHeroBodyMetaItem = styled.li`
-  margin-bottom: 2.4rem;
+  margin-bottom: ${useSpacing(3)};
 
   ${media.phoneLg`
     float: left;
-    margin-bottom: 1.2rem;
-    margin-left: 2.4rem;
+    margin-bottom: ${useSpacing(1.25)};
+    margin-left: ${useSpacing(3)};
     width: calc(50% - 3.6rem);
 
     &:first-of-type {
@@ -183,12 +179,13 @@ export const StyledProjectHeroButton = styled.a`
   cursor: pointer;
   display: block;
   font-size: 1.6rem;
-  -webkit-font-smoothing: antialiased;
   font-weight: 700;
+  -webkit-font-smoothing: antialiased;
   height: 48px;
   letter-spacing: 1;
   line-height: 50px;
-  margin: 0 auto 1.2rem;
+  margin: 0 auto ${useSpacing(1.25)};
+  max-width: 240px;
   overflow: hidden;
   padding: 0.75rem 1.5rem;
   position: relative;
@@ -198,7 +195,6 @@ export const StyledProjectHeroButton = styled.a`
   transition: all 0.52s ease 0s;
   user-select: none;
   white-space: nowrap;
-  max-width: 240px;
 
   ${media.phone`
     display: inline-block;
@@ -207,30 +203,25 @@ export const StyledProjectHeroButton = styled.a`
     width: 160px;
 
     &:first-of-type {
-      margin-right: 1.2rem;
+      margin-right: ${useSpacing(1.25)};
     }
 	`};
 
   svg {
-    height: 100%;
+    ${size("100%")};
+    ${position("absolute", 0, 0, null, null)};
     line-height: 58px;
-    position: absolute;
-    right: 0;
-    top: 0;
     transform: translate(-100%, 0);
     transition: all 0.52s ease 0s;
-    width: 100%;
   }
 
-  &:focus {
+  &:focus,
+  &:hover {
     background: #a07f40;
     color: #050505;
   }
 
   &:hover {
-    background: #a07f40;
-    color: #050505;
-
     svg {
       transform: translate(0, 0);
       transition: all 0.52s ease 0s;
@@ -243,9 +234,7 @@ export const StyledProjectHeroButton = styled.a`
   }
 
   span {
-    left: 0;
-    position: absolute;
-    top: 0;
+    ${position("absolute", 0, null, null, 0)};
     transform: translate(0, 0);
     transition: all 0.52s ease 0s;
     width: 100%;

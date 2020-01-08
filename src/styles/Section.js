@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { padding } from "polished";
-import { media, hex2rgba } from "./utils";
+import { padding, position, size } from "polished";
+import { media, hex2rgba, useSpacing } from "./utils";
 import StyledBrowserMockup from "./Portfolio/BrowserMockup";
 
 export const StyledSection = styled.section`
@@ -32,7 +32,7 @@ export const StyledSection = styled.section`
 export const StyledSectionContent = styled.article`
   width: calc(100% - 4.8rem);
   float: left;
-  margin-left: 2.4rem;
+  margin-left: ${useSpacing(3)};
 
   ${media.desktop`
 		width: calc(75% - 4.2rem);
@@ -67,24 +67,19 @@ export const StyledSectionName = styled.h2`
   z-index: 1;
 
   &::after {
+    ${position("absolute", 0, 0, null, null)};
+    ${size("2px", useSpacing(2.5))};
     background-color: ${({ theme }) => theme.colors.primary.main};
     content: "";
-    height: 2px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 2rem;
   }
 `;
 
 export const StyledSectionNumber = styled.span`
+  ${position("absolute", 0, null, null, "-1.5rem")};
   color: ${({ theme }) => hex2rgba(theme.colors.grey[100], 0.1)};
   display: block;
   font-size: 6rem;
   font-weight: 700;
-  left: -1.5rem;
   opacity: 0.75;
-  position: absolute;
-  top: 0;
   z-index: 0;
 `;

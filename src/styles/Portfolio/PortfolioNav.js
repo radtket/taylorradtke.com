@@ -1,26 +1,25 @@
 import styled from "styled-components";
-import { mediaMax } from "../utils";
+import { position, padding } from "polished";
+import { mediaMax, useSpacing } from "../utils";
 import { ScreenReaderTextCSS } from "../Shared";
 
 const StyledPortfolioNav = styled.nav`
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: ${({ theme }) => theme.zIndex.navbar};
-  justify-items: center;
+  ${position("fixed", 0, null, null, 0)};
   background-color: ${({ theme }) => theme.colors.shadows.white[97]};
   box-shadow: 0 1px 1px ${({ theme }) => theme.colors.shadows.black[10]};
+  justify-items: center;
+  width: 100%;
+  z-index: ${({ theme }) => theme.zIndex.navbar};
 
   a {
-    padding: 0 2.4rem;
+    ${padding(0, useSpacing(3))}
     border: 0;
-    display: block;
     color: ${({ theme }) => theme.colors.grey[100]};
-    width: 33.333%;
+    display: block;
     float: left;
     line-height: ${({ theme }) => theme.sizes.navigation.height};
     transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
+    width: 33.333%;
 
     &:hover {
       color: ${({ theme }) => theme.colors.grey[100]};
@@ -33,20 +32,21 @@ const StyledPortfolioNav = styled.nav`
 
     span {
       display: inline-block;
-      vertical-align: middle;
       font-size: 1.2rem;
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
+      vertical-align: middle;
 
       ${mediaMax.phoneLg`
         ${ScreenReaderTextCSS}
       `};
     }
+
     svg {
       display: inline-block;
-      vertical-align: middle;
       height: 1.4rem;
+      vertical-align: middle;
     }
   }
 `;

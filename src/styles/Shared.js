@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { clearFix } from "polished";
+import { clearFix, padding } from "polished";
 import { StyledSection } from "./Section";
+import { useSpacing } from "./utils";
 
 export const ScreenReaderTextCSS = `
   border: 0;
@@ -22,17 +23,17 @@ export const HeadlineSecondary = styled.section`
   font-family: "Oswald", sans-serif;
   font-size: 2rem;
   letter-spacing: 0.3rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: ${useSpacing(1.5)};
   text-transform: uppercase;
 `;
 
 // Containers
 export const StyledContainer = styled.div`
-  margin: auto;
-  max-width: 1200px;
-  padding: 0 12px;
-  width: 100%;
   ${clearFix()};
+  ${padding(0, useSpacing(1.5))};
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
 
   ${StyledSection} {
     &:last-child {
@@ -41,17 +42,7 @@ export const StyledContainer = styled.div`
   }
 `;
 
-export const StyledContainerFull = styled.div`
-  margin: 0 auto;
+export const StyledContainerFull = styled(StyledContainer)`
   max-width: 100%;
-  padding: 0 12px;
   position: relative;
-  width: 100%;
-  ${clearFix()};
-
-  ${StyledSection} {
-    &:last-child {
-      border-bottom: 0;
-    }
-  }
 `;
