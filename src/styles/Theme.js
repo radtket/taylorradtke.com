@@ -5,9 +5,15 @@ import { hex2rgba } from "./utils";
 
 export const useTheme = () => useContext(ThemeContext);
 
-export const useSpacing = arg => `${arg * 1.2}rem`;
-
 export const config = {
+  zIndex: {
+    navbar: 99,
+  },
+  sizes: {
+    navigation: {
+      height: "55px",
+    },
+  },
   font: {
     family: {
       primary: `'Open Sans', sans-serif`,

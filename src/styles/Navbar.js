@@ -1,20 +1,20 @@
 import styled from "styled-components";
 import { Link } from "gatsby";
 import { position, size, padding } from "polished";
-import { media, mediaMax } from "./utils";
+import { media, mediaMax, useSpacing } from "./utils";
 
 export const StyledNavbar = styled.header`
   ${position("fixed", 0, null, null, 0)};
   background-color: ${({ theme }) => theme.colors.shadows.white[97]};
   box-shadow: 0 1px 1px ${({ theme }) => theme.colors.shadows.black[10]};
   width: 100%;
-  z-index: 99;
+  z-index: ${({ theme }) => theme.zIndex.navbar};
 `;
 
 export const StyledNavbarLogo = styled(Link)`
-  ${size("55px")};
+  ${({ theme }) => size(theme.sizes.navigation.height)};
   float: left;
-  line-height: 55px;
+  line-height: ${({ theme }) => theme.sizes.navigation.height};
   text-align: center;
 
   svg {
@@ -30,12 +30,10 @@ export const StyledNav = styled.nav`
   float: right;
 
   ${mediaMax.tablet`
+  ${position("absolute", "100%", null, null, 0)};
     background: ${({ theme }) => theme.colors.shadows.dark[97]};
     display: none;
-    left: 0;
     overflow-y: hidden;
-    position: absolute;
-		top: 100%;
 		width: 100%;
 
 		.menu-open & {
@@ -53,13 +51,13 @@ export const StyledNav = styled.nav`
 
 	> ul {
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
   }
 `;
 
 export const StyledHamburger = styled.button`
-  ${size("55px")};
+  ${({ theme }) => size(theme.sizes.navigation.height)};
   background-color: transparent;
   border: 0;
   color: inherit;
@@ -192,7 +190,7 @@ export const StyledNavLink = styled.button`
 	`}
 
   ${media.navbreak`
-    ${padding(null, "2.4rem")}
+    ${padding(null, useSpacing(3))}
   `};
 `;
 
@@ -213,7 +211,7 @@ export const StyledNavItem = styled.li`
 
   ${media.tablet`
 		display: inline-block;
-		line-height: 55px;
+		line-height: ${({ theme }) => theme.sizes.navigation.height};
 	`};
 `;
 
@@ -241,15 +239,15 @@ export const StyledDownloadButton = styled.a`
 	`}
 
   ${media.tablet`
+  ${padding(useSpacing(1.5), useSpacing(3))};
     background: ${({ theme }) => theme.colors.grey[100]};
     border: 2px solid transparent;
-    border-radius: 2.4rem;
+    border-radius: ${useSpacing(3)};
     color: ${({ theme }) => theme.colors.common.white};
     font-family:  ${({ theme }) => theme.font.family.primary};
     font-weight: 600;
     letter-spacing: 0.1em;
     line-height: 1;
-    padding: 1.2rem 2.4rem;
 
     &:hover {
       background: ${({ theme }) => theme.colors.grey[400]};
@@ -258,10 +256,9 @@ export const StyledDownloadButton = styled.a`
 
   svg {
     fill: ${({ theme }) => theme.colors.common.white};
+    ${position("relative", "1px", null, null)};
     height: 1.2rem;
-    margin-right: 0.6rem;
-    position: relative;
-    top: 1px;
+    margin-right: ${useSpacing(0.75)};
     transition: fill 0.2s cubic-bezier(0, 0, 0.58, 1);
   }
 `;

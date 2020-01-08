@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { padding, size, position, clearFix } from "polished";
-import { media, mediaMax } from "./utils";
+import { media, mediaMax, useSpacing } from "./utils";
 
 export const StyledFooter = styled.footer`
   ${clearFix()};
@@ -8,7 +8,7 @@ export const StyledFooter = styled.footer`
   text-align: center;
 
   ${mediaMax.tablet`
-    ${padding("1.2rem", null)}
+    ${padding(useSpacing(1.5), null)}
 	`};
 `;
 
@@ -16,14 +16,14 @@ export const StyledCopyright = styled.p`
   font-family: ${({ theme }) => theme.font.family.secondary};
   font-size: 1.2rem;
   letter-spacing: 0.3em;
-  margin-bottom: 12px;
+  margin-bottom: ${useSpacing(1.5)};
   text-indent: 0.3em;
   text-transform: uppercase;
 
   ${media.tablet`
 		float: left;
-		height: 55px;
-		line-height: 55px;
+		height: ${({ theme }) => theme.sizes.navigation.height}
+		line-height: ${({ theme }) => theme.sizes.navigation.height}
 		margin: 0;
 	`};
 
@@ -42,7 +42,7 @@ export const StyledSocialList = styled.ul`
 
   li {
     float: left;
-    margin-right: 1.6rem;
+    margin-right: ${useSpacing(2)};
     position: relative;
 
     ${media.tablet`
@@ -84,7 +84,7 @@ export const StyledSocialList = styled.ul`
         ${size("100%", "50%")};
         ${position("relative", 0, null, null, 0)};
         fill: ${({ theme }) => theme.colors.grey[100]};
-        max-width: 16px;
+        max-width: ${useSpacing(2)};
         transition: all 0.27s cubic-bezier(0.3, 0.1, 0.58, 1);
       }
     }

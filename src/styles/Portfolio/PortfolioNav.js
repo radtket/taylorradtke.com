@@ -7,7 +7,7 @@ const StyledPortfolioNav = styled.nav`
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 99;
+  z-index: ${({ theme }) => theme.zIndex.navbar};
   justify-items: center;
   background-color: ${({ theme }) => theme.colors.shadows.white[97]};
   box-shadow: 0 1px 1px ${({ theme }) => theme.colors.shadows.black[10]};
@@ -19,7 +19,7 @@ const StyledPortfolioNav = styled.nav`
     color: ${({ theme }) => theme.colors.grey[100]};
     width: 33.333%;
     float: left;
-    line-height: 55px;
+    line-height: ${({ theme }) => theme.sizes.navigation.height};
     transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
 
     &:hover {

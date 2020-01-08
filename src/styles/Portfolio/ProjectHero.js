@@ -28,7 +28,7 @@ export const StyledProjectHero = styled.section`
 
   ${mediaMax.tablet`
     /* Navbar Offset */
-    padding-top: 55px;
+    padding-top: ${({ theme }) => theme.sizes.navigation.height};
 	`};
 
   ${mediaMax.giant`

@@ -1,16 +1,15 @@
 import styled, { css } from "styled-components";
 import { clearFix, size, padding, position, margin } from "polished";
-import { media, mediaMax } from "../utils";
-import { useSpacing } from "../Theme";
+import { media, mediaMax, useSpacing } from "../utils";
 
 export const StyledContactForm = styled.form`
   max-width: 500px;
-  margin: auto auto ${useSpacing(1)} auto;
+  margin: auto auto ${useSpacing(1.5)} auto;
 
   ${media.tablet`
 		float: right;
 		width: calc(100% - 300px);
-		margin-left: ${useSpacing(2)};
+		margin-left: ${useSpacing(3)};
 		max-width: 100%;
 	`};
 `;
@@ -18,21 +17,21 @@ export const StyledContactForm = styled.form`
 export const StyledSubmitButton = styled.button`
   appearance: none;
   background: ${({ theme }) => theme.colors.grey[100]};
-  border-radius: ${useSpacing(2)};
+  border-radius: ${useSpacing(3)};
   border: 2px solid transparent;
   box-shadow: none;
   color: ${({ theme }) => theme.colors.common.white};
   cursor: pointer;
   display: block;
   float: right;
-  font-size: ${useSpacing(1)};
+  font-size: ${useSpacing(1.5)};
   font-weight: 600;
   letter-spacing: 0.1em;
   line-height: 1;
-  margin: ${useSpacing(0.5)} 0 0 0;
+  margin: ${useSpacing(0.75)} 0 0 0;
   outline: 0;
   overflow: visible;
-  padding: ${useSpacing(1)} ${useSpacing(2)};
+  padding: ${useSpacing(1.5)} ${useSpacing(3)};
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
@@ -43,10 +42,10 @@ export const StyledSubmitButton = styled.button`
 
   svg {
     transition: fill 0.2s cubic-bezier(0, 0, 0.58, 1);
-    height: ${useSpacing(1)};
+    height: ${useSpacing(1.5)};
     position: relative;
     top: 1px;
-    margin-right: ${useSpacing(0.5)};
+    margin-right: ${useSpacing(0.75)};
     fill: ${({ theme }) => theme.colors.common.white};
   }
 
@@ -89,11 +88,11 @@ export const InputStyles = css`
   color: ${({ theme }) => theme.colors.grey[200]};
   display: inline-block;
   font-family: ${({ theme }) => theme.font.family.primary};
-  font-size: ${useSpacing(1)};
+  font-size: ${useSpacing(1.5)};
   letter-spacing: 0.05rem;
-  margin-bottom: ${useSpacing(1)};
+  margin-bottom: ${useSpacing(1.5)};
   outline: 0;
-  padding: ${padding(useSpacing(0.5), useSpacing(1))};
+  padding: ${padding(useSpacing(0.75), useSpacing(1.5))};
   transition: all 150ms ease;
   vertical-align: middle;
 
@@ -134,21 +133,20 @@ export const StyledContactWrap = styled.ul`
 `;
 
 export const StyledContactItem = styled.li`
-  margin-bottom: ${useSpacing(2)};
+  margin-bottom: ${useSpacing(3)};
   ${clearFix()};
 `;
 
 export const StyledContactIconWrap = styled.figure`
-  height: 4.8rem;
+  ${size(useSpacing(6))};
   line-height: 1;
   text-align: center;
-  width: 4.8rem;
 
   ${media.tablet`
 		border-left: 1px solid ${({ theme }) => theme.colors.shadows.black[20]};
 		display: inline-block;
 		float: right;
-		margin-left: ${useSpacing(1)};
+		margin-left: ${useSpacing(1.5)};
 	`};
 
   ${mediaMax.tablet`
@@ -167,7 +165,7 @@ export const StyledContactIconWrap = styled.figure`
 
 export const StyledContactItemDetails = styled.dl`
   color: ${({ theme }) => theme.colors.grey[200]};
-  padding: ${padding(useSpacing(0.5), null, useSpacing(0.5), null)};
+  padding: ${padding(useSpacing(0.75), null, useSpacing(0.75), null)};
   text-align: center;
 
   ${media.tablet`
@@ -178,10 +176,10 @@ export const StyledContactItemDetails = styled.dl`
 `;
 
 export const StyledContactItemKey = styled.dt`
-  font-size: ${useSpacing(1)};
+  font-size: ${useSpacing(1.5)};
   font-weight: 600;
   letter-spacing: 0.1em;
-  margin-bottom: ${useSpacing(0.5)};
+  margin-bottom: ${useSpacing(0.75)};
   text-transform: uppercase;
 `;
 
