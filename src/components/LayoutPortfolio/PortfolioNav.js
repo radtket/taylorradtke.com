@@ -10,18 +10,18 @@ const PortfolioNav = ({ next, prev }) => {
       {prev && (
         <Link to={prev.path}>
           <PaginationPrev />
-          <span style={{ marginLeft: "1rem" }}>{prev.projectName}</span>
+          <span>{prev.projectName}</span>
         </Link>
       )}
 
-      <Link style={{ textAlign: "center" }} to="/#works">
+      <Link to="/#works">
         <PaginationHome />
-        <span style={{ marginLeft: "1rem" }}>All Works</span>
+        <span>All Works</span>
       </Link>
 
       {next && (
-        <Link style={{ textAlign: "right" }} to={next.path}>
-          <span style={{ marginRight: "1rem" }}>{next.projectName}</span>
+        <Link to={next.path}>
+          <span>{next.projectName}</span>
           <PaginationNext />
         </Link>
       )}

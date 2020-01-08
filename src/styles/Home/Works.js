@@ -1,40 +1,33 @@
 import styled from "styled-components";
 import { Link } from "gatsby";
+import { cover, margin, position, size } from "polished";
 import IconZoom from "../../assets/icons/icon__zoom.png";
-import { hex2rgba } from "../utils";
+import { hex2rgba, useSpacing } from "../utils";
 
 export const StyledWorkCardText = styled.figcaption`
-  bottom: 0;
-  left: 0;
-  margin: 1.2rem;
-  position: absolute;
-  right: 0;
-  top: 0;
+  ${cover()};
+  ${margin(useSpacing(1.5))};
   z-index: 1;
 `;
 
 export const StyledWorkCardName = styled.h3`
+  ${position("relative", 0, null, null, 0)};
   color: ${({ theme }) => theme.colors.common.white};
   font-size: 2.4rem;
-  left: 0;
   letter-spacing: 0.1em;
   margin: 0 auto;
   max-width: 80%;
-  position: relative;
   text-transform: uppercase;
-  top: 0;
   transition: all 0.5s;
 `;
 
 export const StyledWorkCardType = styled.p`
-  bottom: 0;
+  ${position("absolute", null, null, 0, 0)};
   color: ${({ theme }) => theme.colors.grey[500]};
-  font-family: "Oswald", sans-serif;
+  font-family: ${({ theme }) => theme.font.family.secondary};
   font-size: 1.2rem;
-  left: 0;
   letter-spacing: 0.3em;
   margin: 0 0 -0.8em;
-  position: absolute;
   text-transform: uppercase;
   transform: rotate(-90deg);
   transform-origin: 0 0;
@@ -42,35 +35,28 @@ export const StyledWorkCardType = styled.p`
 `;
 
 export const StyledZoomIcon = styled.span`
+  ${size("33.3333%")};
   background-color: ${({ theme }) => hex2rgba(theme.colors.primary.main, 0.85)};
   border-radius: 50%;
-  height: 33.3333%;
-  left: 50%;
   margin: -16.66665%;
   opacity: 0;
   overflow: hidden;
-  position: absolute;
-  top: 50%;
   transform: scale(0.5);
   transition: all 0.7s;
-  width: 33.3333%;
 
   &::after {
+    ${position("absolute", "50%", null, null, "50%")};
+    ${size("25%")};
     background: url(${IconZoom}) 0 0 no-repeat;
     background-size: cover;
     content: "";
-    height: 25%;
-    left: 50%;
-    position: absolute;
-    top: 50%;
     transform: translate(-50%, -50%);
-    width: 25%;
   }
 `;
 
 export const StyledWorkCard = styled(Link)`
-  display: inline-block;
   /* float: left; */
+  display: inline-block;
   margin: 0;
   max-width: 300px;
   overflow: hidden;
@@ -102,7 +88,7 @@ export const StyledWorkCard = styled(Link)`
 
     ${StyledWorkCardName} {
       opacity: 0;
-      top: 2.4rem;
+      top: ${useSpacing(3)};
     }
 
     ${StyledWorkCardType} {
@@ -122,15 +108,12 @@ export const StyledWorkCard = styled(Link)`
     position: relative;
 
     &::after {
+      ${position("absolute", 0, null, null, 0)};
+      ${size("100%")};
       background-color: ${({ theme }) => theme.colors.grey[600]};
       content: "";
-      height: 100%;
-      left: 0;
       opacity: 0.7;
-      position: absolute;
-      top: 0;
       transition: all 0.5s;
-      width: 100%;
     }
 
     img {

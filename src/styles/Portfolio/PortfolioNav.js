@@ -21,6 +21,20 @@ const StyledPortfolioNav = styled.nav`
     transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
     width: 33.333%;
 
+    /* All Works */
+    &:nth-child(2) {
+      text-align: center;
+    }
+
+    /* Next Project */
+    &:last-of-type {
+      text-align: right;
+      span {
+        margin-right: 1rem;
+        margin-left: 0;
+      }
+    }
+
     &:hover {
       color: ${({ theme }) => theme.colors.grey[100]};
       background: ${({ theme }) => theme.colors.primary.main};
@@ -35,6 +49,7 @@ const StyledPortfolioNav = styled.nav`
       font-size: 1.2rem;
       font-weight: 600;
       letter-spacing: 0.1em;
+      margin-left: 1rem;
       text-transform: uppercase;
       vertical-align: middle;
 
@@ -45,7 +60,7 @@ const StyledPortfolioNav = styled.nav`
 
     svg {
       display: inline-block;
-      height: 1.4rem;
+      height: ${useSpacing(1.75)};
       vertical-align: middle;
     }
   }

@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import { clearFix, size, position, margin } from "polished";
+import { clearFix, size, position, margin, padding } from "polished";
 import { media, mediaMax, useSpacing } from "../utils";
 import { StyledContainer } from "../Shared";
 
@@ -100,7 +100,7 @@ export const StyledProjectHeroWrap = styled.div`
     padding: 0;
 
     ${media.phoneLg`
-			width: 7.2rem;
+			width: ${useSpacing(9)};
 			float: left;
 		`};
   }
@@ -136,7 +136,7 @@ export const StyledProjectHeroBodyRole = styled.p`
 
 export const StyledProjectHeroBodyRoleDesc = styled.h3`
   color: #828282;
-  font-family: Open Sans, sans-serif;
+  font-family: ${({ theme }) => theme.font.family.primary};
   letter-spacing: 0.05rem;
   line-height: 1.2;
   margin-bottom: ${useSpacing(1.25)};
@@ -171,6 +171,7 @@ export const StyledProjectHeroVideo = styled.video`
 `;
 
 export const StyledProjectHeroButton = styled.a`
+  ${padding(useSpacing(1), useSpacing(2))}
   appearance: none;
   background: ${({ theme }) => theme.colors.primary.main};
   border-radius: 3px;
@@ -187,7 +188,6 @@ export const StyledProjectHeroButton = styled.a`
   margin: 0 auto ${useSpacing(1.25)};
   max-width: 240px;
   overflow: hidden;
-  padding: 0.75rem 1.5rem;
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -199,7 +199,7 @@ export const StyledProjectHeroButton = styled.a`
   ${media.phone`
     display: inline-block;
     vertical-align: middle;
-    margin-bottom: 0.75rem;
+    margin-bottom: ${useSpacing(1)};
     width: 160px;
 
     &:first-of-type {

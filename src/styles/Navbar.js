@@ -257,7 +257,7 @@ export const StyledDownloadButton = styled.a`
   svg {
     fill: ${({ theme }) => theme.colors.common.white};
     ${position("relative", "1px", null, null)};
-    height: 1.2rem;
+    height: ${useSpacing(1.5)};
     margin-right: ${useSpacing(0.75)};
     transition: fill 0.2s cubic-bezier(0, 0, 0.58, 1);
   }

@@ -119,7 +119,7 @@ export const StyledFormInput = styled.input`
 
 export const StyledFormTextArea = styled.textarea`
   ${InputStyles};
-  ${padding("0.8rem", null)};
+  ${padding(useSpacing(1), null)};
   min-height: 114px;
   resize: vertical;
 `;
@@ -151,7 +151,7 @@ export const StyledContactIconWrap = styled.figure`
 
   ${mediaMax.tablet`
     border-bottom: 1px solid ${({ theme }) => theme.colors.shadows.black[20]};
-    ${margin(null, "auto", "0.4rem")};
+    ${margin(null, "auto", useSpacing(0.5))};
 	`};
 
   > svg {

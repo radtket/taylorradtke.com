@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { margin } from "polished";
+import { useSpacing } from "../utils";
 
 export const StyledTestimonial = styled.blockquote`
   max-width: 700px;
@@ -15,12 +17,11 @@ export const StyledAvitar = styled.figure`
 `;
 
 export const StyledQuote = styled.div`
-  margin-top: 2.4rem;
-  margin-bottom: 2.4rem;
+  ${margin(useSpacing(3), null)}
   font-weight: 300;
 
   p {
-    margin-bottom: 1.2rem;
+    margin-bottom: ${useSpacing(1.5)};
 
     &:last-of-type {
       margin-bottom: 0;
@@ -29,7 +30,7 @@ export const StyledQuote = styled.div`
 `;
 
 export const StyledAuthor = styled.cite`
-  margin-right: 0.6rem;
+  margin-right: ${useSpacing(0.75)};
   text-align: right;
   color: ${({ theme }) => theme.colors.grey[300]};
   display: block;

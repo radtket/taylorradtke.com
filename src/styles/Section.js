@@ -61,7 +61,7 @@ export const StyledSectionName = styled.h2`
   display: inline-block;
   font-size: 3rem;
   letter-spacing: 0.1em;
-  margin-bottom: 6rem;
+  margin-bottom: ${useSpacing(7.5)};
   position: relative;
   text-transform: uppercase;
   z-index: 1;
@@ -75,7 +75,7 @@ export const StyledSectionName = styled.h2`
 `;
 
 export const StyledSectionNumber = styled.span`
-  ${position("absolute", 0, null, null, "-1.5rem")};
+  ${position("absolute", 0, null, null, useSpacing(-2))};
   color: ${({ theme }) => hex2rgba(theme.colors.grey[100], 0.1)};
   display: block;
   font-size: 6rem;

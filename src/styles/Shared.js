@@ -20,7 +20,7 @@ export const ScreenReaderText = styled.span`
 
 // Typography
 export const HeadlineSecondary = styled.section`
-  font-family: "Oswald", sans-serif;
+  font-family: ${({ theme }) => theme.font.family.secondary};
   font-size: 2rem;
   letter-spacing: 0.3rem;
   margin-bottom: ${useSpacing(1.5)};
