@@ -6,14 +6,7 @@ const config = {
   siteLanguage: "en", // Language Tag on <html> element
   siteLogo: "/branding/logo__primary.png", // Used for SEO and manifest
   short_name: "taylorradtke",
-  description: `Taylor Radtke is a creative mind who specializes in minimal design that displays a bold message. After three
-	plus years of marketing in the service industry, Taylor takes his social skills mastered from constructing
-	cocktails through college to creating a finished project that his client truly loves. A mastermind at social
-	media marketing, with a concentration on an age demographic of 18-35. Taylor has a great latitude of culture
-	due to his upbringing in Southern California then transitioning to the mid-Atlantic region to further his
-	career and education. Recently Taylor has devoted his time to mastering the world of front-end web development
-	and design. His passion for web design comes from viewing it as a functional piece of art, and striving to let
-	his mind continue to share the beauty of digital`,
+  description: `Hi, I’m Taylor Radtke a Full Stack Developer/Designer with a passion for finding analytical and elegant solutions to complex problems. By focusing on turning ideas into sleek, highly scalable software, I write code with its future maintainers in mind and aim to structure my user-facing architecture while keeping accessibility at the forefront. I am a self-motivated developer with a knack for working well under pressure, handling multiple priorities, and maintaining high-quality control. My objective is to obtain a full-time development opportunity where I can make a meaningful contribution to a hardworking and creative team environment.`,
 
   // Contact Info
   contact: {

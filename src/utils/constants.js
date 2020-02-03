@@ -60,7 +60,7 @@ export const JOB_LIST = [
     company: "Booz Allen Hamilton",
     companyUrl: "https://www.boozallen.com/",
     desc:
-      "Looking for design-driven development, both mobile and web. The preferred tech stack is ES6, React, Node, GraphQL.Writing scalable, non- repetitive code, reusable code.",
+      "Looking for design-driven development, both mobile and web. The preferred tech stack is ES6, React, Node, GraphQL. Writing scalable, non-repetitive, reusable code.",
     end: "Present",
     location: "McLean, VA",
     position: "Developer",
