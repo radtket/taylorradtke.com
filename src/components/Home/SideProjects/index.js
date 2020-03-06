@@ -34,6 +34,7 @@ const SideProjects = () => {
                   name
                   color
                 }
+                homepageUrl
               }
             }
           }

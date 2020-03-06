@@ -11,6 +11,7 @@ import {
   StyledJobWrap,
   StyledTimeLineDot,
 } from "../../../styles/Home/Experience";
+import ExternalLink from "../../ExternalLink";
 
 const Job = ({ start, end, company, companyUrl, position, location, desc }) => {
   return (
@@ -20,14 +21,9 @@ const Job = ({ start, end, company, companyUrl, position, location, desc }) => {
         <StyledJobDetails>
           <StyledJobTimeFrame>{`${start} – ${end}`}</StyledJobTimeFrame>
           <StyledJobCompany>
-            <a
-              href={companyUrl}
-              rel="noopener noreferrer"
-              target="_blank"
-              title={`${company} Website`}
-            >
+            <ExternalLink href={companyUrl} title={`${company} Website`}>
               {company}
-            </a>
+            </ExternalLink>
           </StyledJobCompany>
           <StyledJobPosition>{position}</StyledJobPosition>
           <StyledJobLocation>{location}</StyledJobLocation>

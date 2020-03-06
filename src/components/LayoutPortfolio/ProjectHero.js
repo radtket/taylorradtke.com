@@ -86,8 +86,6 @@ const ProjectHero = ({
 
                 <StyledProjectHeroButton
                   href={`//${github.account}.github.io/${githubRepoName}`}
-                  rel="noopener noreferrer"
-                  target="_blank"
                   title={`View Site ${projectName}`}
                 >
                   <AllSeeingEye />
@@ -96,8 +94,6 @@ const ProjectHero = ({
 
                 <StyledProjectHeroButton
                   href={`//github.com/${github.account}/${githubRepoName}`}
-                  rel="noopener noreferrer"
-                  target="_blank"
                   title={`View Repo ${projectName}`}
                 >
                   <AllSeeingEye />

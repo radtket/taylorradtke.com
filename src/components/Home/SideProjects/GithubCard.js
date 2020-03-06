@@ -6,6 +6,7 @@ import {
   StyledGithubCard,
   StyledGithubCardWrap,
 } from "../../../styles/GithubCard";
+import ExternalLink from "../../ExternalLink";
 
 const GithubCard = ({
   url,
@@ -14,14 +15,25 @@ const GithubCard = ({
   primaryLanguage,
   forkCount,
   stargazers,
+  homepageUrl,
 }) => {
   return (
     <StyledGithubCardWrap>
-      <StyledGithubCard href={url} rel="noopener noreferrer" target="_blank">
-        <dl>
-          <dt>{name}</dt>
-          {description && <dd>{description}</dd>}
-        </dl>
+      <StyledGithubCard>
+        <div className="repo-details">
+          <h4>
+            <ExternalLink href={url} title={`View Repo ${name}`}>
+              {name}
+            </ExternalLink>
+          </h4>
+          {description && <p>{description}</p>}
+          {homepageUrl && (
+            <ExternalLink href={homepageUrl} title={`View Live Demo ${name}`}>
+              View Live
+            </ExternalLink>
+          )}
+        </div>
+
         <div className="repo-meta">
           {primaryLanguage && (
             <StyledGithubCardLanguage {...primaryLanguage}>
@@ -60,10 +72,12 @@ GithubCard.propTypes = {
   stargazers: PropTypes.shape({
     totalCount: 0,
   }).isRequired,
+  homepageUrl: PropTypes.string,
 };
 
 GithubCard.defaultProps = {
   description: null,
+  homepageUrl: null,
 };
 
 export default GithubCard;

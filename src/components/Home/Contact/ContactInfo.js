@@ -55,11 +55,7 @@ const ContactInfo = () => {
         <StyledContactItemDetails>
           <StyledContactItemKey>Location</StyledContactItemKey>
           <dd>
-            <StyledContactItemValue
-              href="https://goo.gl/maps/T7sBujABHYG2"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
+            <StyledContactItemValue href="https://goo.gl/maps/T7sBujABHYG2">
               {city}
             </StyledContactItemValue>
           </dd>

@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components";
 import { clearFix, size, position, margin, padding } from "polished";
 import { media, mediaMax, useSpacing } from "../utils";
 import { StyledContainer } from "../Shared";
+import ExternalLink from "../../components/ExternalLink";
 
 export const StyledProjectHero = styled.section`
   background-attachment: fixed;
@@ -170,7 +171,7 @@ export const StyledProjectHeroVideo = styled.video`
   object-fit: cover;
 `;
 
-export const StyledProjectHeroButton = styled.a`
+export const StyledProjectHeroButton = styled(ExternalLink)`
   ${padding(useSpacing(1), useSpacing(2))}
   appearance: none;
   background: ${({ theme }) => theme.colors.primary.main};

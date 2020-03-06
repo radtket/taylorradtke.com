@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { clearFix, size, padding, position, margin } from "polished";
 import { media, mediaMax, useSpacing } from "../utils";
+import ExternalLink from "../../components/ExternalLink";
 
 export const StyledContactForm = styled.form`
   max-width: 500px;
@@ -183,7 +184,7 @@ export const StyledContactItemKey = styled.dt`
   text-transform: uppercase;
 `;
 
-export const StyledContactItemValue = styled.a`
+export const StyledContactItemValue = styled(ExternalLink)`
   color: ${({ theme }) => theme.colors.grey[300]};
   margin-bottom: 0;
 `;
