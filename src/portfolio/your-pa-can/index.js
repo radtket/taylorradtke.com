@@ -31,7 +31,7 @@ const YourPaCan = ({ pageContext, ...props }) => {
       landing: allFile(
         filter: {
           sourceInstanceName: { eq: "portfolio" }
-          relativeDirectory: { eq: "green-can-lockers/images/landing" }
+          relativeDirectory: { eq: "your-pa-can/images/landing" }
         }
       ) {
         edges {

@@ -15,7 +15,7 @@ import Experience from "../components/Home/Experience";
 import Clients from "../components/Home/Clients";
 import Testimonials from "../components/Home/Testimonials";
 import Contact from "../components/Home/Contact";
-// import SideProjects from "../components/Home/SideProjects";
+import SideProjects from "../components/Home/SideProjects";
 import Works from "../components/Home/Works";
 import { slugify } from "../utils/helpers";
 
@@ -24,8 +24,8 @@ export const sections = [
   { name: "Experience", component: <Experience /> },
   { name: "Clients", component: <Clients /> },
   { name: "Works", component: <Works /> },
+  { name: "Side Projects", component: <SideProjects /> },
   { name: "Testimonials", component: <Testimonials /> },
-  // { name: "Side Projects", component: <SideProjects /> },
   { name: "Contact", component: <Contact /> },
 ].map(item => ({
   ...item,

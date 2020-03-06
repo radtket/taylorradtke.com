@@ -40,7 +40,7 @@ const RandsSupply = ({ pageContext, ...props }) => {
       landing: allFile(
         filter: {
           sourceInstanceName: { eq: "portfolio" }
-          relativeDirectory: { eq: "green-can-lockers/images/landing" }
+          relativeDirectory: { eq: "rands-supply/images/landing" }
         }
       ) {
         edges {
@@ -57,7 +57,7 @@ const RandsSupply = ({ pageContext, ...props }) => {
       locations: allFile(
         filter: {
           sourceInstanceName: { eq: "portfolio" }
-          relativeDirectory: { eq: "green-can-lockers/images/locations" }
+          relativeDirectory: { eq: "rands-supply/images/locations" }
         }
       ) {
         edges {

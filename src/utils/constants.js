@@ -13,7 +13,7 @@ export const SKILL_LIST = {
     "Grunt",
     "Gulp",
     "HTML5",
-    "JavasSript",
+    "JavaSript",
     "jQuery",
     "Modernizr",
     "Node",
