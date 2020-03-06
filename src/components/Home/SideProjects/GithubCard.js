@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { ForkIcon, StarIcon } from "../../Icons";
 import {
   StyledGithubCardLanguage,
@@ -45,6 +46,24 @@ const GithubCard = ({
       </StyledGithubCard>
     </StyledGithubCardWrap>
   );
+};
+
+GithubCard.propTypes = {
+  url: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  primaryLanguage: PropTypes.shape({
+    name: PropTypes.string,
+    color: PropTypes.string,
+  }).isRequired,
+  forkCount: PropTypes.number.isRequired,
+  stargazers: PropTypes.shape({
+    totalCount: 0,
+  }).isRequired,
+};
+
+GithubCard.defaultProps = {
+  description: null,
 };
 
 export default GithubCard;
