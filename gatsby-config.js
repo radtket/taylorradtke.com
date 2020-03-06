@@ -1,5 +1,15 @@
 /* eslint-disable camelcase */
 const urljoin = require("url-join");
+
+const activeEnv =
+  process.env.ACTIVE_ENV || process.env.NODE_ENV || "development";
+
+console.log(`Using environment config: '${process.env.NODE_ENV}'`);
+
+require("dotenv").config({
+  path: `.env.${activeEnv}`,
+});
+
 const {
   accounts,
   backgroundColor,
