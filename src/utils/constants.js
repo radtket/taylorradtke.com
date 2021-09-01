@@ -57,18 +57,49 @@ export const SKILL_LIST = {
 
 export const JOB_LIST = [
   {
+    company: "Northwestern Mutual",
+    companyUrl: "//www.northwesternmutual.com/",
+    desc: `
+      To support our growing team, we are looking for a Sr Frontend Engineer to work with our team. You're the right fit if you're the best and there's not a problem you can't solve. We need an experienced engineer who is passionate about writing client-side code.
+      You will be working with a full stack agile team of JavaScript developers, building applications that are deployed to the cloud. You'll work very closely with our engineering group working on our AWS and Kubernetes platform and API's on the backend. These apps support the future development of the client and planner experiences/
+      Your general expectations:
+        - While working with other frontend engineers on the teams, be able to jump head-first into modifying apps and ask the appropriate questions / do the appropriate research to identify the general functions and behaviors of the applications you're working on.
+        - Be able to pick up and work on any existing app and create new apps from scratch using the stack defined, contribute directly to technical discussions that affect the current and future state of the applications and technical stack used. Essentially, contributing to the team at your full capacity.
+        - Proficiency in web standards, best practices, and optimization techniques
+          Bring Your Best! What this role needs:
+      • Fast learner and self-starter. The people you will work with are incredibly kind and extremely willing to share knowledge and a helping hand, but you have to be willing to take ownership of the outlined goals and make things happen.
+      • Ability to take initiative and work with minimal supervision, yet actively interact with other team members in person or over the Internet (chat, videoconference, email).
+      • Work collaboratively on creative solutions with engineers, product managers, and designers.
+      • Bring new ideas and new ways of solving problems to the team.
+        Skills:
+        JavaScript ES6
+        React and Redux
+        Sass / Styled-Components
+        Node and Express
+        Familiarity with Docker and containerization
+        Good understanding of GIT and source code management
+        Familiarity with cloud providers like AWS and Azure is a plus
+        Education / Professional Experience:
+        Bachelor's degree or Associate's degree and 5 or more years of professional experience.
+    `,
+    end: "Present",
+    location: "Milwaukee, WI",
+    position: "Senior Frontend Engineer",
+    start: "May 2020",
+  },
+  {
     company: "Booz Allen Hamilton",
-    companyUrl: "https://www.boozallen.com/",
+    companyUrl: "//www.boozallen.com/",
     desc:
       "Looking for design-driven development, both mobile and web. The preferred tech stack is ES6, React, Node, GraphQL. Writing scalable, non-repetitive, reusable code.",
-    end: "Present",
+    end: "May 2020",
     location: "McLean, VA",
     position: "Developer",
     start: "Apr 2019",
   },
   {
     company: "Cisco",
-    companyUrl: "https://www.cisco.com/",
+    companyUrl: "//www.cisco.com/",
     desc:
       "Created a completely dynamic Wordpress Theme used by hundreds of different partners that brands all pages and components with their personal branding (Typography, brand colors, logo, etc)",
     end: "Apr 2019",
@@ -78,7 +109,7 @@ export const JOB_LIST = [
   },
   {
     company: "AAPA",
-    companyUrl: "https://www.aapa.org/",
+    companyUrl: "//www.aapa.org/",
     desc:
       "Finished a complete website redesign in under 4 months, on a new CMS. Developed web-site mock-ups for clients to ensure quality control and client satisfaction before project development phase.Lead Designer and Developer for Annual Conference Site.",
     end: "July 2018",
@@ -88,7 +119,7 @@ export const JOB_LIST = [
   },
   {
     company: "The Motley Fool",
-    companyUrl: "https://www.fool.com/",
+    companyUrl: "//www.fool.com/",
     desc:
       "Developed and Designed Microsites, Newsletters. Developed and Designed, and Email Templates. UX tests to test the usability of mobile or websites.",
     end: "Oct 2016",
@@ -98,7 +129,7 @@ export const JOB_LIST = [
   },
   {
     company: "Total Wine & More",
-    companyUrl: "https://www.totalwine.com/",
+    companyUrl: "//www.totalwine.com/",
     desc:
       "Responsible for designing and maintaining web banners in various formats to be displayed on any device, that were analyzed using Google Analytics and Google AdWords.",
     end: "Apr 2016",

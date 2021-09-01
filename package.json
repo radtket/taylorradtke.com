@@ -5,12 +5,15 @@
 	"version": "2.0.0",
 	"author": "Taylor Radtke",
 	"dependencies": {
-		"@nivo/calendar": "^0.61.1",
+		"@babel/plugin-transform-spread": "^7.12.1",
+		"@nivo/calendar": "^0.73.0",
 		"babel-plugin-root-import": "^6.4.1",
 		"babel-plugin-styled-components": "^1.10.6",
+		"babel-preset-gatsby": "^1.0.0",
 		"date-fns": "^2.8.1",
 		"dotenv": "^8.2.0",
-		"gatsby": "^2.18.12",
+		"eslint-plugin-html": "^6.0.2",
+		"gatsby": "2.32.3",
 		"gatsby-image": "^2.2.34",
 		"gatsby-plugin-google-analytics": "^2.1.31",
 		"gatsby-plugin-google-fonts": "^1.0.1",
@@ -21,7 +24,7 @@
 		"gatsby-plugin-sharp": "^2.3.5",
 		"gatsby-plugin-styled-components": "^3.1.16",
 		"gatsby-source-filesystem": "^2.1.43",
-		"gatsby-source-graphql": "^2.1.33",
+		"gatsby-source-graphql": "^3.0.0",
 		"gatsby-transformer-javascript-frontmatter": "^2.1.22",
 		"gatsby-transformer-sharp": "^2.3.7",
 		"path": "^0.12.7",
@@ -41,14 +44,14 @@
 	},
 	"devDependencies": {
 		"babel-eslint": "^10.0.3",
+		"eslint": "^6.1.0",
 		"eslint-config-airbnb": "^18.0.1",
 		"eslint-config-prettier": "^6.9.0",
 		"eslint-plugin-import": "^2.19.1",
 		"eslint-plugin-jsx-a11y": "^6.2.3",
 		"eslint-plugin-prettier": "^3.1.2",
-		"eslint-plugin-react-hooks": "^1.7.0",
 		"eslint-plugin-react": "^7.17.0",
-		"eslint": "^6.1.0",
+		"eslint-plugin-react-hooks": "^1.7.0",
 		"prettier": "^1.19.1"
 	},
 	"keywords": [
@@ -62,7 +65,11 @@
 		"start": "npm run develop",
 		"serve": "gatsby serve",
 		"clean": "gatsby clean",
+		"lint": "eslint src/**/**/**/**/**/**/*.js --fix",
 		"test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+	},
+	"resolutions": {
+		"@babel/plugin-transform-spread": "7.12.1"
 	},
 	"repository": {
 		"type": "git",
