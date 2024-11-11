@@ -66,22 +66,29 @@ const Clients = () => {
           ],
         }}
       >
-        {logos.map(({ node: { id: key, childImageSharp: { fixed } } }) => (
-          <Img
-            {...{
-              key,
-              fixed,
-              imgStyle: {
-                objectFit: "contain",
-                width: "80%",
-                height: "80%",
-                left: "50%",
-                marginLeft: "-40%",
-                top: "10px",
-              },
-            }}
-          />
-        ))}
+        {logos.map(
+          ({
+            node: {
+              id: key,
+              childImageSharp: { fixed },
+            },
+          }) => (
+            <Img
+              {...{
+                key,
+                fixed,
+                imgStyle: {
+                  objectFit: "contain",
+                  width: "80%",
+                  height: "80%",
+                  left: "50%",
+                  marginLeft: "-40%",
+                  top: "10px",
+                },
+              }}
+            />
+          )
+        )}
       </Slider>
     </StyledContainer>
   );
