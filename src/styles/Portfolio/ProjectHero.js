@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import { clearFix, size, position, margin, padding } from "polished";
-import { media, mediaMax, useSpacing } from "../utils";
+import { media, mediaMax, getSpacing } from "../utils";
 import { StyledContainer } from "../Shared";
 import ExternalLink from "../../components/ExternalLink";
 
@@ -56,12 +56,12 @@ export const StyledProjectHeroTitle = styled.h1`
   color: ${({ theme }) => theme.colors.common.white};
   font-size: 6rem;
   line-height: 1;
-  margin-bottom: ${useSpacing(0.75)};
+  margin-bottom: ${getSpacing(0.75)};
   text-transform: uppercase;
 
   ${media.phoneLg`
 		font-size: 10rem;
-		margin-bottom: ${useSpacing(3)};
+		margin-bottom: ${getSpacing(3)};
 	`};
 
   ${media.tablet`
@@ -73,14 +73,14 @@ export const StyledProjectHeroTitle = styled.h1`
     font-family: ${({ theme }) => theme.font.family.secondary};
     font-size: 2rem;
     letter-spacing: 0.3rem;
-    margin-top: ${useSpacing(0.75)};
+    margin-top: ${getSpacing(0.75)};
     text-transform: uppercase;
     display: block;
 
     ${media.phoneLg`
       display: inline;
-      margin-bottom: ${useSpacing(1.25)};
-      padding-left: ${useSpacing(0.75)};
+      margin-bottom: ${getSpacing(1.25)};
+      padding-left: ${getSpacing(0.75)};
       margin-top: 0;
     `};
   }
@@ -92,7 +92,7 @@ export const StyledProjectHeroWrap = styled.div`
   position: relative;
 
   hr {
-    ${margin(useSpacing(1.5), 0)};
+    ${margin(getSpacing(1.5), 0)};
     border-top: 2px solid ${({ theme }) => theme.colors.primary.main};
     border: 0;
     display: block;
@@ -101,7 +101,7 @@ export const StyledProjectHeroWrap = styled.div`
     padding: 0;
 
     ${media.phoneLg`
-			width: ${useSpacing(9)};
+			width: ${getSpacing(9)};
 			float: left;
 		`};
   }
@@ -109,7 +109,7 @@ export const StyledProjectHeroWrap = styled.div`
 
 export const StyledProjectHeroBody = styled.article`
   ${media.phoneLg`
-		margin-left: ${useSpacing(6)};
+		margin-left: ${getSpacing(6)};
 		float: left;
 		width: 71%;
 	`};
@@ -117,19 +117,19 @@ export const StyledProjectHeroBody = styled.article`
 
 export const StyledProjectHeroBodyDesc = styled.p`
   color: ${({ theme }) => theme.colors.grey[200]};
-  margin-bottom: ${useSpacing(3)};
+  margin-bottom: ${getSpacing(3)};
   line-height: 1.5;
   font-size: 1.8rem;
 
   ${media.phoneLg`
-		font-size: ${useSpacing(3)};
+		font-size: ${getSpacing(3)};
 	`};
 `;
 
 export const StyledProjectHeroBodyRole = styled.p`
   color: ${({ theme }) => theme.colors.common.white};
-  margin-bottom: ${useSpacing(0.75)};
-  font-size: ${useSpacing(1.25)};
+  margin-bottom: ${getSpacing(0.75)};
+  font-size: ${getSpacing(1.25)};
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -140,7 +140,7 @@ export const StyledProjectHeroBodyRoleDesc = styled.h3`
   font-family: ${({ theme }) => theme.font.family.primary};
   letter-spacing: 0.05rem;
   line-height: 1.2;
-  margin-bottom: ${useSpacing(1.25)};
+  margin-bottom: ${getSpacing(1.25)};
   text-transform: none;
 `;
 
@@ -149,12 +149,12 @@ export const StyledProjectHeroBodyMeta = styled.ul`
 `;
 
 export const StyledProjectHeroBodyMetaItem = styled.li`
-  margin-bottom: ${useSpacing(3)};
+  margin-bottom: ${getSpacing(3)};
 
   ${media.phoneLg`
     float: left;
-    margin-bottom: ${useSpacing(1.25)};
-    margin-left: ${useSpacing(3)};
+    margin-bottom: ${getSpacing(1.25)};
+    margin-left: ${getSpacing(3)};
     width: calc(50% - 3.6rem);
 
     &:first-of-type {
@@ -172,7 +172,7 @@ export const StyledProjectHeroVideo = styled.video`
 `;
 
 export const StyledProjectHeroButton = styled(ExternalLink)`
-  ${padding(useSpacing(1), useSpacing(2))}
+  ${padding(getSpacing(1), getSpacing(2))}
   appearance: none;
   background: ${({ theme }) => theme.colors.primary.main};
   border-radius: 3px;
@@ -186,7 +186,7 @@ export const StyledProjectHeroButton = styled(ExternalLink)`
   height: 48px;
   letter-spacing: 1;
   line-height: 50px;
-  margin: 0 auto ${useSpacing(1.25)};
+  margin: 0 auto ${getSpacing(1.25)};
   max-width: 240px;
   overflow: hidden;
   position: relative;
@@ -200,11 +200,11 @@ export const StyledProjectHeroButton = styled(ExternalLink)`
   ${media.phone`
     display: inline-block;
     vertical-align: middle;
-    margin-bottom: ${useSpacing(1)};
+    margin-bottom: ${getSpacing(1)};
     width: 160px;
 
     &:first-of-type {
-      margin-right: ${useSpacing(1.25)};
+      margin-right: ${getSpacing(1.25)};
     }
 	`};
 
@@ -242,7 +242,7 @@ export const StyledProjectHeroButton = styled(ExternalLink)`
   }
 `;
 
-export const blink = keyframes`
+const blink = keyframes`
 	90% {
 		animation-timing-function: ease-in;
 		transform: none;
@@ -257,7 +257,7 @@ export const blink = keyframes`
 	}
 `;
 
-export const squeeze = keyframes`
+const squeeze = keyframes`
 	90% {
 		animation-timing-function: ease-in;
 		transform: none;

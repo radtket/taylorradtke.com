@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { position, padding } from "polished";
-import { mediaMax, useSpacing } from "../utils";
+import { mediaMax, getSpacing } from "../utils";
 import { ScreenReaderTextCSS } from "../Shared";
 
 const StyledPortfolioNav = styled.nav`
@@ -12,7 +12,7 @@ const StyledPortfolioNav = styled.nav`
   z-index: ${({ theme }) => theme.zIndex.navbar};
 
   a {
-    ${padding(0, useSpacing(3))}
+    ${padding(0, getSpacing(3))}
     border: 0;
     color: ${({ theme }) => theme.colors.grey[100]};
     display: block;
@@ -60,7 +60,7 @@ const StyledPortfolioNav = styled.nav`
 
     svg {
       display: inline-block;
-      height: ${useSpacing(1.75)};
+      height: ${getSpacing(1.75)};
       vertical-align: middle;
     }
   }

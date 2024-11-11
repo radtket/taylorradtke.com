@@ -169,7 +169,9 @@ SEO.propTypes = {
     excerpt: PropTypes.string,
     thumbnail: PropTypes.shape({
       childImageSharp: PropTypes.shape({
-        fluid: PropTypes.object,
+        fluid: PropTypes.shape({
+          src: PropTypes.string,
+        }),
       }),
     }),
     path: PropTypes.string,

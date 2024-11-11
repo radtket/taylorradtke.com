@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { StyledContainer } from "../Shared";
-import { useSpacing } from "../utils";
+import { getSpacing } from "../utils";
 
 export const StyledHero = styled.section`
   background-attachment: fixed;
@@ -37,18 +37,18 @@ export const StyledHero = styled.section`
 `;
 
 export const StyledHeroProfile = styled.article`
-  margin-bottom: ${useSpacing(3)};
+  margin-bottom: ${getSpacing(3)};
 
   @media (min-width: 800px) {
     width: calc(50% - 3.6rem);
     float: left;
-    margin-left: ${useSpacing(3)};
+    margin-left: ${getSpacing(3)};
   }
 
   @media (min-width: 1024px) {
     width: calc(41.6666666667% - 3.4rem);
     float: left;
-    margin-left: ${useSpacing(3)};
+    margin-left: ${getSpacing(3)};
   }
 
   > p {
@@ -72,12 +72,12 @@ export const StyledHeroProfile = styled.article`
     color: ${({ theme }) => theme.colors.primary.main};
     font-size: 2rem;
     letter-spacing: 0.3rem;
-    margin-bottom: ${useSpacing(3)};
+    margin-bottom: ${getSpacing(3)};
     text-indent: -0.3rem;
     text-transform: uppercase;
 
     @media only screen and (min-width: 600px) {
-      margin-bottom: ${useSpacing(4.5)};
+      margin-bottom: ${getSpacing(4.5)};
     }
   }
 `;
@@ -91,7 +91,7 @@ export const StyledHeroImageWrap = styled.figure`
   @media (min-width: 800px) {
     width: calc(50% - 3.6rem);
     float: left;
-    margin-left: ${useSpacing(3)};
+    margin-left: ${getSpacing(3)};
   }
 
   @media (min-width: 1024px) {

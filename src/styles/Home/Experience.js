@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { position, size } from "polished";
-import { media, useSpacing } from "../utils";
+import { media, getSpacing } from "../utils";
 
 export const StyledTimeLineDot = styled.div`
   ${position("absolute", "0.3rem", null, null, "-3.1rem")};
-  ${size(useSpacing(1.25))};
+  ${size(getSpacing(1.25))};
   background: ${({ theme }) => theme.colors.primary.main};
   border-radius: 50%;
   box-shadow: 0 0 0 6px ${({ theme }) => theme.colors.common.white};
@@ -13,7 +13,7 @@ export const StyledTimeLineDot = styled.div`
 export const StyledJobTimeline = styled.div`
   border-left: 0.125rem solid;
   margin-left: calc(1rem - 0.125rem);
-  padding-left: ${useSpacing(3)};
+  padding-left: ${getSpacing(3)};
   position: relative;
 `;
 
@@ -22,12 +22,12 @@ export const StyledJob = styled.div`
 `;
 
 export const StyledJobWrap = styled.div`
-  padding-bottom: ${useSpacing(6)};
+  padding-bottom: ${getSpacing(6)};
 
   ${media.desktop`
 		display: flex;
 		flex-flow: row wrap;
-		margin-right: -${useSpacing(6)};
+		margin-right: -${getSpacing(6)};
 		position: relative;
 	`};
 `;
@@ -38,7 +38,7 @@ export const StyledJobDetails = styled.ul`
 		flex-grow: 1;
 		flex-shrink: 0;
 		overflow: hidden;
-		padding-right: ${useSpacing(6)};
+		padding-right: ${getSpacing(6)};
 	`};
 `;
 
@@ -77,6 +77,6 @@ export const StyledJobDescription = styled.p`
 		flex-grow: 1;
 		flex-shrink: 0;
 		overflow: hidden;
-		padding-right: ${useSpacing(6)};
+		padding-right: ${getSpacing(6)};
 	`};
 `;

@@ -1,9 +1,16 @@
 {
-  "extends": ["airbnb", "airbnb/hooks", "prettier", "prettier/react"],
-  "parser": "babel-eslint",
+  "extends": ["airbnb", "airbnb/hooks", "prettier"],
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
-    "ecmaVersion": 6,
+    "requireConfigFile": false,
+    "ecmaVersion": "latest",
+    "experimentalObjectRestSpread": true,
     "sourceType": "module",
+    "babelOptions": {
+      "presets": [
+        "@babel/preset-react"
+      ]
+    },
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
       "impliedStrict": true,
@@ -17,7 +24,7 @@
     "node": true,
     "commonjs": true
   },
-  "plugins": ["prettier", "react-hooks", "html"],
+  "plugins": ["prettier", "react-hooks"],
   "rules": {
     "comma-dangle": 0,
     "react/jsx-filename-extension": 0,
@@ -34,13 +41,31 @@
         "allowTaggedTemplates": true
       }
     ],
+    "no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": false,
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "import/no-unused-modules": [
+      "error",
+      {
+        "missingExports": true,
+        "unusedExports": true
+      }
+    ],
+    "react/function-component-definition": [2, { "namedComponents": "arrow-function"  }],
     "prettier/prettier": [
       "error",
       {
         "trailingComma": "es5",
         "printWidth": 80,
         "jsxBracketSameLine": false,
-        "number-leading-zero": null
+        "number-leading-zero": null,
+        "arrowParens": "avoid"
       }
     ]
   }

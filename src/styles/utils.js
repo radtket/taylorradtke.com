@@ -34,4 +34,4 @@ export const hex2rgba = (hex, alpha = 1) => {
   return `rgba(${r},${g},${b},${alpha})`;
 };
 
-export const useSpacing = arg => `${arg * 0.8}rem`;
+export const getSpacing = arg => `${arg * 0.8}rem`;

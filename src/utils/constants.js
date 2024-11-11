@@ -90,8 +90,7 @@ export const JOB_LIST = [
   {
     company: "Booz Allen Hamilton",
     companyUrl: "//www.boozallen.com/",
-    desc:
-      "Looking for design-driven development, both mobile and web. The preferred tech stack is ES6, React, Node, GraphQL. Writing scalable, non-repetitive, reusable code.",
+    desc: "Looking for design-driven development, both mobile and web. The preferred tech stack is ES6, React, Node, GraphQL. Writing scalable, non-repetitive, reusable code.",
     end: "May 2020",
     location: "McLean, VA",
     position: "Developer",
@@ -100,8 +99,7 @@ export const JOB_LIST = [
   {
     company: "Cisco",
     companyUrl: "//www.cisco.com/",
-    desc:
-      "Created a completely dynamic Wordpress Theme used by hundreds of different partners that brands all pages and components with their personal branding (Typography, brand colors, logo, etc)",
+    desc: "Created a completely dynamic Wordpress Theme used by hundreds of different partners that brands all pages and components with their personal branding (Typography, brand colors, logo, etc)",
     end: "Apr 2019",
     location: "Herndon, VA",
     position: "Engineer",
@@ -110,8 +108,7 @@ export const JOB_LIST = [
   {
     company: "AAPA",
     companyUrl: "//www.aapa.org/",
-    desc:
-      "Finished a complete website redesign in under 4 months, on a new CMS. Developed web-site mock-ups for clients to ensure quality control and client satisfaction before project development phase.Lead Designer and Developer for Annual Conference Site.",
+    desc: "Finished a complete website redesign in under 4 months, on a new CMS. Developed web-site mock-ups for clients to ensure quality control and client satisfaction before project development phase.Lead Designer and Developer for Annual Conference Site.",
     end: "July 2018",
     location: "Alexandria, VA",
     position: "Full-Stack Web Developer",
@@ -120,8 +117,7 @@ export const JOB_LIST = [
   {
     company: "The Motley Fool",
     companyUrl: "//www.fool.com/",
-    desc:
-      "Developed and Designed Microsites, Newsletters. Developed and Designed, and Email Templates. UX tests to test the usability of mobile or websites.",
+    desc: "Developed and Designed Microsites, Newsletters. Developed and Designed, and Email Templates. UX tests to test the usability of mobile or websites.",
     end: "Oct 2016",
     location: "Alexandria, VA",
     position: "Front-End Web Developer",
@@ -130,8 +126,7 @@ export const JOB_LIST = [
   {
     company: "Total Wine & More",
     companyUrl: "//www.totalwine.com/",
-    desc:
-      "Responsible for designing and maintaining web banners in various formats to be displayed on any device, that were analyzed using Google Analytics and Google AdWords.",
+    desc: "Responsible for designing and maintaining web banners in various formats to be displayed on any device, that were analyzed using Google Analytics and Google AdWords.",
     end: "Apr 2016",
     location: "Bethesda, MD",
     position: "Digital Media Designer",

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Link } from "gatsby";
 import { position, size, padding } from "polished";
-import { media, mediaMax, useSpacing } from "./utils";
+import { media, mediaMax, getSpacing } from "./utils";
 
 export const StyledNavbar = styled.header`
   ${position("fixed", 0, null, null, 0)};
@@ -190,7 +190,7 @@ export const StyledNavLink = styled.button`
 	`}
 
   ${media.navbreak`
-    ${padding(null, useSpacing(3))}
+    ${padding(null, getSpacing(3))}
   `};
 `;
 
@@ -228,7 +228,6 @@ export const StyledDownloadButton = styled.a`
     }
   }
 
-
   ${mediaMax.tablet`
 		color: ${({ theme }) => theme.colors.common.white};
 
@@ -239,10 +238,10 @@ export const StyledDownloadButton = styled.a`
 	`}
 
   ${media.tablet`
-  ${padding(useSpacing(1.5), useSpacing(3))};
+  ${padding(getSpacing(1.5), getSpacing(3))};
     background: ${({ theme }) => theme.colors.grey[100]};
     border: 2px solid transparent;
-    border-radius: ${useSpacing(3)};
+    border-radius: ${getSpacing(3)};
     color: ${({ theme }) => theme.colors.common.white};
     font-family:  ${({ theme }) => theme.font.family.primary};
     font-weight: 600;
@@ -257,8 +256,8 @@ export const StyledDownloadButton = styled.a`
   svg {
     fill: ${({ theme }) => theme.colors.common.white};
     ${position("relative", "1px", null, null)};
-    height: ${useSpacing(1.5)};
-    margin-right: ${useSpacing(0.75)};
+    height: ${getSpacing(1.5)};
+    margin-right: ${getSpacing(0.75)};
     transition: fill 0.2s cubic-bezier(0, 0, 0.58, 1);
   }
 `;

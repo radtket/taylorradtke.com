@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useMemo } from "react";
 import PropTypes from "prop-types";
 import { ScreenReaderText } from "../styles/Shared";
 import { CodePen, GitHub, Twitter, LinkedIn, Instagram } from "./Icons";
 
 const SocialMediaIcon = ({ href, name }) => {
-  const Icon = () => {
+  const Icon = useMemo(() => {
     switch (name) {
       case "github":
         return <GitHub />;
@@ -19,7 +19,7 @@ const SocialMediaIcon = ({ href, name }) => {
       default:
         return null;
     }
-  };
+  }, [name]);
 
   return (
     <a
@@ -28,7 +28,7 @@ const SocialMediaIcon = ({ href, name }) => {
       target="_blank"
     >
       <ScreenReaderText>{name}</ScreenReaderText>
-      <Icon />
+      {Icon}
     </a>
   );
 };

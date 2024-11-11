@@ -1,16 +1,16 @@
 import styled, { css } from "styled-components";
 import { clearFix, size, padding, position, margin } from "polished";
-import { media, mediaMax, useSpacing } from "../utils";
+import { media, mediaMax, getSpacing } from "../utils";
 import ExternalLink from "../../components/ExternalLink";
 
 export const StyledContactForm = styled.form`
   max-width: 500px;
-  margin: auto auto ${useSpacing(1.5)} auto;
+  margin: auto auto ${getSpacing(1.5)} auto;
 
   ${media.tablet`
 		float: right;
 		width: calc(100% - 300px);
-		margin-left: ${useSpacing(3)};
+		margin-left: ${getSpacing(3)};
 		max-width: 100%;
 	`};
 `;
@@ -18,21 +18,21 @@ export const StyledContactForm = styled.form`
 export const StyledSubmitButton = styled.button`
   appearance: none;
   background: ${({ theme }) => theme.colors.grey[100]};
-  border-radius: ${useSpacing(3)};
+  border-radius: ${getSpacing(3)};
   border: 2px solid transparent;
   box-shadow: none;
   color: ${({ theme }) => theme.colors.common.white};
   cursor: pointer;
   display: block;
   float: right;
-  font-size: ${useSpacing(1.5)};
+  font-size: ${getSpacing(1.5)};
   font-weight: 600;
   letter-spacing: 0.1em;
   line-height: 1;
-  margin: ${useSpacing(0.75)} 0 0 0;
+  margin: ${getSpacing(0.75)} 0 0 0;
   outline: 0;
   overflow: visible;
-  padding: ${useSpacing(1.5)} ${useSpacing(3)};
+  padding: ${getSpacing(1.5)} ${getSpacing(3)};
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
@@ -43,10 +43,10 @@ export const StyledSubmitButton = styled.button`
 
   svg {
     transition: fill 0.2s cubic-bezier(0, 0, 0.58, 1);
-    height: ${useSpacing(1.5)};
+    height: ${getSpacing(1.5)};
     position: relative;
     top: 1px;
-    margin-right: ${useSpacing(0.75)};
+    margin-right: ${getSpacing(0.75)};
     fill: ${({ theme }) => theme.colors.common.white};
   }
 
@@ -89,11 +89,11 @@ export const InputStyles = css`
   color: ${({ theme }) => theme.colors.grey[200]};
   display: inline-block;
   font-family: ${({ theme }) => theme.font.family.primary};
-  font-size: ${useSpacing(1.5)};
+  font-size: ${getSpacing(1.5)};
   letter-spacing: 0.05rem;
-  margin-bottom: ${useSpacing(1.5)};
+  margin-bottom: ${getSpacing(1.5)};
   outline: 0;
-  padding: ${padding(useSpacing(0.75), useSpacing(1.5))};
+  padding: ${padding(getSpacing(0.75), getSpacing(1.5))};
   transition: all 150ms ease;
   vertical-align: middle;
 
@@ -120,7 +120,7 @@ export const StyledFormInput = styled.input`
 
 export const StyledFormTextArea = styled.textarea`
   ${InputStyles};
-  ${padding(useSpacing(1), null)};
+  ${padding(getSpacing(1), null)};
   min-height: 114px;
   resize: vertical;
 `;
@@ -134,12 +134,12 @@ export const StyledContactWrap = styled.ul`
 `;
 
 export const StyledContactItem = styled.li`
-  margin-bottom: ${useSpacing(3)};
+  margin-bottom: ${getSpacing(3)};
   ${clearFix()};
 `;
 
 export const StyledContactIconWrap = styled.figure`
-  ${size(useSpacing(6))};
+  ${size(getSpacing(6))};
   line-height: 1;
   text-align: center;
 
@@ -147,12 +147,12 @@ export const StyledContactIconWrap = styled.figure`
 		border-left: 1px solid ${({ theme }) => theme.colors.shadows.black[20]};
 		display: inline-block;
 		float: right;
-		margin-left: ${useSpacing(1.5)};
+		margin-left: ${getSpacing(1.5)};
 	`};
 
   ${mediaMax.tablet`
     border-bottom: 1px solid ${({ theme }) => theme.colors.shadows.black[20]};
-    ${margin(null, "auto", useSpacing(0.5))};
+    ${margin(null, "auto", getSpacing(0.5))};
 	`};
 
   > svg {
@@ -166,7 +166,7 @@ export const StyledContactIconWrap = styled.figure`
 
 export const StyledContactItemDetails = styled.dl`
   color: ${({ theme }) => theme.colors.grey[200]};
-  padding: ${padding(useSpacing(0.75), null, useSpacing(0.75), null)};
+  padding: ${padding(getSpacing(0.75), null, getSpacing(0.75), null)};
   text-align: center;
 
   ${media.tablet`
@@ -177,10 +177,10 @@ export const StyledContactItemDetails = styled.dl`
 `;
 
 export const StyledContactItemKey = styled.dt`
-  font-size: ${useSpacing(1.5)};
+  font-size: ${getSpacing(1.5)};
   font-weight: 600;
   letter-spacing: 0.1em;
-  margin-bottom: ${useSpacing(0.75)};
+  margin-bottom: ${getSpacing(0.75)};
   text-transform: uppercase;
 `;
 

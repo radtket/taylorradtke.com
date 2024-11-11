@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unused-modules */
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
@@ -108,37 +109,35 @@ const AapaConference = ({ pageContext, ...props }) => {
     }
   `);
 
-  const components = [
-    {
-      name: "Branding",
-      component: (
-        <BrandColors
-          {...pageContext.frontmatter}
-          logo={<LogoAapaConference />}
-        />
-      ),
-    },
-    {
-      name: "Home",
-      component: <BrowserMockupList {...home} />,
-    },
-    {
-      name: "Events",
-      component: <BrowserMockupList {...events} />,
-    },
-    {
-      name: "Tabs",
-      component: <BrowserMockupList {...tabs} />,
-    },
-    {
-      name: "Contact",
-      component: <BrowserMockupList {...contact} />,
-    },
-  ];
-
   return (
     <LayoutPortfolio {...{ ...props, pageContext }}>
-      {components.map(({ name, component }, index) => (
+      {[
+        {
+          name: "Branding",
+          component: (
+            <BrandColors
+              {...pageContext.frontmatter}
+              logo={<LogoAapaConference />}
+            />
+          ),
+        },
+        {
+          name: "Home",
+          component: <BrowserMockupList {...home} />,
+        },
+        {
+          name: "Events",
+          component: <BrowserMockupList {...events} />,
+        },
+        {
+          name: "Tabs",
+          component: <BrowserMockupList {...tabs} />,
+        },
+        {
+          name: "Contact",
+          component: <BrowserMockupList {...contact} />,
+        },
+      ].map(({ name, component }, index) => (
         <PageSection key={name} {...{ name, index }}>
           {component}
         </PageSection>
