@@ -47,13 +47,11 @@ const Footer = () => {
           <span>{name}</span>, All Rights Reserved.
         </StyledCopyright>
         <StyledSocialList>
-          {Object.entries(accounts).map(([key, { url: href }]) => {
-            return (
-              <li {...{ key }}>
-                <SocialMediaIcon {...{ href, name: key }} />
-              </li>
-            );
-          })}
+          {Object.entries(accounts).map(([key, { url: href }]) => (
+            <li {...{ key }}>
+              <SocialMediaIcon {...{ href, name: key }} />
+            </li>
+          ))}
         </StyledSocialList>
       </StyledContainerFull>
     </StyledFooter>

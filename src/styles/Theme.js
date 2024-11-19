@@ -1,11 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { ThemeProvider, ThemeContext } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import { hex2rgba } from "./utils";
 
-export const useTheme = () => useContext(ThemeContext);
-
-export const config = {
+const config = {
   zIndex: {
     navbar: 99,
   },
@@ -16,8 +14,8 @@ export const config = {
   },
   font: {
     family: {
-      primary: `'Open Sans', sans-serif`,
-      secondary: `'Oswald', sans-serif`,
+      primary: "'Open Sans', sans-serif",
+      secondary: "'Oswald', sans-serif",
     },
     size: {
       default: "14px",

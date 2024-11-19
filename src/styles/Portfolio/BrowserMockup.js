@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import Img from "gatsby-image";
 import { position } from "polished";
-import { useSpacing } from "../utils";
+import { getSpacing } from "../utils";
 
 const StyledBrowserMockup = styled(Img)`
   box-shadow: ${({ theme }) => `0 20px 40px  ${theme.colors.shadows.black[30]},
     0 15px 12px ${theme.colors.shadows.black[20]}`};
-  margin-bottom: ${useSpacing(7.5)};
+  margin-bottom: ${getSpacing(7.5)};
 
   @media only screen and (min-width: 600px) {
     box-shadow: ${({
@@ -14,7 +14,7 @@ const StyledBrowserMockup = styled(Img)`
     }) => `0 10px 20px  ${theme.colors.shadows.black[30]},
     0 8px 6px ${theme.colors.shadows.black[20]}`};
     display: block;
-    margin-bottom: ${useSpacing(15)};
+    margin-bottom: ${getSpacing(15)};
     overflow: visible !important;
 
     &::before {

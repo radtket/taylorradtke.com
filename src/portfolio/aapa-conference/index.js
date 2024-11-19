@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unused-modules */
 import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
@@ -12,8 +13,9 @@ export const frontmatter = {
   companyUrl: "https://www.aapa.org/",
   date: "11/28/2017",
   devOnly: false,
-  excerpt: `The American Academy of Physician Assistants (AAPA) national conference in New Orleans, Louisiana will provide opportunities to explore the profession's limitless future with five days of certification courses, educational sessions, and discussions surrounding groundbreaking medical innovations.`,
-  githubRepoName: `aapa-conference-2018`,
+  excerpt:
+    "The American Academy of Physician Assistants (AAPA) national conference in New Orleans, Louisiana will provide opportunities to explore the profession's limitless future with five days of certification courses, educational sessions, and discussions surrounding groundbreaking medical innovations.",
+  githubRepoName: "aapa-conference-2018",
   id: "aapaconference",
   isWork: true,
   logo: <LogoAapaConference />,
@@ -108,37 +110,35 @@ const AapaConference = ({ pageContext, ...props }) => {
     }
   `);
 
-  const components = [
-    {
-      name: "Branding",
-      component: (
-        <BrandColors
-          {...pageContext.frontmatter}
-          logo={<LogoAapaConference />}
-        />
-      ),
-    },
-    {
-      name: "Home",
-      component: <BrowserMockupList {...home} />,
-    },
-    {
-      name: "Events",
-      component: <BrowserMockupList {...events} />,
-    },
-    {
-      name: "Tabs",
-      component: <BrowserMockupList {...tabs} />,
-    },
-    {
-      name: "Contact",
-      component: <BrowserMockupList {...contact} />,
-    },
-  ];
-
   return (
     <LayoutPortfolio {...{ ...props, pageContext }}>
-      {components.map(({ name, component }, index) => (
+      {[
+        {
+          name: "Branding",
+          component: (
+            <BrandColors
+              {...pageContext.frontmatter}
+              logo={<LogoAapaConference />}
+            />
+          ),
+        },
+        {
+          name: "Home",
+          component: <BrowserMockupList {...home} />,
+        },
+        {
+          name: "Events",
+          component: <BrowserMockupList {...events} />,
+        },
+        {
+          name: "Tabs",
+          component: <BrowserMockupList {...tabs} />,
+        },
+        {
+          name: "Contact",
+          component: <BrowserMockupList {...contact} />,
+        },
+      ].map(({ name, component }, index) => (
         <PageSection key={name} {...{ name, index }}>
           {component}
         </PageSection>

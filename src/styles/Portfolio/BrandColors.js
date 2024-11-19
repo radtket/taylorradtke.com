@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { clearFix, margin, padding } from "polished";
-import { useSpacing } from "../utils";
+import { getSpacing } from "../utils";
 
 export const StyledBrandColors = styled.div`
   ${clearFix()};
   ${margin(null, "auto")};
-  ${padding(useSpacing(3.75), null)}
+  ${padding(getSpacing(3.75), null)}
   display: flex;
   flex-flow: wrap;
   justify-content: center;
@@ -15,7 +15,7 @@ export const StyledBrandColors = styled.div`
 
 export const StyledBrandColorWrap = styled.figure`
   flex: 1 1 25%;
-  margin: ${useSpacing(0.9)};
+  margin: ${getSpacing(0.9)};
   max-width: 100px;
 `;
 
@@ -29,7 +29,7 @@ export const StyledBrandColorColor = styled.div`
 
 export const StyledBrandColorText = styled.p`
   ${margin("0.75rem", null)};
-  ${padding("2px", useSpacing(1.5))}
+  ${padding("2px", getSpacing(1.5))}
   border-radius: 100px;
   border: 1px solid ${({ theme }) => theme.colors.shadows.black[20]};
   color: ${({ theme }) => theme.colors.grey[800]};
@@ -43,5 +43,5 @@ export const StyledBrandColorText = styled.p`
 export const StyledBrandLogo = styled.figure`
   ${margin(null, "auto")};
   max-width: 460px;
-  padding-bottom: ${useSpacing(7.5)};
+  padding-bottom: ${getSpacing(7.5)};
 `;

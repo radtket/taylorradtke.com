@@ -50,7 +50,7 @@ const SEO = ({ postNode, isPost }) => {
 
   if (
     !image.match(
-      `(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]`
+      "(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]"
     )
   ) {
     image = urljoin(siteUrl, image);
@@ -169,7 +169,9 @@ SEO.propTypes = {
     excerpt: PropTypes.string,
     thumbnail: PropTypes.shape({
       childImageSharp: PropTypes.shape({
-        fluid: PropTypes.object,
+        fluid: PropTypes.shape({
+          src: PropTypes.string,
+        }),
       }),
     }),
     path: PropTypes.string,

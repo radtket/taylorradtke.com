@@ -1,59 +1,53 @@
-const path = require(`path`);
+/**
+ * Implement Gatsby's Node APIs in this file.
+ *
+ * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/
+ */
 
-exports.onCreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    devtool: "eval-source-map",
-  });
-};
+// eslint-disable-next-line import/no-unused-modules
+const lodash = require("lodash");
+const urljoin = require("url-join");
 
-exports.onCreateBabelConfig = ({ actions }) => {
-  actions.setBabelPlugin({
-    name: `babel-plugin-root-import`,
-  });
-};
-
-exports.onCreatePage = ({ page, actions: { createPage } }) => {
-  return new Promise((resolve, reject) => {
-    createPage(page);
-
-    resolve().then(result => {
-      if (result.errors) {
-        console.log(result.errors);
-        reject(result.errors);
-      }
-    });
-  });
-};
-
-const getPagination = (articles, article) => {
+const getPagination = (articles, edge) => {
   const index = articles.findIndex(
-    a => a.node.frontmatter.path === article.node.frontmatter.path
+    a => a.node.frontmatter.path === edge.node.frontmatter.path
   );
 
-  let nextIndex = index + 1;
-  if (nextIndex === articles.length) {
-    nextIndex = 0;
-  }
-
-  let prevIndex = index - 1;
-  if (prevIndex < 0) {
-    prevIndex = articles.length - 1;
-  }
+  const NEXT_INDEX = index + 1;
+  const PREV_INDEX = index - 1;
 
   return {
-    nextArticle: articles[nextIndex],
-    prevArticle: articles[prevIndex],
+    nextArticle: articles[NEXT_INDEX === articles.length ? 0 : NEXT_INDEX],
+    prevArticle: articles[PREV_INDEX < 0 ? articles.length - 1 : PREV_INDEX],
   };
 };
 
-exports.createPages = ({ graphql, actions }) => {
+/**
+ * @type {import('gatsby').GatsbyNode['createPages']}
+ */
+exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
   return graphql(`
     {
+      site {
+        siteMetadata {
+          backgroundColor
+          description
+          name
+          siteLogo
+          siteUrl
+          title
+          accounts {
+            twitter {
+              account
+            }
+          }
+        }
+      }
       allJavascriptFrontmatter(
         filter: { frontmatter: { path: { regex: "/work/" } } }
-        sort: { fields: [frontmatter___date], order: DESC }
+        sort: { frontmatter: { date: DESC } }
       ) {
         edges {
           node {
@@ -93,23 +87,90 @@ exports.createPages = ({ graphql, actions }) => {
       sizes
     }
   `)
-    .then(result => {
-      const articles = result.data.allJavascriptFrontmatter.edges;
+    .then(({ data }) => ({
+      articles: lodash.get(data, "allJavascriptFrontmatter.edges", []),
+      siteMetadata: lodash.get(data, "site.siteMetadata"),
+    }))
+    .then(({ articles, siteMetadata }) => {
       articles.forEach(edge => {
-        const { frontmatter } = edge.node;
-        const pagination = getPagination(articles, edge);
+        const { frontmatter, fileAbsolutePath } = edge.node;
+
+        const {
+          accounts: { twitter },
+          backgroundColor,
+          name,
+          siteUrl,
+          title: siteTitle,
+        } = siteMetadata;
+
+        const title = `${name} |  ${frontmatter.projectName}`;
+
+        const image = frontmatter.thumbnail.childImageSharp.fluid.src;
+        const description = frontmatter.description || frontmatter.excerpt;
+
         createPage({
-          path: `${edge.node.frontmatter.path}`,
-          component: path.resolve(edge.node.fileAbsolutePath),
+          path: frontmatter.path,
+          component: require.resolve(fileAbsolutePath),
+          // component: require.resolve("./src/templates/layout-portfolio.js"),
           context: {
+            title,
             frontmatter,
-            ...pagination,
+            ...getPagination(articles, edge),
+            dude: {
+              title,
+              description,
+              image,
+              postURL: urljoin(siteUrl, frontmatter.path),
+              SCHEMA_ORG_JSONLD: [
+                {
+                  "@context": "http://schema.org",
+                  "@type": "BreadcrumbList",
+                  itemListElement: [
+                    {
+                      "@type": "ListItem",
+                      position: 1,
+                      item: {
+                        "@id": urljoin(siteUrl, frontmatter.path),
+                        name: title,
+                        image,
+                      },
+                    },
+                  ],
+                },
+                {
+                  "@context": "http://schema.org",
+                  "@type": "BlogPosting",
+                  url: siteUrl,
+                  name: title,
+                  author: {
+                    "@type": "Person",
+                    name,
+                  },
+                  publisher: {
+                    "@type": "Organization",
+                    name: siteTitle,
+                    logo: {
+                      "@type": "ImageObject",
+                      url: `${siteUrl}/branding/logo__primary.png`,
+                    },
+                  },
+                  alternateName: name || "",
+                  headline: title,
+                  image: {
+                    "@type": "ImageObject",
+                    url: image,
+                  },
+                  description,
+                },
+              ],
+            },
           },
+          //     defer: true,
         });
       });
     })
     .catch(err => {
-      console.log(err);
-      console.log(err.message);
+      console.log(`createPages Error: ${err}`);
+      console.log(`createPages Error Message: ${err.message}`);
     });
 };

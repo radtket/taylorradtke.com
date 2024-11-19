@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { clearFix } from "polished";
-import { media, useSpacing } from "../utils";
+import { media, getSpacing } from "../utils";
 
 export const StyledSkillsList = styled.ul`
   ${clearFix()};
   display: block;
-  margin-bottom: ${useSpacing(3)};
+  margin-bottom: ${getSpacing(3)};
 `;
 
 export const StyledSkillsListItem = styled.li`
@@ -15,7 +15,7 @@ export const StyledSkillsListItem = styled.li`
   height: 18px;
   letter-spacing: 0.1em;
   line-height: 1;
-  margin-bottom: ${useSpacing(1.5)};
+  margin-bottom: ${getSpacing(1.5)};
   position: relative;
   text-transform: uppercase;
   vertical-align: middle;
@@ -36,7 +36,7 @@ export const StyledSkillsListItem = styled.li`
 
   svg {
     display: inline-block;
-    height: ${useSpacing(2)};
+    height: ${getSpacing(2)};
     margin-right: 1rem;
     vertical-align: middle;
   }

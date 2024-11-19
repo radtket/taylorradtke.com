@@ -2,11 +2,11 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 import { cover, margin, position, size } from "polished";
 import IconZoom from "../../assets/icons/icon__zoom.png";
-import { hex2rgba, useSpacing } from "../utils";
+import { hex2rgba, getSpacing } from "../utils";
 
 export const StyledWorkCardText = styled.figcaption`
   ${cover()};
-  ${margin(useSpacing(1.5))};
+  ${margin(getSpacing(1.5))};
   z-index: 1;
 `;
 
@@ -88,7 +88,7 @@ export const StyledWorkCard = styled(Link)`
 
     ${StyledWorkCardName} {
       opacity: 0;
-      top: ${useSpacing(3)};
+      top: ${getSpacing(3)};
     }
 
     ${StyledWorkCardType} {

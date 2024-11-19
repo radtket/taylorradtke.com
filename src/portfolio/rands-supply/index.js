@@ -12,12 +12,13 @@ export const frontmatter = {
   companyUrl: "http://randssupply.net/",
   date: "12/12/2017",
   devOnly: false,
-  excerpt: `R&S Supply is one of America's largest wholesale distributor of roofing, siding, window and gutter materials, tools, and supplies. They approached me to evaluate their website, and was able to produce a complete branding and web redesign.`,
-  githubRepoName: `rs-supply--pug`,
+  excerpt:
+    "R&S Supply is one of America's largest wholesale distributor of roofing, siding, window and gutter materials, tools, and supplies. They approached me to evaluate their website, and was able to produce a complete branding and web redesign.",
+  githubRepoName: "rs-supply--pug",
   id: "randssupply",
   isWork: true,
   logo: <LogoRandS />,
-  path: `/work/rands-supply`,
+  path: "/work/rands-supply",
   projectBrandColors: [
     "#FFFFFF",
     "#FF7D77",

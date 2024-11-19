@@ -19,7 +19,7 @@ import SideProjects from "../components/Home/SideProjects";
 import Works from "../components/Home/Works";
 import { slugify } from "../utils/helpers";
 
-export const sections = [
+const sections = [
   { name: "Skills", component: <Skills /> },
   { name: "Experience", component: <Experience /> },
   { name: "Clients", component: <Clients /> },

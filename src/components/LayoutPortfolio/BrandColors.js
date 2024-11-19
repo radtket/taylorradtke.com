@@ -8,21 +8,19 @@ import {
   StyledBrandLogo,
 } from "../../styles/Portfolio/BrandColors";
 
-const BrandColors = ({ projectBrandColors, clientName, logo }) => {
-  return (
-    <>
-      <StyledBrandLogo>{logo}</StyledBrandLogo>
-      <StyledBrandColors>
-        {projectBrandColors.map(item => (
-          <StyledBrandColorWrap key={`${clientName} ${item}`}>
-            <StyledBrandColorColor style={{ background: `${item}` }} />
-            <StyledBrandColorText>{item}</StyledBrandColorText>
-          </StyledBrandColorWrap>
-        ))}
-      </StyledBrandColors>
-    </>
-  );
-};
+const BrandColors = ({ projectBrandColors, clientName, logo }) => (
+  <>
+    <StyledBrandLogo>{logo}</StyledBrandLogo>
+    <StyledBrandColors>
+      {projectBrandColors.map(item => (
+        <StyledBrandColorWrap key={`${clientName} ${item}`}>
+          <StyledBrandColorColor style={{ background: `${item}` }} />
+          <StyledBrandColorText>{item}</StyledBrandColorText>
+        </StyledBrandColorWrap>
+      ))}
+    </StyledBrandColors>
+  </>
+);
 
 BrandColors.propTypes = {
   clientName: PropTypes.string.isRequired,

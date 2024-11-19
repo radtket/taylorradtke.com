@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Slider from "react-slick";
 import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
+import { keyBy, get } from "lodash";
 import Testimonial from "./Testimonial";
 import { TESTIMONIAL_LIST } from "../../../utils/constants";
 import { StyledContainer } from "../../../styles/Shared";
@@ -33,6 +33,8 @@ const Testimonials = () => {
     }
   `);
 
+  const IMAGES = useMemo(() => keyBy(avitars, "node.relativePath"), [avitars]);
+
   return (
     <StyledContainer>
       <Slider
@@ -49,18 +51,15 @@ const Testimonials = () => {
           ],
         }}
       >
-        {TESTIMONIAL_LIST.map(({ relativePath, ...testimonial }) => {
-          const {
-            node: { childImageSharp },
-          } = avitars.find(({ node }) => node.relativePath === relativePath);
-
-          return (
-            <Testimonial
-              {...{ ...testimonial, key: testimonial.name }}
-              avitar={<Img {...childImageSharp} />}
-            />
-          );
-        })}
+        {TESTIMONIAL_LIST.map(({ relativePath, ...rest }) => (
+          <Testimonial
+            {...{
+              key: relativePath,
+              ...rest,
+              ...get(IMAGES, relativePath, {}),
+            }}
+          />
+        ))}
       </Slider>
     </StyledContainer>
   );
