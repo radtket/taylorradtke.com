@@ -26,6 +26,7 @@
   },
   "plugins": ["prettier", "react-hooks"],
   "rules": {
+    "quotes": ["error", "double", { "avoidEscape": true }],
     "comma-dangle": 0,
     "react/jsx-filename-extension": 0,
     "react/jsx-sort-props": 1,
@@ -65,7 +66,8 @@
         "printWidth": 80,
         "jsxBracketSameLine": false,
         "number-leading-zero": null,
-        "arrowParens": "avoid"
+        "arrowParens": "avoid",
+        "singleQuote": false
       }
     ]
   }

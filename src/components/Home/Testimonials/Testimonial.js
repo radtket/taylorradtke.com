@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Img from "gatsby-image";
 import {
   StyledTestimonial,
   StyledAvitar,
@@ -7,9 +8,11 @@ import {
   StyledAuthor,
 } from "../../../styles/Home/Testimonials";
 
-const Testimonial = ({ avitar, name, company, testimonial }) => (
+const Testimonial = ({ name, company, testimonial, node }) => (
   <StyledTestimonial>
-    <StyledAvitar>{avitar}</StyledAvitar>
+    <StyledAvitar>
+      <Img {...node.childImageSharp} />
+    </StyledAvitar>
     <StyledQuote>
       {testimonial.map(item => (
         <p key={item}>{item}</p>
@@ -24,8 +27,11 @@ const Testimonial = ({ avitar, name, company, testimonial }) => (
 
 Testimonial.propTypes = {
   avitar: PropTypes.node,
-  name: PropTypes.string.isRequired,
   company: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  node: PropTypes.shape({
+    childImageSharp: PropTypes.shape({}),
+  }).isRequired,
   testimonial: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 

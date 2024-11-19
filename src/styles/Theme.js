@@ -14,8 +14,8 @@ const config = {
   },
   font: {
     family: {
-      primary: `'Open Sans', sans-serif`,
-      secondary: `'Oswald', sans-serif`,
+      primary: "'Open Sans', sans-serif",
+      secondary: "'Oswald', sans-serif",
     },
     size: {
       default: "14px",

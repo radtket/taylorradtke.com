@@ -78,7 +78,7 @@ export const StyledSubmitButton = styled.button`
   }
 `;
 
-export const InputStyles = css`
+const InputStyles = css`
   ${size("38px", "100%")};
   appearance: none;
   background-color: ${({ theme }) => theme.colors.common.white};

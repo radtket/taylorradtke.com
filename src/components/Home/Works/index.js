@@ -9,7 +9,7 @@ const Works = () => {
     query {
       allJavascriptFrontmatter(
         filter: { frontmatter: { isWork: { eq: true } } }
-        sort: { fields: [frontmatter___date], order: DESC }
+        sort: { frontmatter: { date: DESC } }
       ) {
         edges {
           node {
@@ -32,12 +32,11 @@ const Works = () => {
     }
   `);
 
-  return edges.reduce((all, { node: { frontmatter } }) => {
-    if (frontmatter.path !== "/404/") {
-      all.push(<WorkCard key={frontmatter.path} {...frontmatter} />);
-    }
-    return all;
-  }, []);
+  return edges
+    .filter(({ node: { frontmatter } }) => frontmatter.path !== "/404/")
+    .map(({ node: { frontmatter } }) => (
+      <WorkCard key={frontmatter.path} {...frontmatter} />
+    ));
 };
 
 export default Works;

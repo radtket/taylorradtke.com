@@ -50,7 +50,7 @@ const SEO = ({ postNode, isPost }) => {
 
   if (
     !image.match(
-      `(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]`
+      "(https?|ftp|file)://[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]"
     )
   ) {
     image = urljoin(siteUrl, image);

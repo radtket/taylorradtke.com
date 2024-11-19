@@ -68,7 +68,7 @@ GithubCard.propTypes = {
   }).isRequired,
   forkCount: PropTypes.number.isRequired,
   stargazers: PropTypes.shape({
-    totalCount: 0,
+    totalCount: PropTypes.number,
   }).isRequired,
   homepageUrl: PropTypes.string,
 };

@@ -7,16 +7,14 @@ import {
 } from "../../styles/Navbar";
 import { ScreenReaderText } from "../../styles/Shared";
 
-const Hamburger = ({ onClick }) => {
-  return (
-    <StyledHamburger {...{ onClick }} role="button" type="button">
-      <StyledHamburgerWrap>
-        <ScreenReaderText>Toggle Menu</ScreenReaderText>
-        <StyledHamburgerBar />
-      </StyledHamburgerWrap>
-    </StyledHamburger>
-  );
-};
+const Hamburger = ({ onClick }) => (
+  <StyledHamburger {...{ onClick }} role="button" type="button">
+    <StyledHamburgerWrap>
+      <ScreenReaderText>Toggle Menu</ScreenReaderText>
+      <StyledHamburgerBar />
+    </StyledHamburgerWrap>
+  </StyledHamburger>
+);
 
 Hamburger.propTypes = {
   onClick: PropTypes.func.isRequired,

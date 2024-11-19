@@ -11,17 +11,15 @@ if (typeof window !== "undefined") {
   polyfill();
 }
 
-const Layout = ({ children }) => {
-  return (
-    <Theme>
-      <main>
-        <GlobalStyles />
-        {children}
-        <Footer />
-      </main>
-    </Theme>
-  );
-};
+const Layout = ({ children }) => (
+  <Theme>
+    <main>
+      <GlobalStyles />
+      {children}
+      <Footer />
+    </main>
+  </Theme>
+);
 
 Layout.propTypes = {
   children: PropTypes.node,

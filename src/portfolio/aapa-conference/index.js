@@ -13,8 +13,9 @@ export const frontmatter = {
   companyUrl: "https://www.aapa.org/",
   date: "11/28/2017",
   devOnly: false,
-  excerpt: `The American Academy of Physician Assistants (AAPA) national conference in New Orleans, Louisiana will provide opportunities to explore the profession's limitless future with five days of certification courses, educational sessions, and discussions surrounding groundbreaking medical innovations.`,
-  githubRepoName: `aapa-conference-2018`,
+  excerpt:
+    "The American Academy of Physician Assistants (AAPA) national conference in New Orleans, Louisiana will provide opportunities to explore the profession's limitless future with five days of certification courses, educational sessions, and discussions surrounding groundbreaking medical innovations.",
+  githubRepoName: "aapa-conference-2018",
   id: "aapaconference",
   isWork: true,
   logo: <LogoAapaConference />,

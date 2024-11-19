@@ -4,37 +4,32 @@ import GithubCard from "./GithubCard";
 import { StyledGithubCardGrid } from "../../../styles/GithubCard";
 
 const SideProjects = () => {
-  const {
-    github: {
-      viewer: {
-        repositories: { edges },
-      },
-    },
-  } = useStaticQuery(graphql`
-    query {
-      github {
-        viewer {
-          repositories(
-            first: 6
-            isFork: false
-            privacy: PUBLIC
-            orderBy: { field: STARGAZERS, direction: DESC }
-          ) {
-            edges {
-              node {
-                id
-                name
-                url
-                description
-                forkCount
-                stargazers {
-                  totalCount
-                }
-                primaryLanguage {
+  const { allGithubData } = useStaticQuery(graphql`
+    {
+      allGithubData {
+        nodes {
+          data {
+            user {
+              repositories {
+                nodes {
+                  description
+                  forkCount
+                  homepageUrl
+                  id
                   name
-                  color
+                  openGraphImageUrl
+                  shortDescriptionHTML
+                  updatedAt
+                  url
+                  usesCustomOpenGraphImage
+                  stargazers {
+                    totalCount
+                  }
+                  primaryLanguage {
+                    name
+                    color
+                  }
                 }
-                homepageUrl
               }
             }
           }
@@ -43,9 +38,11 @@ const SideProjects = () => {
     }
   `);
 
+  const { nodes } = allGithubData.nodes[0].data.user.repositories;
+
   return (
     <StyledGithubCardGrid>
-      {edges.map(({ node }) => (
+      {nodes.map(node => (
         <GithubCard {...{ ...node, key: node.id }} />
       ))}
     </StyledGithubCardGrid>
