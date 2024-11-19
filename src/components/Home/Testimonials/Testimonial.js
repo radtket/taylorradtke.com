@@ -7,22 +7,20 @@ import {
   StyledAuthor,
 } from "../../../styles/Home/Testimonials";
 
-const Testimonial = ({ avitar, name, company, testimonial }) => {
-  return (
-    <StyledTestimonial>
-      <StyledAvitar>{avitar}</StyledAvitar>
-      <StyledQuote>
-        {testimonial.map(item => (
-          <p key={item}>{item}</p>
-        ))}
-      </StyledQuote>
-      <StyledAuthor>
-        {`- ${name}`}
-        <span>{company}</span>
-      </StyledAuthor>
-    </StyledTestimonial>
-  );
-};
+const Testimonial = ({ avitar, name, company, testimonial }) => (
+  <StyledTestimonial>
+    <StyledAvitar>{avitar}</StyledAvitar>
+    <StyledQuote>
+      {testimonial.map(item => (
+        <p key={item}>{item}</p>
+      ))}
+    </StyledQuote>
+    <StyledAuthor>
+      {`- ${name}`}
+      <span>{company}</span>
+    </StyledAuthor>
+  </StyledTestimonial>
+);
 
 Testimonial.propTypes = {
   avitar: PropTypes.node,

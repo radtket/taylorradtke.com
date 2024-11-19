@@ -16,49 +16,47 @@ const GithubCard = ({
   forkCount,
   stargazers,
   homepageUrl,
-}) => {
-  return (
-    <StyledGithubCardWrap>
-      <StyledGithubCard>
-        <div className="repo-details">
-          <h4>
-            <ExternalLink href={url} title={`View Repo ${name}`}>
-              {name}
-            </ExternalLink>
-          </h4>
-          {description && <p>{description}</p>}
-          {homepageUrl && (
-            <ExternalLink href={homepageUrl} title={`View Live Demo ${name}`}>
-              View Live
-            </ExternalLink>
-          )}
-        </div>
+}) => (
+  <StyledGithubCardWrap>
+    <StyledGithubCard>
+      <div className="repo-details">
+        <h4>
+          <ExternalLink href={url} title={`View Repo ${name}`}>
+            {name}
+          </ExternalLink>
+        </h4>
+        {description && <p>{description}</p>}
+        {homepageUrl && (
+          <ExternalLink href={homepageUrl} title={`View Live Demo ${name}`}>
+            View Live
+          </ExternalLink>
+        )}
+      </div>
 
-        <div className="repo-meta">
-          {primaryLanguage && (
-            <StyledGithubCardLanguage {...primaryLanguage}>
-              {primaryLanguage.name}
-            </StyledGithubCardLanguage>
-          )}
+      <div className="repo-meta">
+        {primaryLanguage && (
+          <StyledGithubCardLanguage {...primaryLanguage}>
+            {primaryLanguage.name}
+          </StyledGithubCardLanguage>
+        )}
 
-          <ul>
-            <li aria-label={`${forkCount} Forks`} title={`${forkCount} Forks`}>
-              <ForkIcon />
-              <span>{forkCount}</span>
-            </li>
-            <li
-              aria-label={`${stargazers.totalCount} Stars`}
-              title={`${stargazers.totalCount} Stars`}
-            >
-              <StarIcon />
-              <span>{stargazers.totalCount}</span>
-            </li>
-          </ul>
-        </div>
-      </StyledGithubCard>
-    </StyledGithubCardWrap>
-  );
-};
+        <ul>
+          <li aria-label={`${forkCount} Forks`} title={`${forkCount} Forks`}>
+            <ForkIcon />
+            <span>{forkCount}</span>
+          </li>
+          <li
+            aria-label={`${stargazers.totalCount} Stars`}
+            title={`${stargazers.totalCount} Stars`}
+          >
+            <StarIcon />
+            <span>{stargazers.totalCount}</span>
+          </li>
+        </ul>
+      </div>
+    </StyledGithubCard>
+  </StyledGithubCardWrap>
+);
 
 GithubCard.propTypes = {
   url: PropTypes.string.isRequired,
