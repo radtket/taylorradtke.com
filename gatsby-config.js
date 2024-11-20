@@ -49,7 +49,7 @@ module.exports = {
           },
           {
             family: "Oswald",
-            weights: ["600"],
+            weights: ["400", "600"],
           },
         ],
       },
