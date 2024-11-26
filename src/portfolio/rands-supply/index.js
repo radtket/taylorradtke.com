@@ -2,11 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import LayoutPortfolio from "../../components/LayoutPortfolio";
-import BrandColors from "../../components/LayoutPortfolio/BrandColors";
-import PageSection from "../../components/PageSection";
 import { LogoRandS } from "../../components/ClientLogos";
-import BrowserMockupList from "../../styles/Portfolio/BrowserMockupList";
 
+// eslint-disable-next-line import/no-unused-modules
 export const frontmatter = {
   clientName: "R&S Supply",
   companyUrl: "http://randssupply.net/",
@@ -36,9 +34,9 @@ export const frontmatter = {
 };
 
 const RandsSupply = ({ pageContext, ...props }) => {
-  const { landing, locations } = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     query {
-      landing: allFile(
+      Landing: allFile(
         filter: {
           sourceInstanceName: { eq: "portfolio" }
           relativeDirectory: { eq: "rands-supply/images/landing" }
@@ -55,7 +53,7 @@ const RandsSupply = ({ pageContext, ...props }) => {
           }
         }
       }
-      locations: allFile(
+      Locations: allFile(
         filter: {
           sourceInstanceName: { eq: "portfolio" }
           relativeDirectory: { eq: "rands-supply/images/locations" }
@@ -75,31 +73,11 @@ const RandsSupply = ({ pageContext, ...props }) => {
     }
   `);
 
-  const components = [
-    {
-      name: "Branding",
-      component: (
-        <BrandColors {...pageContext.frontmatter} logo={<LogoRandS />} />
-      ),
-    },
-    {
-      name: "Landing",
-      component: <BrowserMockupList {...landing} />,
-    },
-    {
-      name: "Locations",
-      component: <BrowserMockupList {...locations} />,
-    },
-  ];
-
   return (
-    <LayoutPortfolio {...{ ...props, pageContext }}>
-      {components.map(({ name, component }, index) => (
-        <PageSection key={name} {...{ name, index }}>
-          {component}
-        </PageSection>
-      ))}
-    </LayoutPortfolio>
+    <LayoutPortfolio
+      {...{ pageContext, data }}
+      sections={["Branding", "Landing", "Locations"]}
+    />
   );
 };
 

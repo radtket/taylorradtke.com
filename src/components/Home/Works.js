@@ -1,6 +1,13 @@
 import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import WorkCard from "./WorkCard";
+import Img from "gatsby-image";
+import {
+  StyledWorkCard,
+  StyledWorkCardText,
+  StyledWorkCardName,
+  StyledWorkCardType,
+  StyledZoomIcon,
+} from "../../styles/Home/Works";
 
 const Works = () => {
   const {
@@ -34,9 +41,22 @@ const Works = () => {
 
   return edges
     .filter(({ node: { frontmatter } }) => frontmatter.path !== "/404/")
-    .map(({ node: { frontmatter } }) => (
-      <WorkCard key={frontmatter.path} {...frontmatter} />
-    ));
+    .map(
+      ({
+        node: {
+          frontmatter: { path, projectName, thumbnail },
+        },
+      }) => (
+        <StyledWorkCard key={path} to={path}>
+          {thumbnail && <Img {...thumbnail.childImageSharp} />}
+          <StyledWorkCardText>
+            <StyledWorkCardName>{projectName}</StyledWorkCardName>
+            <StyledWorkCardType>Website</StyledWorkCardType>
+            <StyledZoomIcon />
+          </StyledWorkCardText>
+        </StyledWorkCard>
+      )
+    );
 };
 
 export default Works;

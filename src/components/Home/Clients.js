@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
+import { size } from "polished";
 import { StyledContainer } from "../../styles/Shared";
 import SliderArrow from "../SliderArrow";
 
@@ -78,9 +79,8 @@ const Clients = () => {
                 key,
                 fixed,
                 imgStyle: {
+                  ...size("80%"),
                   objectFit: "contain",
-                  width: "80%",
-                  height: "80%",
                   left: "50%",
                   marginLeft: "-40%",
                   top: "10px",

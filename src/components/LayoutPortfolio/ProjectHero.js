@@ -30,27 +30,9 @@ const ProjectHero = ({
   projectName,
   projectRole,
   projectStack,
+  github,
 }) => {
-  const {
-    site: {
-      siteMetadata: {
-        accounts: { github },
-      },
-    },
-  } = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          accounts {
-            github {
-              account
-            }
-          }
-        }
-      }
-    }
-  `);
-
+  console.log({ github });
   return (
     <StyledProjectHero>
       <StyledProjectHeroVideo autoPlay loop muted poster={videoPoster}>

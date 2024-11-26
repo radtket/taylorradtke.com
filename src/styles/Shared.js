@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { clearFix, padding } from "polished";
 import { StyledSection } from "./Section";
 import { getSpacing } from "./utils";
 
-export const ScreenReaderTextCSS = `
+export const ScreenReaderTextCSS = css`
   border: 0;
   clip: rect(0 0 0 0);
   height: 1px;

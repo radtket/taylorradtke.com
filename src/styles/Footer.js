@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { padding, size, position, clearFix } from "polished";
 import { media, mediaMax, getSpacing } from "./utils";
 
@@ -13,23 +13,25 @@ export const StyledFooter = styled.footer`
 `;
 
 export const StyledCopyright = styled.p`
-  font-family: ${({ theme }) => theme.font.family.secondary};
-  font-size: 1.2rem;
-  letter-spacing: 0.3em;
-  margin-bottom: ${getSpacing(1.5)};
-  text-indent: 0.3em;
-  text-transform: uppercase;
+  ${({ theme }) => css`
+    font-family: ${theme.font.family.secondary};
+    font-size: 1.2rem;
+    letter-spacing: 0.3em;
+    margin-bottom: ${getSpacing(1.5)};
+    text-indent: 0.3em;
+    text-transform: uppercase;
 
-  ${media.tablet`
+    ${media.tablet`
 		float: left;
-		height: ${({ theme }) => theme.sizes.navigation.height}
-		line-height: ${({ theme }) => theme.sizes.navigation.height}
+		height: ${theme.sizes.navigation.height}
+		line-height: ${theme.sizes.navigation.height}
 		margin: 0;
 	`};
 
-  > span {
-    color: ${({ theme }) => theme.colors.primary.main};
-  }
+    > span {
+      color: ${theme.colors.primary.main};
+    }
+  `};
 `;
 
 export const StyledSocialList = styled.ul`

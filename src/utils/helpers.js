@@ -1,3 +1,5 @@
+import { join, kebabCase, isArray } from "lodash";
+
 export const slugify = string => {
   const a =
     "àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;";
@@ -33,3 +35,6 @@ export const formatPhoneNumber = phone => {
   }
   return phone;
 };
+
+export const createKey = key =>
+  kebabCase(join(isArray(key) ? key : [key].filter(char => char), "-")).trim();

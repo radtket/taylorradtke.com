@@ -34,6 +34,9 @@
     "react/no-unescaped-entities": 0,
     "react/jsx-uses-react": 1,
     "react/react-in-jsx-scope": 0,
+    "react/require-default-props": [2, {
+      "functions": "defaultArguments"
+    }],
     "no-unused-expressions": [
       "error",
       {

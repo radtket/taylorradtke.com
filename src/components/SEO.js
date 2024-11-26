@@ -3,8 +3,11 @@ import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 import urljoin from "url-join";
+import { isEmpty } from "lodash";
 
-const SEO = ({ postNode, isPost }) => {
+const SEO = ({ postNode = {} }) => {
+  const isPost = !isEmpty(postNode);
+
   const {
     site: { siteMetadata },
   } = useStaticQuery(
@@ -65,6 +68,7 @@ const SEO = ({ postNode, isPost }) => {
       alternateName: name || "",
     },
   ];
+
   if (isPost) {
     schemaOrgJSONLD.push(
       {
@@ -109,6 +113,8 @@ const SEO = ({ postNode, isPost }) => {
       }
     );
   }
+
+  const href = isPost ? postURL : siteUrl;
   return (
     <Helmet
       htmlAttributes={{
@@ -136,7 +142,7 @@ const SEO = ({ postNode, isPost }) => {
       {/* General tags */}
       <meta content={description} name="description" />
       <meta content={image} name="image" />
-      <link href={isPost ? postURL : siteUrl} rel="canonical" />
+      <link href={href} rel="canonical" />
 
       {/* Schema.org tags */}
       <script type="application/ld+json">
@@ -144,7 +150,7 @@ const SEO = ({ postNode, isPost }) => {
       </script>
 
       {/* OpenGraph tags */}
-      <meta content={isPost ? postURL : siteUrl} property="og:url" />
+      <meta content={href} property="og:url" />
       {isPost && <meta content="article" property="og:type" />}
       <meta content={title} property="og:title" />
       <meta content={description} property="og:description" />
@@ -176,12 +182,6 @@ SEO.propTypes = {
     }),
     path: PropTypes.string,
   }),
-  isPost: PropTypes.bool,
-};
-
-SEO.defaultProps = {
-  postNode: null,
-  isPost: false,
 };
 
 export default SEO;

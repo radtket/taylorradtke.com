@@ -3,11 +3,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useStaticQuery, graphql } from "gatsby";
 import LayoutPortfolio from "../../components/LayoutPortfolio";
-import BrandColors from "../../components/LayoutPortfolio/BrandColors";
-import PageSection from "../../components/PageSection";
 import { LogoAapaConference } from "../../components/ClientLogos";
-import BrowserMockupList from "../../styles/Portfolio/BrowserMockupList";
 
+// eslint-disable-next-line import/no-unused-modules
 export const frontmatter = {
   clientName: "AAPA",
   companyUrl: "https://www.aapa.org/",
@@ -37,9 +35,9 @@ export const frontmatter = {
 };
 
 const AapaConference = ({ pageContext, ...props }) => {
-  const { home, events, tabs, contact } = useStaticQuery(graphql`
+  const data = useStaticQuery(graphql`
     query {
-      home: allFile(
+      Home: allFile(
         filter: {
           sourceInstanceName: { eq: "portfolio" }
           relativeDirectory: { eq: "aapa-conference/images/home" }
@@ -56,7 +54,7 @@ const AapaConference = ({ pageContext, ...props }) => {
           }
         }
       }
-      events: allFile(
+      Events: allFile(
         filter: {
           sourceInstanceName: { eq: "portfolio" }
           relativeDirectory: { eq: "aapa-conference/images/events" }
@@ -73,7 +71,7 @@ const AapaConference = ({ pageContext, ...props }) => {
           }
         }
       }
-      tabs: allFile(
+      Tabs: allFile(
         filter: {
           sourceInstanceName: { eq: "portfolio" }
           relativeDirectory: { eq: "aapa-conference/images/tabs" }
@@ -90,7 +88,7 @@ const AapaConference = ({ pageContext, ...props }) => {
           }
         }
       }
-      contact: allFile(
+      Contact: allFile(
         filter: {
           sourceInstanceName: { eq: "portfolio" }
           relativeDirectory: { eq: "aapa-conference/images/contact" }
@@ -111,39 +109,10 @@ const AapaConference = ({ pageContext, ...props }) => {
   `);
 
   return (
-    <LayoutPortfolio {...{ ...props, pageContext }}>
-      {[
-        {
-          name: "Branding",
-          component: (
-            <BrandColors
-              {...pageContext.frontmatter}
-              logo={<LogoAapaConference />}
-            />
-          ),
-        },
-        {
-          name: "Home",
-          component: <BrowserMockupList {...home} />,
-        },
-        {
-          name: "Events",
-          component: <BrowserMockupList {...events} />,
-        },
-        {
-          name: "Tabs",
-          component: <BrowserMockupList {...tabs} />,
-        },
-        {
-          name: "Contact",
-          component: <BrowserMockupList {...contact} />,
-        },
-      ].map(({ name, component }, index) => (
-        <PageSection key={name} {...{ name, index }}>
-          {component}
-        </PageSection>
-      ))}
-    </LayoutPortfolio>
+    <LayoutPortfolio
+      {...{ pageContext, data }}
+      sections={["Branding", "Home", "Events", "Tabs", "Contact"]}
+    />
   );
 };
 

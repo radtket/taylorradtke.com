@@ -14,7 +14,9 @@ const Hero = () => {
   const {
     avitar,
     hero,
-    site: { siteMetadata },
+    site: {
+      siteMetadata: { title, description, name },
+    },
   } = useStaticQuery(graphql`
     query {
       site {
@@ -27,7 +29,6 @@ const Hero = () => {
       avitar: file(relativePath: { eq: "hero__avitar.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 1400, quality: 90) {
-            # ...GatsbyImageSharpFluid
             ...GatsbyImageSharpFluid_withWebp
           }
         }
@@ -51,12 +52,12 @@ const Hero = () => {
     >
       <StyledContainer>
         <StyledHeroProfile>
-          <h1>{siteMetadata.name}</h1>
+          <h1>{name}</h1>
           <h3>Web Developer x Designer</h3>
-          <p>{siteMetadata.description}</p>
+          <p>{description}</p>
           <StyledSignature>
             <BrandingSignature />
-            <figcaption>{siteMetadata.siteTitle}</figcaption>
+            <figcaption>{title}</figcaption>
           </StyledSignature>
         </StyledHeroProfile>
         <StyledHeroImageWrap>

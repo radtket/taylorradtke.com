@@ -38,9 +38,4 @@ PortfolioNav.propTypes = {
   }),
 };
 
-PortfolioNav.defaultProps = {
-  next: null,
-  prev: null,
-};
-
 export default PortfolioNav;

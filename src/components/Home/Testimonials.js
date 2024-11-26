@@ -2,10 +2,16 @@ import React, { useMemo } from "react";
 import Slider from "react-slick";
 import { useStaticQuery, graphql } from "gatsby";
 import { keyBy, get } from "lodash";
-import Testimonial from "./Testimonial";
-import { TESTIMONIAL_LIST } from "../../../utils/constants";
-import { StyledContainer } from "../../../styles/Shared";
-import SliderArrow from "../../SliderArrow";
+import Img from "gatsby-image";
+import { TESTIMONIAL_LIST } from "../../utils/constants";
+import { StyledContainer } from "../../styles/Shared";
+import SliderArrow from "../SliderArrow";
+import {
+  StyledTestimonial,
+  StyledAvitar,
+  StyledQuote,
+  StyledAuthor,
+} from "../../styles/Home/Testimonials";
 
 const Testimonials = () => {
   const {
@@ -51,15 +57,30 @@ const Testimonials = () => {
           ],
         }}
       >
-        {TESTIMONIAL_LIST.map(({ relativePath, ...rest }) => (
-          <Testimonial
-            {...{
-              key: relativePath,
-              ...rest,
-              ...get(IMAGES, relativePath, {}),
-            }}
-          />
-        ))}
+        {TESTIMONIAL_LIST.map(
+          ({ relativePath, name, company, testimonial }) => (
+            <StyledTestimonial key={relativePath}>
+              <StyledAvitar>
+                <Img
+                  {...get(
+                    IMAGES,
+                    [relativePath, "node", "childImageSharp"],
+                    {}
+                  )}
+                />
+              </StyledAvitar>
+              <StyledQuote>
+                {testimonial.map(item => (
+                  <p key={item}>{item}</p>
+                ))}
+              </StyledQuote>
+              <StyledAuthor>
+                {`- ${name}`}
+                <span>{company}</span>
+              </StyledAuthor>
+            </StyledTestimonial>
+          )
+        )}
       </Slider>
     </StyledContainer>
   );

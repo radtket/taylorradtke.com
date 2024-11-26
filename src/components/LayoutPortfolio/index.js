@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
@@ -6,9 +6,13 @@ import Layout from "../Layout";
 import PortfolioNav from "./PortfolioNav";
 import ProjectHero from "./ProjectHero";
 import SEO from "../SEO";
+import PageSection from "../PageSection";
+import BrandColors from "./BrandColors";
+import BrowserMockupList from "../../styles/Portfolio/BrowserMockupList";
 
 const LayoutPortfolio = ({
-  children,
+  sections = [],
+  data,
   pageContext: {
     frontmatter,
     nextArticle: {
@@ -19,33 +23,67 @@ const LayoutPortfolio = ({
     },
   },
 }) => {
-  const { site } = useStaticQuery(
+  const {
+    site: { siteMetadata },
+  } = useStaticQuery(
     graphql`
       query {
         site {
           siteMetadata {
             name
+            accounts {
+              github {
+                account
+              }
+            }
           }
         }
       }
     `
   );
 
+  const Component = useCallback(
+    ({ id }) => {
+      const DATA = data[id] || frontmatter;
+
+      switch (id) {
+        case "Branding":
+          return <BrandColors {...DATA} />;
+
+        case "Contact":
+        case "Events":
+        case "Home":
+        case "Landing":
+        case "Locations":
+        case "Tabs":
+          return <BrowserMockupList {...DATA} />;
+
+        default:
+          return null;
+      }
+    },
+    [data, frontmatter]
+  );
+
+  const {
+    accounts: { github },
+  } = siteMetadata;
   return (
     <Layout>
-      <Helmet
-        title={`${site.siteMetadata.name} |  ${frontmatter.projectName}`}
-      />
-      <SEO isPost postNode={frontmatter} />
-      <ProjectHero {...frontmatter} />
+      <Helmet title={`${siteMetadata.name} |  ${frontmatter.projectName}`} />
+      <SEO postNode={frontmatter} />
+      <ProjectHero {...frontmatter} {...{ ...frontmatter, github }} />
       <PortfolioNav {...{ next, prev }} />
-      {children}
+      {sections.map((name, index) => (
+        <PageSection key={name} {...{ name, index }}>
+          <Component id={name} />
+        </PageSection>
+      ))}
     </Layout>
   );
 };
 
 LayoutPortfolio.propTypes = {
-  children: PropTypes.node,
   pageContext: PropTypes.shape({
     frontmatter: PropTypes.shape({
       clientName: PropTypes.string,
@@ -77,10 +115,6 @@ LayoutPortfolio.propTypes = {
       }),
     }),
   }).isRequired,
-};
-
-LayoutPortfolio.defaultProps = {
-  children: null,
 };
 
 export default LayoutPortfolio;

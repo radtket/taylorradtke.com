@@ -19,17 +19,18 @@ import SideProjects from "../components/Home/SideProjects";
 import Works from "../components/Home/Works";
 import { slugify } from "../utils/helpers";
 
-const sections = [
-  { name: "Skills", component: <Skills /> },
-  { name: "Experience", component: <Experience /> },
-  { name: "Clients", component: <Clients /> },
-  { name: "Works", component: <Works /> },
-  { name: "Side Projects", component: <SideProjects /> },
-  { name: "Testimonials", component: <Testimonials /> },
-  { name: "Contact", component: <Contact /> },
-].map(item => ({
-  ...item,
-  id: slugify(item.name),
+const sections = Object.entries({
+  Skills,
+  Experience,
+  Clients,
+  Works,
+  "Side Projects": SideProjects,
+  Testimonials,
+  Contact,
+}).map(([name, Component]) => ({
+  name,
+  id: slugify(name),
+  Component,
 }));
 
 const IndexPage = () => {
@@ -53,11 +54,15 @@ const IndexPage = () => {
     <Layout>
       <Helmet {...{ title }} />
       <SEO />
-      <Navbar {...{ sections }} />
+      <Navbar
+        {...{
+          sections,
+        }}
+      />
       <Hero />
-      {sections.map(({ name, component, id }, index) => (
-        <PageSection key={name} {...{ name, index, id }}>
-          {component}
+      {sections.map(({ name, Component }, index) => (
+        <PageSection key={name} {...{ name, index }}>
+          <Component />
         </PageSection>
       ))}
     </Layout>

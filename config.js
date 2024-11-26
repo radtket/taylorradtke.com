@@ -6,7 +6,8 @@ const config = {
   siteLanguage: "en", // Language Tag on <html> element
   siteLogo: "/branding/logo__primary.png", // Used for SEO and manifest
   short_name: "taylorradtke",
-  description: `Hi, I’m Taylor Radtke a Full Stack Developer/Designer with a passion for finding analytical and elegant solutions to complex problems. By focusing on turning ideas into sleek, highly scalable software, I write code with its future maintainers in mind and aim to structure my user-facing architecture while keeping accessibility at the forefront. I am a self-motivated developer with a knack for working well under pressure, handling multiple priorities, and maintaining high-quality control. My objective is to obtain a full-time development opportunity where I can make a meaningful contribution to a hardworking and creative team environment.`,
+  description:
+    "Hi, I’m Taylor Radtke a Full Stack Developer/Designer with a passion for finding analytical and elegant solutions to complex problems. By focusing on turning ideas into sleek, highly scalable software, I write code with its future maintainers in mind and aim to structure my user-facing architecture while keeping accessibility at the forefront. I am a self-motivated developer with a knack for working well under pressure, handling multiple priorities, and maintaining high-quality control. My objective is to obtain a full-time development opportunity where I can make a meaningful contribution to a hardworking and creative team environment.",
 
   // Contact Info
   contact: {
