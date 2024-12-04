@@ -14,6 +14,12 @@ export const StyledHero = styled.section`
   position: relative;
   text-align: center;
   width: 100%;
+  border-image: fill 0
+    linear-gradient(
+      to bottom,
+      ${({ theme }) => theme.colors.shadows.black[10]} 0%,
+      ${({ theme }) => theme.colors.shadows.dark[97]} 100%
+    );
 
   @media only screen and (max-width: 1024px) {
     background-attachment: scroll;
@@ -55,6 +61,7 @@ export const StyledHeroProfile = styled.article`
     font-weight: 300;
     text-align: left;
     color: ${({ theme }) => theme.colors.grey[500]};
+    margin-bottom: ${getSpacing(3)};
 
     @media only screen and (min-width: 600px) {
       text-align: justify;
@@ -122,4 +129,8 @@ export const StyledSignature = styled.figure`
     letter-spacing: 0.1em;
     text-transform: uppercase;
   }
+`;
+
+export const StyledOverlay = styled.div`
+  border-image: fill 0 linear-gradient(#0003, #000); /* your gradient here */
 `;

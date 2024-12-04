@@ -28,7 +28,7 @@ export const formatPhoneNumber = phone => {
     /^((\+1)|1)? ?\(?(\d{3})\)?[ .-]?(\d{3})[ .-]?(\d{4})( ?(ext\.? ?|x)(\d*))?$/.exec(
       phone
     );
-  if (results !== null && results.length > 8) {
+  if (results && results.length > 8) {
     return `(${results[3]}) ${results[4]}-${results[5]}${
       typeof results[8] !== "undefined" ? ` x${results[8]}` : ""
     }`;

@@ -9,6 +9,7 @@ import {
 } from "../../styles/Home/Hero";
 import { StyledContainer } from "../../styles/Shared";
 import { BrandingSignature } from "../Branding";
+import { createKey } from "../../utils/helpers";
 
 const Hero = () => {
   const {
@@ -54,7 +55,9 @@ const Hero = () => {
         <StyledHeroProfile>
           <h1>{name}</h1>
           <h3>Web Developer x Designer</h3>
-          <p>{description}</p>
+          {description.split("-split-").map((desc, i) => (
+            <p key={createKey(["desc", i + 1])}>{desc}</p>
+          ))}
           <StyledSignature>
             <BrandingSignature />
             <figcaption>{title}</figcaption>

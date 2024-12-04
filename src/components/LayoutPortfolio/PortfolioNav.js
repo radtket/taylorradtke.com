@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 import StyledPortfolioNav from "../../styles/Portfolio/PortfolioNav";
 import { PaginationPrev, PaginationNext, PaginationHome } from "../Icons";
 
-const PortfolioNav = ({ next, prev }) => (
+const PortfolioNav = ({ next = null, prev = null }) => (
   <StyledPortfolioNav>
     {prev && (
       <Link to={prev.path}>

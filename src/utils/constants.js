@@ -1,3 +1,5 @@
+import React from "react";
+
 export const SKILL_LIST = {
   Development: [
     "Angular 2+",
@@ -59,29 +61,83 @@ export const JOB_LIST = [
   {
     company: "Northwestern Mutual",
     companyUrl: "//www.northwesternmutual.com/",
-    desc: `
-      To support our growing team, we are looking for a Sr Frontend Engineer to work with our team. You're the right fit if you're the best and there's not a problem you can't solve. We need an experienced engineer who is passionate about writing client-side code.
-      You will be working with a full stack agile team of JavaScript developers, building applications that are deployed to the cloud. You'll work very closely with our engineering group working on our AWS and Kubernetes platform and API's on the backend. These apps support the future development of the client and planner experiences/
-      Your general expectations:
-        - While working with other frontend engineers on the teams, be able to jump head-first into modifying apps and ask the appropriate questions / do the appropriate research to identify the general functions and behaviors of the applications you're working on.
-        - Be able to pick up and work on any existing app and create new apps from scratch using the stack defined, contribute directly to technical discussions that affect the current and future state of the applications and technical stack used. Essentially, contributing to the team at your full capacity.
-        - Proficiency in web standards, best practices, and optimization techniques
-          Bring Your Best! What this role needs:
-      • Fast learner and self-starter. The people you will work with are incredibly kind and extremely willing to share knowledge and a helping hand, but you have to be willing to take ownership of the outlined goals and make things happen.
-      • Ability to take initiative and work with minimal supervision, yet actively interact with other team members in person or over the Internet (chat, videoconference, email).
-      • Work collaboratively on creative solutions with engineers, product managers, and designers.
-      • Bring new ideas and new ways of solving problems to the team.
-        Skills:
-        JavaScript ES6
-        React and Redux
-        Sass / Styled-Components
-        Node and Express
-        Familiarity with Docker and containerization
-        Good understanding of GIT and source code management
-        Familiarity with cloud providers like AWS and Azure is a plus
-        Education / Professional Experience:
-        Bachelor's degree or Associate's degree and 5 or more years of professional experience.
-    `,
+    desc: () => (
+      <ul>
+        <li>
+          <p>
+            <strong>Expert Frontend Development</strong>: Successfully designed,
+            developed, and maintained dynamic web applications utilizing{" "}
+            <strong>JavaScript ES6</strong>, <strong>React</strong>, and{" "}
+            <strong>Redux</strong>, ensuring scalable, efficient, and
+            user-friendly solutions.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>End-to-End Application Management</strong>: Delivered
+            full-stack applications by building responsive frontends and
+            collaborating closely with backend teams leveraging{" "}
+            <strong>Node.js</strong>, <strong>Express</strong>, and{" "}
+            <strong>cloud technologies</strong> like AWS and Kubernetes.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Code Optimization &amp; Standards</strong>: Ensured
+            high-quality code by adhering to web standards, implementing
+            performance optimization techniques, and fostering clean,
+            maintainable development practices.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Technical Leadership</strong>: Proactively led technical
+            discussions to influence the current and future state of application
+            architecture and the frontend technology stack, contributing to
+            long-term business objectives.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Cross-Functional Collaboration</strong>: Partnered
+            effectively with product managers, designers, and backend engineers
+            to deliver robust client and planner experiences, while driving
+            innovation with creative solutions.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Agile Team Contribution</strong>: Actively engaged in agile
+            development workflows, providing mentorship to junior engineers, and
+            delivering high-impact solutions in fast-paced environments.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Containerization &amp; Source Control</strong>: Gained
+            hands-on experience with <strong>Docker</strong> and
+            containerization practices while maintaining strong proficiency in{" "}
+            <strong>GIT</strong> for source code management.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Proven Problem Solver</strong>: Demonstrated a track record
+            of identifying and resolving complex technical challenges with
+            minimal supervision, consistently delivering results under tight
+            deadlines.
+          </p>
+        </li>
+        <li>
+          <p>
+            <strong>Commitment to Growth</strong>: Adapted quickly to new tools,
+            frameworks, and challenges as a self-starter, ensuring alignment
+            with organizational goals while contributing innovative ideas to
+            team objectives.
+          </p>
+        </li>
+      </ul>
+    ),
     end: "Present",
     location: "Milwaukee, WI",
     position: "Senior Frontend Engineer",
@@ -90,7 +146,48 @@ export const JOB_LIST = [
   {
     company: "Booz Allen Hamilton",
     companyUrl: "//www.boozallen.com/",
-    desc: "Looking for design-driven development, both mobile and web. The preferred tech stack is ES6, React, Node, GraphQL. Writing scalable, non-repetitive, reusable code.",
+    desc: () => (
+      <ul>
+        <li>
+          <strong>End-to-End Solutions Development</strong>: Designed and
+          implemented full-stack solutions from concept to production,
+          delivering robust, scalable systems that address client challenges
+          effectively.
+        </li>
+        <li>
+          <strong>Innovative Problem Solving</strong>: Utilized cutting-edge
+          tools and technologies to identify and resolve system inefficiencies,
+          introducing improvements that enhanced functionality and future
+          scalability.
+        </li>
+        <li>
+          <strong>Agile Development Expertise</strong>: Thrived in fast-paced,
+          agile environments, ensuring timely delivery of high-quality software
+          aligned with client requirements and organizational goals.
+        </li>
+        <li>
+          <strong>Cross-Disciplinary Collaboration</strong>: Partnered with
+          architects, product managers, and stakeholders to align development
+          efforts with architectural standards and business objectives.
+        </li>
+        <li>
+          <strong>Modern Technology Proficiency</strong>: Applied advanced
+          architectural approaches, frameworks, and tools to create innovative
+          solutions that integrate seamlessly into existing operating
+          environments.
+        </li>
+        <li>
+          <strong>Commitment to Learning</strong>: Embraced opportunities to
+          learn and implement new technologies, staying ahead of industry trends
+          to deliver state-of-the-art solutions.
+        </li>
+        <li>
+          <strong>Impactful Systems Design</strong>: Helped clients overcome
+          complex challenges by creating systems designed for longevity,
+          adaptability, and future enhancements.
+        </li>
+      </ul>
+    ),
     end: "May 2020",
     location: "McLean, VA",
     position: "Developer",
@@ -99,7 +196,33 @@ export const JOB_LIST = [
   {
     company: "Cisco",
     companyUrl: "//www.cisco.com/",
-    desc: "Created a completely dynamic Wordpress Theme used by hundreds of different partners that brands all pages and components with their personal branding (Typography, brand colors, logo, etc)",
+    desc: () => (
+      <ul>
+        <li>
+          <strong>Custom Dynamic Solutions</strong>: Designed and developed a
+          fully dynamic WordPress theme used by hundreds of partners, enabling
+          seamless customization of pages and components to reflect individual
+          branding elements such as typography, brand colors, and logos.
+        </li>
+        <li>
+          <strong>Scalable Design Implementation</strong>: Delivered a robust
+          and scalable solution that streamlined branding processes across
+          multiple stakeholders, enhancing user experience and reducing
+          customization effort.
+        </li>
+        <li>
+          <strong>Cross-Functional Collaboration</strong>: Partnered with
+          designers and stakeholders to ensure the theme met diverse branding
+          requirements, aligning technical capabilities with business
+          objectives.
+        </li>
+        <li>
+          <strong>Impactful Results</strong>: Improved efficiency and
+          consistency in partner branding across digital assets, earning
+          widespread adoption and positive feedback from end-users.
+        </li>
+      </ul>
+    ),
     end: "Apr 2019",
     location: "Herndon, VA",
     position: "Engineer",
@@ -108,7 +231,32 @@ export const JOB_LIST = [
   {
     company: "AAPA",
     companyUrl: "//www.aapa.org/",
-    desc: "Finished a complete website redesign in under 4 months, on a new CMS. Developed web-site mock-ups for clients to ensure quality control and client satisfaction before project development phase.Lead Designer and Developer for Annual Conference Site.",
+    desc: () => (
+      <ul>
+        <li>
+          <strong>Efficient Website Redesign</strong>: Completed a full website
+          redesign within a 4-month timeline, transitioning to a new CMS while
+          ensuring seamless functionality and enhanced user experience.
+        </li>
+        <li>
+          <strong>Client-Centric Development</strong>: Designed and presented
+          detailed website mock-ups to clients prior to development, ensuring
+          alignment with client expectations and maintaining high standards of
+          quality control.
+        </li>
+        <li>
+          <strong>Leadership in High-Impact Projects</strong>: Served as Lead
+          Designer and Developer for an Annual Conference Site, delivering a
+          polished, user-friendly platform that supported event success and
+          audience engagement.
+        </li>
+        <li>
+          <strong>Collaboration and Innovation</strong>: Partnered with
+          stakeholders to create tailored solutions, prioritizing client
+          satisfaction and incorporating feedback to refine project outcomes.
+        </li>
+      </ul>
+    ),
     end: "July 2018",
     location: "Alexandria, VA",
     position: "Full-Stack Web Developer",
@@ -117,20 +265,35 @@ export const JOB_LIST = [
   {
     company: "The Motley Fool",
     companyUrl: "//www.fool.com/",
-    desc: "Developed and Designed Microsites, Newsletters. Developed and Designed, and Email Templates. UX tests to test the usability of mobile or websites.",
+    desc: () => (
+      <ul>
+        <li>
+          <strong>End-to-End Development</strong>: Designed and developed
+          microsites, newsletters, and email templates, delivering visually
+          appealing and functional digital assets tailored to client needs.
+        </li>
+        <li>
+          <strong>User Experience Optimization</strong>: Conducted UX testing to
+          evaluate and enhance the usability of mobile sites and websites,
+          ensuring a seamless and user-friendly experience across devices.
+        </li>
+        <li>
+          <strong>Creative and Technical Expertise</strong>: Combined design
+          skills with technical proficiency to create cohesive, responsive, and
+          accessible web solutions that align with branding and usability
+          standards.
+        </li>
+        <li>
+          <strong>Results-Driven Design</strong>: Delivered high-quality digital
+          assets that improved user engagement, streamlined communication, and
+          supported marketing objectives.
+        </li>
+      </ul>
+    ),
     end: "Oct 2016",
     location: "Alexandria, VA",
     position: "Front-End Web Developer",
     start: "Apr 2016",
-  },
-  {
-    company: "Total Wine & More",
-    companyUrl: "//www.totalwine.com/",
-    desc: "Responsible for designing and maintaining web banners in various formats to be displayed on any device, that were analyzed using Google Analytics and Google AdWords.",
-    end: "Apr 2016",
-    location: "Bethesda, MD",
-    position: "Digital Media Designer",
-    start: "Nov 2015",
   },
 ];
 

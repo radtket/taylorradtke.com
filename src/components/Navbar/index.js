@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { useState } from "react";
 import { StyledNavbar } from "../../styles/Navbar";
 import { StyledContainerFull } from "../../styles/Shared";
@@ -5,7 +6,7 @@ import Logo from "./Logo";
 import Hamburger from "./Hamburger";
 import Nav from "./Nav";
 
-const Navbar = props => {
+const Navbar = ({ sections }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -15,10 +16,14 @@ const Navbar = props => {
         <Hamburger
           {...{ isMenuOpen, onClick: () => setMenuOpen(prev => !prev) }}
         />
-        <Nav {...props} />
+        <Nav {...{ sections }} />
       </StyledContainerFull>
     </StyledNavbar>
   );
+};
+
+Navbar.propTypes = {
+  sections: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
 
 export default Navbar;

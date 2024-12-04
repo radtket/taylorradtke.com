@@ -18,7 +18,7 @@ export const StyledGithubCardWrap = styled.div`
 `;
 
 export const StyledGithubCard = styled.article`
-  ${({ theme: { colors } }) => css`
+  ${({ theme: { colors, font } }) => css`
     border-radius: 3px;
     border: 1px solid ${colors.shadows.black[20]};
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08), 0 8px 6px rgba(0, 0, 0, 0.04);
@@ -123,20 +123,22 @@ export const StyledGithubCard = styled.article`
 `;
 
 export const StyledGithubCardLanguage = styled.h4`
-  text-transform: none;
-  position: relative;
-  padding-left: 20px;
-  font-family: "Open Sans", sans-serif;
-  color: ${colors.grey[600]};
+  ${({ theme: { colors }, color }) => css`
+    text-transform: none;
+    position: relative;
+    padding-left: 20px;
+    font-family: "Open Sans", sans-serif;
+    color: ${colors.grey[600]};
 
-  &::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    margin-top: -6px;
-    ${size("12px")};
-    background: ${({ color }) => color || "#bada55"};
-    border-radius: 50%;
-  }
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      margin-top: -6px;
+      ${size("12px")};
+      background: ${color};
+      border-radius: 50%;
+    }
+  `}
 `;

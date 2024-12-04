@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
+import { get } from "lodash";
 import Layout from "../Layout";
 import PortfolioNav from "./PortfolioNav";
 import ProjectHero from "./ProjectHero";
@@ -12,7 +13,7 @@ import BrowserMockupList from "../../styles/Portfolio/BrowserMockupList";
 
 const LayoutPortfolio = ({
   sections = [],
-  data,
+  data = {},
   pageContext: {
     frontmatter,
     nextArticle: {
@@ -44,11 +45,9 @@ const LayoutPortfolio = ({
 
   const Component = useCallback(
     ({ id }) => {
-      const DATA = data[id] || frontmatter;
-
       switch (id) {
         case "Branding":
-          return <BrandColors {...DATA} />;
+          return <BrandColors {...frontmatter} />;
 
         case "Contact":
         case "Events":
@@ -56,7 +55,7 @@ const LayoutPortfolio = ({
         case "Landing":
         case "Locations":
         case "Tabs":
-          return <BrowserMockupList {...DATA} />;
+          return <BrowserMockupList {...get(data, [id], frontmatter)} />;
 
         default:
           return null;
@@ -68,6 +67,7 @@ const LayoutPortfolio = ({
   const {
     accounts: { github },
   } = siteMetadata;
+
   return (
     <Layout>
       <Helmet title={`${siteMetadata.name} |  ${frontmatter.projectName}`} />
@@ -84,6 +84,7 @@ const LayoutPortfolio = ({
 };
 
 LayoutPortfolio.propTypes = {
+  data: PropTypes.shape({}),
   pageContext: PropTypes.shape({
     frontmatter: PropTypes.shape({
       clientName: PropTypes.string,
@@ -115,6 +116,7 @@ LayoutPortfolio.propTypes = {
       }),
     }),
   }).isRequired,
+  sections: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default LayoutPortfolio;

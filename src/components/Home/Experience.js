@@ -18,7 +18,15 @@ import { createKey } from "../../utils/helpers";
 const Experience = () => (
   <StyledJobTimeline>
     {JOB_LIST.map(
-      ({ start, end, company, companyUrl, position, location, desc }) => (
+      ({
+        start,
+        end,
+        company,
+        companyUrl,
+        position,
+        location,
+        desc: Description,
+      }) => (
         <StyledJob key={createKey([company, companyUrl])}>
           <StyledTimeLineDot />
           <StyledJobWrap>
@@ -32,7 +40,9 @@ const Experience = () => (
               <StyledJobPosition>{position}</StyledJobPosition>
               <StyledJobLocation>{location}</StyledJobLocation>
             </StyledJobDetails>
-            <StyledJobDescription>{desc}</StyledJobDescription>
+            <StyledJobDescription>
+              <Description />
+            </StyledJobDescription>
           </StyledJobWrap>
         </StyledJob>
       )

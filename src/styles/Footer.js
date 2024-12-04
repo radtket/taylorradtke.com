@@ -22,11 +22,11 @@ export const StyledCopyright = styled.p`
     text-transform: uppercase;
 
     ${media.tablet`
-		float: left;
-		height: ${theme.sizes.navigation.height}
-		line-height: ${theme.sizes.navigation.height}
-		margin: 0;
-	`};
+      float: left;
+      height: ${theme.sizes.navigation.height}
+      line-height: ${theme.sizes.navigation.height}
+      margin: 0;
+    `};
 
     > span {
       color: ${theme.colors.primary.main};
@@ -50,7 +50,7 @@ export const StyledSocialList = styled.ul`
     ${media.tablet`
         height: 100%;
         line-height: 1;
-        top: 14px;
+            top: 14px;
     `};
 
     a {

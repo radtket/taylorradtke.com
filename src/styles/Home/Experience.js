@@ -71,7 +71,7 @@ export const StyledJobLocation = styled.li`
   font-size: 1.2rem;
 `;
 
-export const StyledJobDescription = styled.p`
+export const StyledJobDescription = styled.div`
   ${media.desktop`
 		flex-basis: 60%;
 		flex-grow: 1;
@@ -79,4 +79,14 @@ export const StyledJobDescription = styled.p`
 		overflow: hidden;
 		padding-right: ${getSpacing(6)};
 	`};
+
+  ul {
+    li {
+      margin-bottom: ${getSpacing(3)};
+      strong {
+        color: ${({ theme }) => theme.colors.grey[600]};
+        font-weight: 600;
+      }
+    }
+  }
 `;
