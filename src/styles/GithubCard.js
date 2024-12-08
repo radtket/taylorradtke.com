@@ -1,13 +1,17 @@
 import styled, { css } from "styled-components";
-import { size, padding } from "polished";
+import { size, padding, margin, rem } from "polished";
 import { media } from "./utils";
 
 export const StyledGithubCardGrid = styled.div`
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
+  width: 100%;
 `;
 
 export const StyledGithubCardWrap = styled.div`
+  display: flex;
+  flex-direction: row;
   padding-bottom: 24px;
   width: 100%;
 
@@ -29,6 +33,7 @@ export const StyledGithubCard = styled.article`
     min-height: 180px;
     padding: 20px;
     transition: box-shadow 300ms ease-in-out;
+    width: 100%;
 
     &:hover {
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.16), 0 8px 6px rgba(0, 0, 0, 0.08);
@@ -51,12 +56,19 @@ export const StyledGithubCard = styled.article`
       p {
         margin-bottom: 0.5rem;
       }
+    }
+
+    footer {
+      display: flex;
+      flex-direction: column;
 
       > a {
-        float: right;
+        align-self: end;
         padding-bottom: 2px;
         position: relative;
         color: ${colors.grey[300]};
+        ${margin(rem("8px"), null)};
+
         /* transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1); */
 
         &:hover {

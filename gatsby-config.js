@@ -106,7 +106,7 @@ module.exports = {
           query ($github_login: String!) {
             user(login: $github_login) {
               repositories(
-                first: 6
+                first: 12
                 isFork: false
                 privacy: PUBLIC
                 orderBy: { field: STARGAZERS, direction: DESC }
