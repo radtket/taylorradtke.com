@@ -55,7 +55,7 @@ const ContactInfo = () => {
         <StyledContactItemDetails>
           <StyledContactItemKey>Location</StyledContactItemKey>
           <dd>
-            <StyledContactItemValue href="https://goo.gl/maps/T7sBujABHYG2">
+            <StyledContactItemValue href="https://maps.app.goo.gl/MFTgoSnjoY9oJVHA6">
               {city}
             </StyledContactItemValue>
           </dd>

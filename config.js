@@ -11,7 +11,7 @@ const config = {
 
   // Contact Info
   contact: {
-    city: "Washington, DC",
+    city: "Milwaukee, WI",
     email: "taylorradtke@gmail.com",
     phone: "18049297374",
   },
