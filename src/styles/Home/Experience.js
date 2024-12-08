@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { position, size } from "polished";
+import { position, rem, size } from "polished";
 import { media, getSpacing } from "../utils";
 
 export const StyledTimeLineDot = styled.div`
@@ -33,6 +33,8 @@ export const StyledJobWrap = styled.div`
 `;
 
 export const StyledJobDetails = styled.ul`
+  margin-bottom: ${rem("12px")};
+
   ${media.desktop`
 		flex-basis: 40%;
 		flex-grow: 1;
